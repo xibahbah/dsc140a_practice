@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>DSC 140A Practice Visual Index</title>
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [["$$", "$$"], ["\\(", "\\)"]],
+                    displayMath: [["\\[", "\\]"]],
+                    processEscapes: true,
+                    macros: {
+                        nvec: ["{\\vec{#1}^{(#2)}}", 2],
+                        Aug: "\\operatorname{Aug}",
+                        given: "{\\,|\\,}",
+                        pr: "\\mathbb{P}"
+                    }
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <style>
+            :root {
+                color-scheme: light;
+                --ink: #1f2937;
+                --muted: #667085;
+                --line: #d9dee7;
+                --panel: #ffffff;
+                --page: #f5f7fb;
+                --accent: #0f766e;
+                --accent-strong: #115e59;
+                --warm: #b45309;
+                --blue: #2563eb;
+                --shadow: 0 10px 30px rgba(31, 41, 55, .08);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--page);
+                color: var(--ink);
+                font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                line-height: 1.5;
+            }
+
+            a {
+                color: var(--accent-strong);
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            button,
+            input {
+                font: inherit;
+            }
+
+            .shell {
+                display: grid;
+                grid-template-columns: minmax(250px, 320px) minmax(0, 1fr);
+                min-height: 100vh;
+            }
+
+            .sidebar {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                overflow: auto;
+                border-right: 1px solid var(--line);
+                background: #ffffff;
+                padding: 24px;
+            }
+
+            .brand {
+                margin-bottom: 24px;
+            }
+
+            .brand h1 {
+                margin: 0;
+                font-size: 1.7rem;
+                line-height: 1.15;
+            }
+
+            .brand p {
+                margin: 8px 0 0;
+                color: var(--muted);
+            }
+
+            .quick-links {
+                display: grid;
+                gap: 8px;
+                margin: 0 0 20px;
+                padding: 0;
+                list-style: none;
+            }
+
+            .quick-links a {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 40px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 8px 10px;
+                color: var(--ink);
+                background: #fbfcfe;
+            }
+
+            .quick-links a:hover {
+                border-color: var(--accent);
+                text-decoration: none;
+            }
+
+            .quick-links span {
+                color: var(--muted);
+                font-size: .85rem;
+            }
+
+            .control-group {
+                margin-top: 18px;
+            }
+
+            .control-group h2 {
+                margin: 0 0 8px;
+                font-size: .82rem;
+                color: var(--muted);
+                text-transform: uppercase;
+            }
+
+            .search {
+                width: 100%;
+                min-height: 42px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 9px 10px;
+                color: var(--ink);
+                background: #fff;
+            }
+
+            .search:focus {
+                outline: 2px solid rgba(15, 118, 110, .2);
+                border-color: var(--accent);
+            }
+
+            .segments,
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .segments button,
+            .tag-filter,
+            .clear {
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: #fff;
+                color: var(--ink);
+                min-height: 34px;
+                padding: 6px 10px;
+                cursor: pointer;
+            }
+
+            .segments button[aria-pressed="true"],
+            .tag-filter[aria-pressed="true"] {
+                background: var(--accent);
+                border-color: var(--accent);
+                color: #fff;
+            }
+
+            .clear {
+                width: 100%;
+                margin-top: 10px;
+                color: var(--accent-strong);
+            }
+
+            .main {
+                min-width: 0;
+                padding: 28px;
+            }
+
+            .topbar {
+                display: flex;
+                align-items: end;
+                justify-content: space-between;
+                gap: 18px;
+                margin-bottom: 18px;
+            }
+
+            .topbar h2 {
+                margin: 0;
+                font-size: 1.4rem;
+            }
+
+            .topbar p {
+                margin: 5px 0 0;
+                color: var(--muted);
+            }
+
+            .stats {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: flex-end;
+            }
+
+            .stat {
+                min-width: 104px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: var(--panel);
+                padding: 10px 12px;
+                box-shadow: var(--shadow);
+            }
+
+            .stat strong {
+                display: block;
+                font-size: 1.35rem;
+                line-height: 1;
+            }
+
+            .stat span {
+                color: var(--muted);
+                font-size: .84rem;
+            }
+
+            .notice {
+                border: 1px solid #f2d49b;
+                border-radius: 8px;
+                background: #fff8eb;
+                color: #7c4a03;
+                padding: 10px 12px;
+                margin-bottom: 18px;
+            }
+
+            .problems {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 16px;
+            }
+
+            .problem-card {
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: var(--panel);
+                box-shadow: var(--shadow);
+                overflow: hidden;
+            }
+
+            .problem-card[hidden] {
+                display: none;
+            }
+
+            .problem-card:target {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgba(15, 118, 110, .18), var(--shadow);
+            }
+
+            .card-head {
+                display: flex;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 14px 14px 8px;
+            }
+
+            .card-head h3 {
+                margin: 0;
+                font-size: 1.05rem;
+            }
+
+            .badge {
+                align-self: start;
+                border-radius: 999px;
+                padding: 3px 9px;
+                color: #fff;
+                font-size: .78rem;
+                white-space: nowrap;
+            }
+
+            .badge.m1 {
+                background: var(--blue);
+            }
+
+            .badge.m2 {
+                background: var(--warm);
+            }
+
+            .badge.other {
+                background: #697386;
+            }
+
+            .tag-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                padding: 0 14px 10px;
+            }
+
+            .tag-chip {
+                border: 1px solid #cbd5e1;
+                border-radius: 999px;
+                padding: 2px 8px;
+                color: #334155;
+                background: #f8fafc;
+                font-size: .8rem;
+            }
+
+            .preview {
+                padding: 0 14px 14px;
+            }
+
+            .preview p {
+                margin: 0;
+                color: #344054;
+            }
+
+            .thumbs {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 8px;
+                padding: 0 14px 14px;
+            }
+
+            .thumbs img {
+                width: 100%;
+                max-height: 150px;
+                object-fit: contain;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: #fff;
+                padding: 6px;
+            }
+
+            .problem-detail {
+                border-top: 1px solid var(--line);
+            }
+
+            .problem-detail > summary {
+                cursor: pointer;
+                min-height: 42px;
+                padding: 10px 14px;
+                color: var(--accent-strong);
+                background: #f8fafc;
+                list-style-position: inside;
+            }
+
+            .full-problem {
+                padding: 14px;
+            }
+
+            .full-problem img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .full-problem .image {
+                margin: 12px 0;
+            }
+
+            .full-problem details {
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                margin-top: 12px;
+            }
+
+            .full-problem details summary {
+                padding: 8px 10px;
+                background: #f8fafc;
+            }
+
+            .multiple-choices form {
+                display: grid;
+                gap: 8px;
+            }
+
+            .choice label {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .choice p {
+                margin: 0;
+            }
+
+            .empty {
+                border: 1px dashed var(--line);
+                border-radius: 8px;
+                padding: 28px;
+                color: var(--muted);
+                background: #fff;
+            }
+
+            @media (max-width: 860px) {
+                .shell {
+                    display: block;
+                }
+
+                .sidebar {
+                    position: relative;
+                    height: auto;
+                    border-right: 0;
+                    border-bottom: 1px solid var(--line);
+                }
+
+                .main {
+                    padding: 18px;
+                }
+
+                .topbar {
+                    align-items: stretch;
+                    flex-direction: column;
+                }
+
+                .stats {
+                    justify-content: stretch;
+                }
+
+                .stat {
+                    flex: 1;
+                }
+            }
+
+            @media print {
+                body {
+                    background: #fff;
+                }
+
+                .sidebar,
+                .notice,
+                .topbar {
+                    display: none;
+                }
+
+                .shell,
+                .main,
+                .problems {
+                    display: block;
+                    padding: 0;
+                }
+
+                .problem-card {
+                    break-inside: avoid;
+                    box-shadow: none;
+                    margin: 0 0 18px;
+                }
+
+                .problem-detail {
+                    border-top: 0;
+                }
+
+                .problem-detail > summary {
+                    display: none;
+                }
+
+                .full-problem {
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="shell">
+            <aside class="sidebar">
+                <div class="brand">
+                    <h1>Practice Visual Index</h1>
+                    <p>Browse every DSC 140A practice problem with tags, previews, images, and expandable full text.</p>
+                </div>
+
+                <ul class="quick-links">
+                    <li><a href="./all-practice-problems.pdf">Practice PDF <span>106 pages</span></a></li>
+                    <li><a href="./all.html">All problems <span>HTML</span></a></li>
+                    <li><a href="./midterm-01.html">Midterm 01 <span>56</span></a></li>
+                    <li><a href="./midterm-02.html">Midterm 02 <span>65</span></a></li>
+                    <li><a href="./index.html">Tag index <span>sets</span></a></li>
+                </ul>
+
+                <div class="control-group">
+                    <h2>Search</h2>
+                    <input class="search" id="search" type="search" placeholder="Problem text, number, or tag">
+                </div>
+
+                <div class="control-group">
+                    <h2>Exam</h2>
+                    <div class="segments" id="examFilters">
+                        <button type="button" data-exam="all" aria-pressed="true">All</button>
+                        <button type="button" data-exam="m1" aria-pressed="false">Midterm 01</button>
+                        <button type="button" data-exam="m2" aria-pressed="false">Midterm 02</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h2>Tags</h2>
+                    <div class="tags" id="tagFilters"></div>
+                    <button type="button" class="clear" id="clearFilters">Clear filters</button>
+                </div>
+            </aside>
+
+            <main class="main">
+                <div class="topbar">
+                    <div>
+                        <h2 id="resultTitle">Loading problems...</h2>
+                        <p id="resultMeta">Reading the existing practice pages.</p>
+                    </div>
+                    <div class="stats" aria-label="Problem counts">
+                        <div class="stat"><strong id="totalCount">0</strong><span>Total</span></div>
+                        <div class="stat"><strong id="visibleCount">0</strong><span>Showing</span></div>
+                        <div class="stat"><strong id="imageCount">0</strong><span>With visuals</span></div>
+                    </div>
+                </div>
+
+                <div class="notice" id="notice" hidden></div>
+                <section class="problems" id="problemGrid" aria-live="polite"></section>
+                <div class="empty" id="empty" hidden>No problems match the current filters.</div>
+            </main>
+        </div>
+
+        <script>
+            const state = {
+                problems: [],
+                tags: [],
+                query: "",
+                exam: "all",
+                tag: ""
+            };
+
+            const els = {
+                search: document.getElementById("search"),
+                examFilters: document.getElementById("examFilters"),
+                tagFilters: document.getElementById("tagFilters"),
+                clearFilters: document.getElementById("clearFilters"),
+                problemGrid: document.getElementById("problemGrid"),
+                totalCount: document.getElementById("totalCount"),
+                visibleCount: document.getElementById("visibleCount"),
+                imageCount: document.getElementById("imageCount"),
+                resultTitle: document.getElementById("resultTitle"),
+                resultMeta: document.getElementById("resultMeta"),
+                notice: document.getElementById("notice"),
+                empty: document.getElementById("empty")
+            };
+
+            init().catch((error) => {
+                els.notice.hidden = false;
+                els.notice.textContent = "Could not load the practice HTML. Start a local server from the repository root and open /practice/visual-index.html.";
+                els.resultTitle.textContent = "Problem index unavailable";
+                els.resultMeta.textContent = error.message;
+            });
+
+            async function init() {
+                const [allDoc, m1Doc, m2Doc] = await Promise.all([
+                    loadDocument("all.html"),
+                    loadDocument("midterm-01.html"),
+                    loadDocument("midterm-02.html")
+                ]);
+
+                const midtermOne = extractNumbers(m1Doc);
+                const midtermTwo = extractNumbers(m2Doc);
+                state.problems = extractProblems(allDoc, midtermOne, midtermTwo);
+                state.tags = [...new Set(state.problems.flatMap((problem) => problem.tags))].sort((a, b) => a.localeCompare(b));
+
+                renderTagFilters();
+                renderProblems();
+                bindEvents();
+                handleHash();
+            }
+
+            async function loadDocument(path) {
+                const response = await fetch(path);
+                if (!response.ok) {
+                    throw new Error(`${path} returned ${response.status}`);
+                }
+                const html = await response.text();
+                return new DOMParser().parseFromString(html, "text/html");
+            }
+
+            function extractNumbers(doc) {
+                return new Set([...doc.querySelectorAll(".problem-outer h2")]
+                    .map((heading) => numberFromHeading(heading.textContent))
+                    .filter(Boolean));
+            }
+
+            function extractProblems(doc, midtermOne, midtermTwo) {
+                return [...doc.querySelectorAll(".problem-outer")].map((node) => {
+                    const heading = node.querySelector("h2");
+                    const number = numberFromHeading(heading?.textContent || "");
+                    const tags = [...node.querySelectorAll("p:first-of-type a")]
+                        .map((tag) => tag.textContent.trim())
+                        .filter(Boolean);
+                    const body = node.querySelector(".problem-body");
+                    const images = [...node.querySelectorAll("img")].map((img) => img.getAttribute("src")).filter(Boolean);
+                    const preview = firstReadableParagraph(body);
+                    const exam = midtermOne.has(number) ? "m1" : midtermTwo.has(number) ? "m2" : "other";
+
+                    return {
+                        number,
+                        title: heading?.textContent.trim() || `Problem #${number}`,
+                        tags,
+                        body,
+                        images,
+                        preview,
+                        exam,
+                        searchText: `${number} ${tags.join(" ")} ${node.textContent}`.toLowerCase()
+                    };
+                }).filter((problem) => problem.number);
+            }
+
+            function numberFromHeading(text) {
+                const match = text.match(/#(\d+)/);
+                return match ? match[1] : "";
+            }
+
+            function firstReadableParagraph(body) {
+                if (!body) {
+                    return "";
+                }
+                const paragraph = [...body.querySelectorAll("p")]
+                    .find((p) => p.textContent.trim().length > 20);
+                return paragraph ? paragraph.textContent.trim() : body.textContent.trim().slice(0, 180);
+            }
+
+            function renderTagFilters() {
+                els.tagFilters.innerHTML = state.tags.map((tag) => (
+                    `<button type="button" class="tag-filter" data-tag="${escapeAttr(tag)}" aria-pressed="false">${escapeHtml(tag)}</button>`
+                )).join("");
+            }
+
+            function renderProblems() {
+                els.problemGrid.innerHTML = "";
+                for (const problem of state.problems) {
+                    els.problemGrid.appendChild(createProblemCard(problem));
+                }
+                els.totalCount.textContent = String(state.problems.length);
+                els.imageCount.textContent = String(state.problems.filter((problem) => problem.images.length).length);
+                applyFilters();
+            }
+
+            function createProblemCard(problem) {
+                const card = document.createElement("article");
+                card.className = "problem-card";
+                card.id = `problem-${problem.number}`;
+                card.dataset.exam = problem.exam;
+                card.dataset.tags = problem.tags.join("||");
+                card.dataset.search = problem.searchText;
+
+                const examLabel = problem.exam === "m1" ? "Midterm 01" : problem.exam === "m2" ? "Midterm 02" : "Other";
+                const examClass = problem.exam === "m1" ? "m1" : problem.exam === "m2" ? "m2" : "other";
+                const tags = problem.tags.map((tag) => (
+                    `<a class="tag-chip" href="./tags/${encodeURIComponent(tag)}.html">${escapeHtml(tag)}</a>`
+                )).join("");
+                const thumbs = problem.images.slice(0, 3).map((src) => (
+                    `<a href="${escapeAttr(src)}"><img src="${escapeAttr(src)}" alt="${escapeAttr(problem.title)} visual"></a>`
+                )).join("");
+
+                card.innerHTML = `
+                    <div class="card-head">
+                        <h3><a href="#problem-${problem.number}">${escapeHtml(problem.title)}</a></h3>
+                        <span class="badge ${examClass}">${examLabel}</span>
+                    </div>
+                    <div class="tag-list">${tags}</div>
+                    <div class="preview"><p>${escapeHtml(problem.preview)}</p></div>
+                    ${thumbs ? `<div class="thumbs">${thumbs}</div>` : ""}
+                    <details class="problem-detail">
+                        <summary>Open full problem</summary>
+                        <div class="full-problem"></div>
+                    </details>
+                `;
+
+                const fullProblem = card.querySelector(".full-problem");
+                if (problem.body) {
+                    fullProblem.appendChild(problem.body.cloneNode(true));
+                }
+
+                card.querySelector(".problem-detail").addEventListener("toggle", (event) => {
+                    if (event.currentTarget.open) {
+                        typesetMath(fullProblem);
+                    }
+                });
+
+                return card;
+            }
+
+            function bindEvents() {
+                els.search.addEventListener("input", () => {
+                    state.query = els.search.value.trim().toLowerCase();
+                    applyFilters();
+                });
+
+                els.examFilters.addEventListener("click", (event) => {
+                    const button = event.target.closest("button[data-exam]");
+                    if (!button) {
+                        return;
+                    }
+                    state.exam = button.dataset.exam;
+                    for (const filter of els.examFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", String(filter === button));
+                    }
+                    applyFilters();
+                });
+
+                els.tagFilters.addEventListener("click", (event) => {
+                    const button = event.target.closest("button[data-tag]");
+                    if (!button) {
+                        return;
+                    }
+                    state.tag = state.tag === button.dataset.tag ? "" : button.dataset.tag;
+                    for (const filter of els.tagFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", String(filter.dataset.tag === state.tag));
+                    }
+                    applyFilters();
+                });
+
+                els.clearFilters.addEventListener("click", () => {
+                    state.query = "";
+                    state.exam = "all";
+                    state.tag = "";
+                    els.search.value = "";
+                    for (const filter of els.examFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", String(filter.dataset.exam === "all"));
+                    }
+                    for (const filter of els.tagFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", "false");
+                    }
+                    applyFilters();
+                });
+
+                window.addEventListener("hashchange", handleHash);
+            }
+
+            function applyFilters() {
+                let visible = 0;
+                const cards = els.problemGrid.querySelectorAll(".problem-card");
+                for (const card of cards) {
+                    const matchesExam = state.exam === "all" || card.dataset.exam === state.exam;
+                    const matchesTag = !state.tag || card.dataset.tags.split("||").includes(state.tag);
+                    const matchesQuery = !state.query || card.dataset.search.includes(state.query);
+                    const show = matchesExam && matchesTag && matchesQuery;
+                    card.hidden = !show;
+                    if (show) {
+                        visible += 1;
+                    }
+                }
+                els.visibleCount.textContent = String(visible);
+                els.resultTitle.textContent = visible === state.problems.length ? "All practice problems" : "Filtered practice problems";
+                els.resultMeta.textContent = describeFilters(visible);
+                els.empty.hidden = visible !== 0;
+                typesetMath(els.problemGrid);
+            }
+
+            function describeFilters(visible) {
+                const pieces = [];
+                if (state.exam === "m1") {
+                    pieces.push("Midterm 01");
+                } else if (state.exam === "m2") {
+                    pieces.push("Midterm 02");
+                }
+                if (state.tag) {
+                    pieces.push(state.tag);
+                }
+                if (state.query) {
+                    pieces.push(`search: ${state.query}`);
+                }
+                return pieces.length ? `${visible} matching ${pieces.join(" + ")}` : "Use search, exam, or tag filters to narrow the list.";
+            }
+
+            function handleHash() {
+                if (!location.hash.startsWith("#problem-")) {
+                    return;
+                }
+                const card = document.querySelector(location.hash);
+                if (!card) {
+                    return;
+                }
+                card.hidden = false;
+                card.querySelector(".problem-detail").open = true;
+                setTimeout(() => card.scrollIntoView({ block: "start", behavior: "smooth" }), 0);
+            }
+
+            function escapeHtml(value) {
+                return String(value).replace(/[&<>"']/g, (char) => ({
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    "\"": "&quot;",
+                    "'": "&#39;"
+                }[char]));
+            }
+
+            function escapeAttr(value) {
+                return escapeHtml(value);
+            }
+
+            function typesetMath(container) {
+                if (window.MathJax && window.MathJax.typesetPromise) {
+                    window.MathJax.typesetPromise([container]).catch(() => {});
+                }
+            }
+        </script>
+    </body>
+</html>
