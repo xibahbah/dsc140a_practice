@@ -299,6 +299,18 @@
                 background: #697386;
             }
 
+            .badge.lab {
+                background: #2563eb;
+            }
+
+            .badge.discussion {
+                background: #b45309;
+            }
+
+            .badge.exam {
+                background: #7c3aed;
+            }
+
             .tag-list {
                 display: flex;
                 flex-wrap: wrap;
@@ -322,6 +334,36 @@
             .preview p {
                 margin: 0;
                 color: #344054;
+            }
+
+            .preview .question-body {
+                display: grid;
+                gap: 10px;
+            }
+
+            .preview .question-body p {
+                margin: 0;
+            }
+
+            .preview .source-preview {
+                margin: 8px 0 0;
+            }
+
+            .preview .source-preview img {
+                display: block;
+                width: 100%;
+                max-height: 220px;
+                object-fit: contain;
+                object-position: top left;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: #fff;
+            }
+
+            .preview .source-preview figcaption {
+                margin-top: 4px;
+                color: var(--muted);
+                font-size: .78rem;
             }
 
             .thumbs {
@@ -361,6 +403,75 @@
             .full-problem img {
                 max-width: 100%;
                 height: auto;
+            }
+
+            .full-problem .source-preview img {
+                width: min(100%, 860px);
+                max-height: 680px;
+                object-fit: contain;
+                object-position: top left;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: #fff;
+            }
+
+            .source-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 12px;
+            }
+
+            .source-links a {
+                min-height: 34px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 6px 10px;
+                color: var(--ink);
+                background: #f8fafc;
+            }
+
+            .solution-box {
+                border: 1px solid var(--line);
+                margin-top: 12px;
+            }
+
+            .solution-box summary {
+                cursor: pointer;
+                padding: 10px 12px;
+                background: #f8fafc;
+            }
+
+            .choices {
+                display: grid;
+                gap: 8px;
+                margin: 12px 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .choice {
+                display: grid;
+                grid-template-columns: 24px minmax(0, 1fr);
+                gap: 10px;
+                align-items: start;
+                border: 1px solid #dfe3eb;
+                border-radius: 8px;
+                padding: 9px 11px;
+                background: #fbfcfe;
+            }
+
+            .choice-marker {
+                width: 18px;
+                height: 18px;
+                border: 2px solid #9aa3b2;
+                border-radius: 4px;
+                margin-top: 2px;
+                background: #fff;
+            }
+
+            .choices.radio .choice-marker {
+                border-radius: 999px;
             }
 
             .full-problem .image {
@@ -479,7 +590,7 @@
 
                 <ul class="quick-links">
                     <li><a href="./all-practice-problems.pdf">Practice PDF <span>106 pages</span></a></li>
-                    <li><a href="./labs-discussions.html">Labs &amp; Discussions <span>by topic</span></a></li>
+                    <li><a href="./labs-discussions.html">Labs, Discussions &amp; Exams <span>by topic</span></a></li>
                     <li><a href="./all.html">All problems <span>HTML</span></a></li>
                     <li><a href="./midterm-01.html">Midterm 01 <span>56</span></a></li>
                     <li><a href="./midterm-02.html">Midterm 02 <span>65</span></a></li>
@@ -492,7 +603,18 @@
                 </div>
 
                 <div class="control-group">
-                    <h2>Exam</h2>
+                    <h2>Type</h2>
+                    <div class="segments" id="typeFilters">
+                        <button type="button" data-type="all" aria-pressed="true">All</button>
+                        <button type="button" data-type="practice" aria-pressed="false">Practice</button>
+                        <button type="button" data-type="lab" aria-pressed="false">Labs</button>
+                        <button type="button" data-type="discussion" aria-pressed="false">Discussions</button>
+                        <button type="button" data-type="exam" aria-pressed="false">Exams</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h2>Practice Set</h2>
                     <div class="segments" id="examFilters">
                         <button type="button" data-exam="all" aria-pressed="true">All</button>
                         <button type="button" data-exam="m1" aria-pressed="false">Midterm 01</button>
@@ -531,12 +653,14 @@
                 problems: [],
                 tags: [],
                 query: "",
+                type: "all",
                 exam: "all",
                 tag: ""
             };
 
             const els = {
                 search: document.getElementById("search"),
+                typeFilters: document.getElementById("typeFilters"),
                 examFilters: document.getElementById("examFilters"),
                 tagFilters: document.getElementById("tagFilters"),
                 clearFilters: document.getElementById("clearFilters"),
@@ -558,15 +682,19 @@
             });
 
             async function init() {
-                const [allDoc, m1Doc, m2Doc] = await Promise.all([
+                const [allDoc, m1Doc, m2Doc, courseDoc] = await Promise.all([
                     loadDocument("all.html"),
                     loadDocument("midterm-01.html"),
-                    loadDocument("midterm-02.html")
+                    loadDocument("midterm-02.html"),
+                    loadDocument("labs-discussions.html")
                 ]);
 
                 const midtermOne = extractNumbers(m1Doc);
                 const midtermTwo = extractNumbers(m2Doc);
-                state.problems = extractProblems(allDoc, midtermOne, midtermTwo);
+                state.problems = [
+                    ...extractProblems(allDoc, midtermOne, midtermTwo),
+                    ...extractCourseProblems(courseDoc)
+                ];
                 state.tags = [...new Set(state.problems.flatMap((problem) => problem.tags))].sort((a, b) => a.localeCompare(b));
 
                 renderTagFilters();
@@ -615,6 +743,47 @@
                 }).filter((problem) => problem.number);
             }
 
+            function extractCourseProblems(doc) {
+                return [...doc.querySelectorAll(".question-card")].map((node) => {
+                    const id = node.id;
+                    const title = node.querySelector("h4")?.textContent.trim() || id;
+                    const kind = node.dataset.kind || "practice";
+                    const topic = node.dataset.topic || "";
+                    const questionBody = node.querySelector(".question-body");
+                    const solution = node.querySelector(".solution-box");
+                    const sourceLinks = node.querySelector(".source-links");
+                    const body = document.createElement("div");
+                    let previewHtml = "";
+                    if (questionBody) {
+                        const previewBody = questionBody.cloneNode(true);
+                        previewHtml = previewBody.outerHTML;
+                        body.appendChild(questionBody.cloneNode(true));
+                    }
+                    if (solution) {
+                        body.appendChild(solution.cloneNode(true));
+                    }
+                    if (sourceLinks) {
+                        body.appendChild(sourceLinks.cloneNode(true));
+                    }
+                    const images = [...body.querySelectorAll("img")].map((img) => img.getAttribute("src")).filter(Boolean);
+                    const tags = [topic, kind === "lab" ? "Labs" : kind === "discussion" ? "Discussions" : "Exams"].filter(Boolean);
+
+                    return {
+                        id: `course-${id}`,
+                        number: id,
+                        title,
+                        tags,
+                        body,
+                        images,
+                        preview: firstReadableParagraph(body),
+                        previewHtml,
+                        exam: "course",
+                        type: kind,
+                        searchText: `${title} ${tags.join(" ")} ${node.textContent}`.toLowerCase()
+                    };
+                });
+            }
+
             function numberFromHeading(text) {
                 const match = text.match(/#(\d+)/);
                 return match ? match[1] : "";
@@ -648,33 +817,43 @@
             function createProblemCard(problem) {
                 const card = document.createElement("article");
                 card.className = "problem-card";
-                card.id = `problem-${problem.number}`;
+                card.id = problem.id || `problem-${problem.number}`;
                 card.dataset.exam = problem.exam;
+                card.dataset.type = problem.type || "practice";
                 card.dataset.tags = problem.tags.join("||");
                 card.dataset.search = problem.searchText;
 
-                const examLabel = problem.exam === "m1" ? "Midterm 01" : problem.exam === "m2" ? "Midterm 02" : "Other";
-                const examClass = problem.exam === "m1" ? "m1" : problem.exam === "m2" ? "m2" : "other";
+                const examLabel = labelForProblem(problem);
+                const examClass = classForProblem(problem);
                 const tags = problem.tags.map((tag) => (
-                    `<a class="tag-chip" href="./tags/${encodeURIComponent(tag)}.html">${escapeHtml(tag)}</a>`
+                    problem.type === "practice"
+                        ? `<a class="tag-chip" href="./tags/${encodeURIComponent(tag)}.html">${escapeHtml(tag)}</a>`
+                        : `<span class="tag-chip">${escapeHtml(tag)}</span>`
                 )).join("");
-                const thumbs = problem.images.slice(0, 3).map((src) => (
+                const thumbs = problem.previewHtml ? "" : problem.images.slice(0, 3).map((src) => (
                     `<a href="${escapeAttr(src)}"><img src="${escapeAttr(src)}" alt="${escapeAttr(problem.title)} visual"></a>`
                 )).join("");
 
                 card.innerHTML = `
                     <div class="card-head">
-                        <h3><a href="#problem-${problem.number}">${escapeHtml(problem.title)}</a></h3>
+                        <h3><a href="#${escapeAttr(problem.id || `problem-${problem.number}`)}">${escapeHtml(problem.title)}</a></h3>
                         <span class="badge ${examClass}">${examLabel}</span>
                     </div>
                     <div class="tag-list">${tags}</div>
-                    <div class="preview"><p>${escapeHtml(problem.preview)}</p></div>
+                    <div class="preview"></div>
                     ${thumbs ? `<div class="thumbs">${thumbs}</div>` : ""}
                     <details class="problem-detail">
                         <summary>Open full problem</summary>
                         <div class="full-problem"></div>
                     </details>
                 `;
+
+                const preview = card.querySelector(".preview");
+                if (problem.previewHtml) {
+                    preview.innerHTML = problem.previewHtml;
+                } else {
+                    preview.innerHTML = `<p>${escapeHtml(problem.preview)}</p>`;
+                }
 
                 const fullProblem = card.querySelector(".full-problem");
                 if (problem.body) {
@@ -693,6 +872,18 @@
             function bindEvents() {
                 els.search.addEventListener("input", () => {
                     state.query = els.search.value.trim().toLowerCase();
+                    applyFilters();
+                });
+
+                els.typeFilters.addEventListener("click", (event) => {
+                    const button = event.target.closest("button[data-type]");
+                    if (!button) {
+                        return;
+                    }
+                    state.type = button.dataset.type;
+                    for (const filter of els.typeFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", String(filter === button));
+                    }
                     applyFilters();
                 });
 
@@ -722,9 +913,13 @@
 
                 els.clearFilters.addEventListener("click", () => {
                     state.query = "";
+                    state.type = "all";
                     state.exam = "all";
                     state.tag = "";
                     els.search.value = "";
+                    for (const filter of els.typeFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", String(filter.dataset.type === "all"));
+                    }
                     for (const filter of els.examFilters.querySelectorAll("button")) {
                         filter.setAttribute("aria-pressed", String(filter.dataset.exam === "all"));
                     }
@@ -741,10 +936,11 @@
                 let visible = 0;
                 const cards = els.problemGrid.querySelectorAll(".problem-card");
                 for (const card of cards) {
+                    const matchesType = state.type === "all" || card.dataset.type === state.type;
                     const matchesExam = state.exam === "all" || card.dataset.exam === state.exam;
                     const matchesTag = !state.tag || card.dataset.tags.split("||").includes(state.tag);
                     const matchesQuery = !state.query || card.dataset.search.includes(state.query);
-                    const show = matchesExam && matchesTag && matchesQuery;
+                    const show = matchesType && matchesExam && matchesTag && matchesQuery;
                     card.hidden = !show;
                     if (show) {
                         visible += 1;
@@ -759,6 +955,9 @@
 
             function describeFilters(visible) {
                 const pieces = [];
+                if (state.type !== "all") {
+                    pieces.push(state.type === "practice" ? "Practice" : state.type === "lab" ? "Labs" : state.type === "discussion" ? "Discussions" : "Exams");
+                }
                 if (state.exam === "m1") {
                     pieces.push("Midterm 01");
                 } else if (state.exam === "m2") {
@@ -770,13 +969,10 @@
                 if (state.query) {
                     pieces.push(`search: ${state.query}`);
                 }
-                return pieces.length ? `${visible} matching ${pieces.join(" + ")}` : "Use search, exam, or tag filters to narrow the list.";
+                return pieces.length ? `${visible} matching ${pieces.join(" + ")}` : "Use search, type, set, or tag filters to narrow the list.";
             }
 
             function handleHash() {
-                if (!location.hash.startsWith("#problem-")) {
-                    return;
-                }
                 const card = document.querySelector(location.hash);
                 if (!card) {
                     return;
@@ -784,6 +980,26 @@
                 card.hidden = false;
                 card.querySelector(".problem-detail").open = true;
                 setTimeout(() => card.scrollIntoView({ block: "start", behavior: "smooth" }), 0);
+            }
+
+            function labelForProblem(problem) {
+                if (problem.type === "lab") {
+                    return "Lab";
+                }
+                if (problem.type === "discussion") {
+                    return "Discussion";
+                }
+                if (problem.type === "exam") {
+                    return "Exam";
+                }
+                return problem.exam === "m1" ? "Midterm 01" : problem.exam === "m2" ? "Midterm 02" : "Practice";
+            }
+
+            function classForProblem(problem) {
+                if (problem.type === "lab" || problem.type === "discussion" || problem.type === "exam") {
+                    return problem.type;
+                }
+                return problem.exam === "m1" ? "m1" : problem.exam === "m2" ? "m2" : "other";
             }
 
             function escapeHtml(value) {

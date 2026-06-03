@@ -91,6 +91,10 @@
             .question-body p, .solution-body p { margin: 0 0 12px; }
             .question-body img { display: block; max-width: min(100%, 760px); max-height: 480px; object-fit: contain; margin: 12px 0; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 
+            .source-preview { margin: 14px 0; }
+            .source-preview img { display: block; width: min(100%, 860px); max-height: 680px; object-fit: contain; object-position: top left; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+            .source-preview figcaption { margin-top: 5px; color: var(--muted); font-size: .82rem; }
+
             .top, .notice, .topics { max-width: 1180px; }
             .question-body, .solution-body { max-width: 88ch; }
             .question-body { font-size: 1rem; }
@@ -484,16 +488,16 @@
 </details>
 <div class="source-links"><a href="./sources/exam.pdf#page=6">Source PDF page 6</a></div>
 </article>
-<article class="question-card" data-kind="exam" data-search="exam midterm b problem 9 convexity and linear classification midterm b · problem 9: perceptron, hinge, square loss, and gradient descent problem 9. (6 points) consider a linear classifier with initial weight vector ⃗w(0) = [1, 1]t and a small dataset d consisting of two points in r2: • (⃗x1, y1) = ([2, 0]t , 1) • (⃗x2, y2) = ([0, 2]t , −1) a) (1 points) calculate the average perceptron loss. b) (1 points) calculate the average hinge loss. c) (1 points) calculate the average square loss. d) (3 points) using the hinge loss and a learning rate of η = 0.5, perform one step of gradient descent. report the updated weight vector ⃗w(1). (hint: for the gradient of the max function, assume the subgradient ∇max(0, f(w)) = 0 if f(w) &lt; 0 and ∇f(w) otherwise.) solution: the perceptron loss for a single point is defined as lp = max(0, −y(⃗wt⃗x)). first compute the scores: ⃗w(0)t⃗x1 = 2, ⃗w(0)t⃗x2 = 2. for the dataset d: • l1 = max(0, −(1)(2)) = 0 • l2 = max(0, −(−1)(2)) = 2 average loss: 0+22 = 1 solution: the hinge loss is defined as lh = max(0, 1 −y(⃗wt⃗x)). • l1 = max(0, 1 −(1)(2)) = max(0, −1) = 0 • l2 = max(0, 1 −(−1)(2)) = max(0, 3) = 3 average loss: 0+32 = 1.5 solution: the square loss is defined as ls = (y −⃗wt⃗x)2. • l1 = (1 −2)2 = (−1)2 = 1 • l2 = (−1 −2)2 = (−3)2 = 9 average loss: 1+92 = 5 solution: given learning rate η = 0.5, the weight update is ⃗w(1) = ⃗w(0) −η∇⃗wlavg. the gradient of the hinge loss for a single point is: (−y⃗x if y(⃗wt⃗x) &lt; 1 ∇⃗wl = 0 otherwise • for (⃗x1, y1): y1(⃗wt⃗x1) = 2 ≥1 =⇒∇1 = 0 0 • for (⃗x2, y2): y2(⃗wt⃗x2) = −2 &lt; 1 =⇒∇2 = −(−1) = 2 2 average gradient: 1 0 0 0 ∇avg = + = 2 0 2 1 update step: 1 0 1 1 ⃗w(1) = −0.5 = = 1 1 1 −0.5 0.5" data-topic="Convexity and Linear Classification" id="exam-b-p09">
+<article class="question-card" data-kind="exam" data-search="exam midterm b problem 9 convexity and linear classification perceptron hinge square loss gradient descent linear classifier losses update weight vector" data-topic="Convexity and Linear Classification" id="exam-b-p09">
 <div class="card-head">
 <h4><a href="#exam-b-p09">Midterm B · Problem 9: Perceptron, hinge, square loss, and gradient descent</a></h4>
 <span class="badge exam">Exam</span>
 </div>
 <div class="meta"><span>Midterm B</span><span>Convexity and Linear Classification</span></div>
-<div class="question-body"><p>Problem 9. (6 points) Consider a linear classifier with initial weight vector ⃗w(0) = [1, 1]T and a small dataset D consisting of two points in R2:</p><p>• (⃗x1, y1) = ([2, 0]T , 1)</p><p>• (⃗x2, y2) = ([0, 2]T , −1)</p><p>a) (1 points) Calculate the average Perceptron loss. b) (1 points) Calculate the average Hinge loss. c) (1 points) Calculate the average Square loss. d) (3 points) Using the Hinge loss and a learning rate of η = 0.5, perform one step of Gradient Descent. Report the updated weight vector ⃗w(1). (Hint: For the gradient of the max function, assume the subgradient ∇max(0, f(w)) = 0 if f(w) &lt; 0 and ∇f(w) otherwise.)</p></div>
+<div class="question-body"><p>Problem 9. (6 points) Consider a linear classifier with initial weight vector \(w^{(0)}=[1,1]^\top\) and a small data set \(D\) consisting of two points in \(\mathbb{R}^2\):</p><ul><li>\((x_1,y_1)=([2,0]^\top,1)\)</li><li>\((x_2,y_2)=([0,2]^\top,-1)\)</li></ul><p>a) Calculate the average perceptron loss.</p><p>b) Calculate the average hinge loss.</p><p>c) Calculate the average square loss.</p><p>d) Using hinge loss and learning rate \(\eta=0.5\), perform one gradient descent step and report \(w^{(1)}\).</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
-<div class="solution-body"><p>Solution: The Perceptron loss for a single point is defined as LP = max(0, −y(⃗wT⃗x)). First compute the scores: ⃗w(0)T⃗x1 = 2, ⃗w(0)T⃗x2 = 2. For the dataset D:</p><p>• L1 = max(0, −(1)(2)) = 0</p><p>• L2 = max(0, −(−1)(2)) = 2</p><p>Average Loss: 0+22 = 1 Solution: The Hinge loss is defined as LH = max(0, 1 −y(⃗wT⃗x)).</p><p>• L1 = max(0, 1 −(1)(2)) = max(0, −1) = 0</p><p>• L2 = max(0, 1 −(−1)(2)) = max(0, 3) = 3</p><p>Average Loss: 0+32 = 1.5 Solution: The Square loss is defined as LS = (y −⃗wT⃗x)2.</p><p>• L1 = (1 −2)2 = (−1)2 = 1</p><p>• L2 = (−1 −2)2 = (−3)2 = 9</p><p>Average Loss: 1+92 = 5 Solution: Given learning rate η = 0.5, the weight update is ⃗w(1) = ⃗w(0) −η∇⃗wLavg. The gradient of the Hinge loss for a single point is: (−y⃗x if y(⃗wT⃗x) &lt; 1 ∇⃗wL = 0 otherwise</p><p>• For (⃗x1, y1): y1(⃗wT⃗x1) = 2 ≥1 =⇒∇1 =</p><p>0 0</p><p>• For (⃗x2, y2): y2(⃗wT⃗x2) = −2 &lt; 1 =⇒∇2 = −(−1) =</p><p>2 2 Average Gradient: 1 0 0 0 ∇avg = + = 2 0 2 1 Update Step: 1 0 1 1 ⃗w(1) = −0.5 = = 1 1 1 −0.5 0.5</p></div>
+<div class="solution-body"><p>The scores are \((w^{(0)})^\top x_1=2\) and \((w^{(0)})^\top x_2=2\).</p><p>Perceptron loss: \(L_P=\max(0,-y w^\top x)\). The two losses are \(0\) and \(2\), so the average is \(1\).</p><p>Hinge loss: \(L_H=\max(0,1-y w^\top x)\). The two losses are \(0\) and \(3\), so the average is \(1.5\).</p><p>Square loss: \(L_S=(y-w^\top x)^2\). The two losses are \(1\) and \(9\), so the average is \(5\).</p><p>For the hinge-gradient step, only the second point contributes because \(y_2(w^\top x_2)=-2&lt;1\). Its gradient is \(-y_2x_2=[0,2]^\top\). Averaging over both points gives \(\nabla L=[0,1]^\top\), so \(w^{(1)}=[1,1]^\top-0.5[0,1]^\top=[1,0.5]^\top\).</p></div>
 </details>
 <div class="source-links"><a href="./sources/exam.pdf#page=9">Source PDF page 9</a></div>
 </article>
@@ -644,7 +648,7 @@ and
 .
 p (10.1)
 [0, 2), [2, 4), [4, 6), [6, 8), [8, 10), [10, 12)
-[12, 14)</p></div>
+[12, 14)</p><figure class="source-preview"><img alt="Source page preview for lab-07-q01" loading="lazy" src="./source-previews/lab-07-q01.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Recall that we can estimate densities using histogram estimators as follows,
@@ -760,7 +764,7 @@ p
 ​ ( x ∣ Y =
 X
 1)
-σ</p></div>
+σ</p><figure class="source-preview"><img alt="Source page preview for lab-07-q05" loading="lazy" src="./source-previews/lab-07-q05.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Recall that the MLE formula for is
@@ -903,10 +907,10 @@ such data to a Gaussian would be an inaccurate estimation.</p></div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
 <div class="question-body"><p>Problem 1.
 Consider the following set of 6 data points:
-⃗x(1) = (2, 4, 4)T (1)
-⃗x(2) = (−1, 2, 1)T (2)
-⃗x(3) = (3, −3, 2)T (3)
-⃗x(4) = (0, −3, −3)T (4)
+\(\vec{x}\)(1) = (2, 4, 4)^T (1)
+\(\vec{x}\)(2) = (−1, 2, 1)^T (2)
+\(\vec{x}\)(3) = (3, −3, 2)^T (3)
+\(\vec{x}\)(4) = (0, −3, −3)^T (4)
 (5)
 In the below parts, your answers should be given as numbers. You may leave your answer as an unsimplified
 fraction or a decimal, if you prefer.
@@ -916,10 +920,10 @@ b) What is the (1,2) entry of the sample covariance matrix?</p></div>
 <summary>Solution</summary>
 <div class="solution-body"><p>Problem 1.
 Consider the following set of 6 data points:
-⃗x(1) = (2, 4, 4)T (1)
-⃗x(2) = (−1, 2, 1)T (2)
-⃗x(3) = (3, −3, 2)T (3)
-⃗x(4) = (0, −3, −3)T (4)
+\(\vec{x}\)(1) = (2, 4, 4)^T (1)
+\(\vec{x}\)(2) = (−1, 2, 1)^T (2)
+\(\vec{x}\)(3) = (3, −3, 2)^T (3)
+\(\vec{x}\)(4) = (0, −3, −3)^T (4)
 (5)
 In the below parts, your answers should be given as numbers. You may leave your answer as an unsimplified
 fraction or a decimal, if you prefer.
@@ -938,7 +942,7 @@ b) What is the (1,2) entry of the sample covariance matrix?
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
 <div class="question-body"><p>Problem 2.
 Recall that the Gaussian Radial Basis Function (RBF) kernel is defined as:
-κ(⃗x, ⃗x′) = exp −γ∥⃗x −⃗x′∥2 .
+κ(\(\vec{x}\), \(\vec{x}\)′) = exp −γ∥\(\vec{x}\) −\(\vec{x}\)′∥2 .
 Suppose a kernel SVM is trained on a data set with the Gaussian RBF kernel, and a training accuracy of
 80% is achieved. If you wish to increase the training accuracy, what should be done to the value of γ?
 Increase the value of γ.
@@ -970,12 +974,12 @@ using different machine learning libraries that do things slightly differently.
 The documentation of the library that your friend is using says that the regularization parameter is λ, and
 that the library minimizes the regularized risk:
 n
-X(⃗w · ⃗x(i) −yi)2 + λ∥⃗w∥2.
+X(\(\vec{w}\) · \(\vec{x}\)(i) −yi)2 + λ∥\(\vec{w}\)∥2.
 n
 i=1
 On the other hand, your library uses a regularization parameter of C and minimizes the regularized risk:
 n
-C X(⃗w · ⃗x(i) −yi)2 + ∥⃗w∥2.
+C X(\(\vec{w}\) · \(\vec{x}\)(i) −yi)2 + ∥\(\vec{w}\)∥2.
 i=1
 If your friend is using a regularization parameter of λ = 3, what value of C should you use to ensure that
 your models are equivalent (that is, to get the same weights)?
@@ -987,7 +991,7 @@ It is not possible to guarantee that the models will be equivalent with any valu
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: There are two ways of arriving at the correct answer.
-First, remember that if α is a positive constant, then the minimizer of f(⃗w) and the minimizer of αf(⃗w)
+First, remember that if α is a positive constant, then the minimizer of f(\(\vec{w}\)) and the minimizer of αf(\(\vec{w}\))
 are the same. In other words, if we scale the regularized risk by a positive number α and solve, we get
 the same model.
 We can think of our library’s regularized risk as a scaled version of our friend’s library’s regularized risk.
@@ -1016,15 +1020,15 @@ ensuring that the ratio of these factors is the same. That is:
 </div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
 <div class="question-body"><p>Problem 4.
-The 2-norm of a vector ⃗w ∈Rd is defined as:
+The 2-norm of a vector \(\vec{w}\) ∈Rd is defined as:
 v d u
-∥⃗w∥2 = utX w2i .
+∥\(\vec{w}\)∥2 = utX w2i .
 i=1
-Let R(⃗w) be the unregularized empirical risk with respect to a data set. The solid curves below are the
-contours of R(⃗w). The dashed lines show where ∥⃗w∥2 is equal to 1, 2, 3, and so on.
+Let R(\(\vec{w}\)) be the unregularized empirical risk with respect to a data set. The solid curves below are the
+contours of R(\(\vec{w}\)). The dashed lines show where ∥\(\vec{w}\)∥2 is equal to 1, 2, 3, and so on.
 w2 A
 w1
-Let ˜R(⃗w) = R(⃗w) + λ∥⃗w∥22 be the regularized empirical risk, with λ &gt; 0.
+Let ˜R(\(\vec{w}\)) = R(\(\vec{w}\)) + λ∥\(\vec{w}\)∥22 be the regularized empirical risk, with λ &gt; 0.
 True or False: there is a choice of λ so that the point marked A is a minimizer of the regularized empirical
 risk.
 True
@@ -1047,9 +1051,9 @@ points on the dashed circle that are better.</p></div>
 </div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
 <div class="question-body"><p>Problem 5.
-Consider the following data set of four points whose feature vectors are in R2 and whose labels are in {−1, 1}:
+Consider the following data set of four points whose feature vectors are in \(\mathbb{R}^2\) and whose labels are in {−1, 1}:
 i 1 2 3 4
-⃗x(i) (2,1) (2,3) (1,2) (3,2)
+\(\vec{x}\)(i) (2,1) (2,3) (1,2) (3,2)
 yi 1 1 -1 -1
 For convenience, we’ve plotted the data below.
 x2
@@ -1057,9 +1061,9 @@ x2
 -1 -1 ?
 +1
 x1
-Suppose an unnamed kernel classifier H(⃗x) = Pni=1 αiκ(⃗x(i), ⃗x) has been trained on this data using a
+Suppose an unnamed kernel classifier H(\(\vec{x}\)) = Pni=1 αiκ(\(\vec{x}\)(i), \(\vec{x}\)) has been trained on this data using a
 (spherical) Gaussian kernel and kernel width parameter γ = 1. Suppose the solution to the dual problem is
-found to be ⃗α = (0, 4, −1, −2)T .
+found to be \(\vec{α}\) = (0, 4, −1, −2)^T .
 What class will the classifier predict for the point (2, 2)? For convenience, we’ve plotted this point on the
 graph above as a question mark.
 +1
@@ -1068,11 +1072,11 @@ graph above as a question mark.
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: The prediction at ? is influenced by the four training points shown. This is captured by the
 formula:
-H(⃗x) = X αiκ(⃗x(i), ⃗x)
+H(\(\vec{x}\)) = X αiκ(\(\vec{x}\)(i), \(\vec{x}\))
 i=1
-= α1κ(⃗x(1), ⃗x) + α2κ(⃗x(2), ⃗x) + α3κ(⃗x(3), ⃗x) + α4κ(⃗x(4), ⃗x)
-= 0 · κ(⃗x(1), ⃗x) + 4 · κ(⃗x(2), ⃗x) −1 · κ(⃗x(3), ⃗x) −2 · κ(⃗x(4), ⃗x)
-= 0 + 4 · κ(⃗x(2), ⃗x) −1 · κ(⃗x(3), ⃗x) −2 · κ(⃗x(4), ⃗x)
+= α1κ(\(\vec{x}\)(1), \(\vec{x}\)) + α2κ(\(\vec{x}\)(2), \(\vec{x}\)) + α3κ(\(\vec{x}\)(3), \(\vec{x}\)) + α4κ(\(\vec{x}\)(4), \(\vec{x}\))
+= 0 · κ(\(\vec{x}\)(1), \(\vec{x}\)) + 4 · κ(\(\vec{x}\)(2), \(\vec{x}\)) −1 · κ(\(\vec{x}\)(3), \(\vec{x}\)) −2 · κ(\(\vec{x}\)(4), \(\vec{x}\))
+= 0 + 4 · κ(\(\vec{x}\)(2), \(\vec{x}\)) −1 · κ(\(\vec{x}\)(3), \(\vec{x}\)) −2 · κ(\(\vec{x}\)(4), \(\vec{x}\))
 Now, κ is the Gaussian kernel, and it’s a pain to evaluate it by hand (or even with a calculator). But we
 don’t need to evaluate it: we just need to remember that the Gaussian kernel measures the similarity
 between two points based on only the distance between them. Crucially, all four points are the same
@@ -1115,7 +1119,7 @@ fraction or convert it to a decimal.
 b) What is the estimated density p1(x1, x2 | Y = 1) at the point (0.5, 0.5)?
 c) Using this histogram density estimator, what is the estimate of P(Y = 1 | x1 = 0.5, x2 = 0.5)?
 d) Suppose the Bayes classification rule is used with the estimated class-conditional densities in place of
-the true densities to predict the label of the point (1, −.5). What is the predicted label?</p></div>
+the true densities to predict the label of the point (1, −.5). What is the predicted label?</p><figure class="source-preview"><img alt="Source page preview for discussion-04-p06" loading="lazy" src="./source-previews/discussion-04-p06.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: The estimated density has the formula:
@@ -1227,7 +1231,7 @@ Which of the following could be the Gaussian’s covariance matrix?
 3 12
 1 1 2
 1 0
-0 1</p></div>
+0 1</p><figure class="source-preview"><img alt="Source page preview for discussion-04-p08" loading="lazy" src="./source-previews/discussion-04-p08.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: This is not a spherical or axis-aligned Gaussian, so it’s covariance matrix should be “full”,
@@ -1452,7 +1456,7 @@ possible single-Gauss approximation of the true distributions, however.</p></div
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 2</span><span>Gradient Descent</span></div>
-<div class="question-body"><hr/><p>Consider the function \(f(z_1, z_2)\) whose plot is shown below:</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/sign_of_gradient_at_a_point.png"/></p><p>Marked on the plot is the point (2, -2). Which of the below show the signs of each entry of the gradient vector at this point?</p><p>( ) (+, +)<br/>
+<div class="question-body"><hr/><p>Consider the function \(f(z_1, z_2)\) whose plot is shown below:</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/sign_of_gradient_at_a_point.jpg"/></p><p>Marked on the plot is the point (2, -2). Which of the below show the signs of each entry of the gradient vector at this point?</p><p>( ) (+, +)<br/>
 ( ) (-, -)<br/>
 (x) (+, -)<br/>
 ( ) (-, +)</p></div>
@@ -1468,7 +1472,7 @@ possible single-Gauss approximation of the true distributions, however.</p></div
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 2</span><span>Gradient Descent</span></div>
-<div class="question-body"><hr/><p>Consider the regression data set \((x_1, y_1), \ldots, (x_n, y_n)\) shown below. Also shown as a black line is the linear prediction function \(H(x) = w_0 + w_1 x\) with \(w_1 = 0\) and \(w_0 = \frac{1}{n} \sum_{i=1}^n y_i\). That is, \(w_0\) is set to be equal to the mean of the \(y_i\) values.</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/sign_of_gradient_pred_function.png"/></p><p>Let \(R(\vec w)\) be the empirical risk with respect to this data and the square loss.</p><p>Which of the following is true about \(\partial R / \partial w_0 (w_0, w_1)\)?</p><p>( ) It is positive<br/>
+<div class="question-body"><hr/><p>Consider the regression data set \((x_1, y_1), \ldots, (x_n, y_n)\) shown below. Also shown as a black line is the linear prediction function \(H(x) = w_0 + w_1 x\) with \(w_1 = 0\) and \(w_0 = \frac{1}{n} \sum_{i=1}^n y_i\). That is, \(w_0\) is set to be equal to the mean of the \(y_i\) values.</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/sign_of_gradient_pred_function.jpg"/></p><p>Let \(R(\vec w)\) be the empirical risk with respect to this data and the square loss.</p><p>Which of the following is true about \(\partial R / \partial w_0 (w_0, w_1)\)?</p><p>( ) It is positive<br/>
 ( ) It is negative<br/>
 (x) It is zero</p></div>
 <details class="solution-box">
@@ -1604,7 +1608,7 @@ possible single-Gauss approximation of the true distributions, however.</p></div
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 2</span><span>Gradient Descent</span></div>
-<div class="question-body"><hr/><p>Consider the function \(f(z_1, z_2) = \operatorname{max}(z_1, z_2)\). For convenience, this function is plotted below.</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/subgradient.png"/></p><p>What is the gradient of the function at the point \((1, -1)\)?</p><p>( ) \((1, -1)^T\)<br/>
+<div class="question-body"><hr/><p>Consider the function \(f(z_1, z_2) = \operatorname{max}(z_1, z_2)\). For convenience, this function is plotted below.</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/subgradient.jpg"/></p><p>What is the gradient of the function at the point \((1, -1)\)?</p><p>( ) \((1, -1)^T\)<br/>
 ( ) \((-1, 1)^T\)<br/>
 ( ) \((-1, 0)^T\)<br/>
 ( ) \((0, -1)^T\)<br/>
@@ -1635,10 +1639,10 @@ possible single-Gauss approximation of the true distributions, however.</p></div
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
 <div class="question-body"><p>Problem 1.
-Compute (1, 4, 3)T · (2, 0, 1)T . Here, · denotes the dot product.</p></div>
+Compute (1, 4, 3)^T · (2, 0, 1)^T . Here, · denotes the dot product.</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
-<div class="solution-body"><p>Solution: (1, 4, 3)T · (2, 0, 1)T = 1 · 2 + 4 · 0 + 3 · 1 = 5.</p></div>
+<div class="solution-body"><p>Solution: (1, 4, 3)^T · (2, 0, 1)^T = 1 · 2 + 4 · 0 + 3 · 1 = 5.</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
 </article>
@@ -1649,11 +1653,11 @@ Compute (1, 4, 3)T · (2, 0, 1)T . Here, · denotes the dot product.</p></div>
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
 <div class="question-body"><p>Problem 2.
-Two vectors ⃗u and ⃗v are orthogonal to one another (the angle between them is 90◦). What is ⃗u · ⃗v?</p></div>
+Two vectors \(\vec{u}\) and \(\vec{v}\) are orthogonal to one another (the angle between them is 90◦). What is \(\vec{u}\) · \(\vec{v}\)?</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: Zero.
-⃗u · ⃗v = ∥⃗u∥∥⃗v∥cos(90◦). Since cos(90◦) = 0, the dot product is zero.</p></div>
+\(\vec{u}\) · \(\vec{v}\) = ∥\(\vec{u}\)∥∥\(\vec{v}\)∥cos(90◦). Since cos(90◦) = 0, the dot product is zero.</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
 </article>
@@ -1664,22 +1668,22 @@ Two vectors ⃗u and ⃗v are orthogonal to one another (the angle between them 
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
 <div class="question-body"><p>Problem 3.
-Which of these is another expression for the norm of ⃗u (that is, ∥⃗u∥)?
-(a) ⃗u · ⃗u
+Which of these is another expression for the norm of \(\vec{u}\) (that is, ∥\(\vec{u}\)∥)?
+(a) \(\vec{u}\) · \(\vec{u}\)
 √
-(b) ⃗u2
+(b) \(\vec{u}\)2
 √
-(c) ⃗u · ⃗u
-(d) ⃗u2</p></div>
+(c) \(\vec{u}\) · \(\vec{u}\)
+(d) \(\vec{u}\)2</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
-<div class="solution-body"><p>Solution: The answer is (c) ⃗u · ⃗u.
-Using the coordinate definition of the dot product, we see that the norm of ⃗u is
+<div class="solution-body"><p>Solution: The answer is (c) \(\vec{u}\) · \(\vec{u}\).
+Using the coordinate definition of the dot product, we see that the norm of \(\vec{u}\) is
 √ q
-⃗u · ⃗u = u21 + u22 + · · · + u2d,
+\(\vec{u}\) · \(\vec{u}\) = u21 + u22 + · · · + u2d,
 which we recognize as the Euclidean norm.
-= Another way to see this is to use the geometric definition of the dot product: ⃗u · ⃗u = ∥⃗u∥∥⃗u∥cos(0◦)√
-∥⃗u∥2, where we have said that the angle between ⃗u and itself is 0◦. It follows that ∥⃗u∥= ⃗u · ⃗u.</p></div>
+= Another way to see this is to use the geometric definition of the dot product: \(\vec{u}\) · \(\vec{u}\) = ∥\(\vec{u}\)∥∥\(\vec{u}\)∥cos(0◦)√
+∥\(\vec{u}\)∥2, where we have said that the angle between \(\vec{u}\) and itself is 0◦. It follows that ∥\(\vec{u}\)∥= \(\vec{u}\) · \(\vec{u}\).</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
 </article>
@@ -1691,11 +1695,11 @@ which we recognize as the Euclidean norm.
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
 <div class="question-body"><p>Problem 4.
 Let A, B, C, X be matrices of appropriate dimensions. True or False:
-X(AB + C)T = XBT AT + XCT</p></div>
+X(AB + C)^T = XBT AT + XCT</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: True. Matrix-matrix multiplication is distributive.
-Also, the transpose of a product is the product of the transposes in reverse order. That is, (AB)T =
+Also, the transpose of a product is the product of the transposes in reverse order. That is, (AB)^T =
 BT AT .</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
@@ -1707,11 +1711,11 @@ BT AT .</p></div>
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
 <div class="question-body"><p>Problem 5.
-Let ⃗x ∈Rd and let A be a d × d matrix. What type of object is ⃗xT A⃗x?</p></div>
+Let \(\vec{x}\) ∈Rd and let A be a d × d matrix. What type of object is \(\vec{x}\)^T \(\vec{A}\)x?</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: A scalar.
-Namely, A⃗x is a d-dimensional vector, which we can think of as a d × 1 matrix. Then ⃗xT A⃗x is a 1 × d
+Namely, \(\vec{A}\)x is a d-dimensional vector, which we can think of as a d × 1 matrix. Then \(\vec{x}\)^T \(\vec{A}\)x is a 1 × d
 matrix times a d × 1 matrix, which is a 1 × 1 matrix, or a scalar.</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
@@ -1723,17 +1727,17 @@ matrix times a d × 1 matrix, which is a 1 × 1 matrix, or a scalar.</p></div>
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
 <div class="question-body"><p>Problem 6.
-Let ⃗x(1), . . . , ⃗x(n) be d-dimensional vectors. What type of object is:
+Let \(\vec{x}\)(1), . . . , \(\vec{x}\)(n) be d-dimensional vectors. What type of object is:
 n
 1 T
-X ⃗x(i) ⃗x(i)
+X \(\vec{x}\)(i) \(\vec{x}\)(i)
 n
 i=1</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: A d × d matrix.
-⃗x(i) is a column vector, which we can think of as a d × 1 matrix. On the other hand, ⃗x(i) T is a row
-vector, which we can think of as a 1 × d matrix. So the product ⃗x(i) ⃗x(i) T is (d × 1)(1 × d), which is
+\(\vec{x}\)(i) is a column vector, which we can think of as a d × 1 matrix. On the other hand, \(\vec{x}\)(i) T is a row
+vector, which we can think of as a 1 × d matrix. So the product \(\vec{x}\)(i) \(\vec{x}\)(i) T is (d × 1)(1 × d), which is
 a d × d matrix.
 So each term in the sum is a d × d matrix, and the sum of n such terms is also a d × d matrix. Dividing
 by n doesn’t change the type of object.</p></div>
@@ -1747,21 +1751,21 @@ by n doesn’t change the type of object.</p></div>
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
 <div class="question-body"><p>Problem 7.
-Let ⃗w ∈Rd, and define f(⃗w) = ∥⃗w∥2.
-In this problem, we’ll show that d⃗wdf = 2⃗w. That is, the gradient of f is 2⃗w.
+Let \(\vec{w}\) ∈Rd, and define f(\(\vec{w}\)) = ∥\(\vec{w}\)∥2.
+In this problem, we’ll show that \(\vec{d}\)wdf = 2\(\vec{w}\). That is, the gradient of f is 2\(\vec{w}\).
 The general process for finding the gradient is:
-1. “Expand” f so that you see all of the coordinates of ⃗w. That is, w0, w1, . . . , wd.
+1. “Expand” f so that you see all of the coordinates of \(\vec{w}\). That is, w0, w1, . . . , wd.
 2. “Differentiate” by taking partial derivatives with respect to w0, w1, …, wd.
 3. “Recombine” the partial derivatives into a vector (a.k.a., the gradient vector).
-Note: you’ll follow a similar process on the homework to show that the the gradient of f(⃗x) = xT Ax is 2A⃗x.
-a) Show that f(⃗w) = Pdi=1 w2i .
+Note: you’ll follow a similar process on the homework to show that the the gradient of f(\(\vec{x}\)) = xT Ax is 2\(\vec{A}\)x.
+a) Show that f(\(\vec{w}\)) = Pdi=1 w2i .
 = 2wi.b) Show that ∂wi∂f
-c) In vector form, what is d⃗w?df</p></div>
+c) In vector form, what is \(\vec{d}\)w?df</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution:
-f(⃗w) = ∥⃗w∥2
-= ⃗w · ⃗w
+f(\(\vec{w}\)) = ∥\(\vec{w}\)∥2
+= \(\vec{w}\) · \(\vec{w}\)
 d
 = X w2i
 i=1
@@ -1779,12 +1783,12 @@ only the ith term in the sum (the other terms are zero).
 = 0 + 0 + · · · + 2wi + · · · + 0
 |{z}j=0 |{z}j=1 |{z}j=i |{z}j=d
 = 2wi
-c) In vector form, what is d⃗w?df
+c) In vector form, what is \(\vec{d}\)w?df
 Solution: Since the gradient is a vector whose components are the partial derivatives of the
 function with respect to each of the variables, we have:
  ∂w1∂f 
 df
-=  ...  d⃗w   ∂f
+=  ...  \(\vec{d}\)w   ∂f
 ∂wd
  2w1 
 =  ...   
@@ -1792,7 +1796,7 @@ df
  w1 
 = 2  ...   
 wd
-= 2⃗w</p></div>
+= 2\(\vec{w}\)</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
 </article>
@@ -1808,16 +1812,16 @@ Let A be a symmetric n × n matrix, with entries:
 a21 a22 · · · a2n  
    ... ... ... ...   .
 an1 an2 · · · ann
-Suppose ⃗x ∈Rn.
+Suppose \(\vec{x}\) ∈Rn.
 n n
-Show that ⃗xT A⃗x = X X xixjaij.
+Show that \(\vec{x}\)^T \(\vec{A}\)x = X X xixjaij.
 i=1 j=1
 Hint: this might be useful for the homework.</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution:
 n  a1j 
-⃗xT A⃗x = ⃗xT X xj  ...   
+\(\vec{x}\)^T \(\vec{A}\)x = \(\vec{x}\)^T X xj  ...   
 j=1 anj
 n n
 = X xi X xjaij
@@ -1836,13 +1840,13 @@ i=1 j=1</p></div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
 <div class="question-body"><p>Problem 9.
 Consider the data shown below:
-Let R(⃗w) be the risk with respect to the mean squared error for this data, assuming a linear prediction
+Let R(\(\vec{w}\)) be the risk with respect to the mean squared error for this data, assuming a linear prediction
 function of the form H(x) = w0 + w1x.
 dR
-Let ⃗g be the gradient of R(⃗w) evaluated at the point (40, 20). In other words, let ⃗g = (40, 20).
-d⃗w
-What will be the sign (positive, negative, or zero) of the first component of ⃗g? What about the second
-component?</p></div>
+Let \(\vec{g}\) be the gradient of R(\(\vec{w}\)) evaluated at the point (40, 20). In other words, let \(\vec{g}\) = (40, 20).
+\(\vec{d}\)w
+What will be the sign (positive, negative, or zero) of the first component of \(\vec{g}\)? What about the second
+component?</p><figure class="source-preview"><img alt="Source page preview for discussion-01-p09" loading="lazy" src="./source-previews/discussion-01-p09.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: The gradient points in the direction of steepest ascent. Therefore, this question is essentially
@@ -1852,7 +1856,7 @@ Glancing at the data, the line of best fit will have an intercept (w0) of near z
 The current point in question is (w0, w1) = (40, 20). This corresponds to a line whose intercept is far
 too positive, and whose slope is far too positive. Therefore, to increase the risk even further, we should
 make w0 even more positive (by increasing it) and make w1 even more positive (by increasing it). So
-the signs of the components of ⃗g will both be positive.
+the signs of the components of \(\vec{g}\) will both be positive.
 Note: an earlier version of this problem asked about the gradient evaluated (-40 ,20), which was trickier.
 On one hand, an intercept of -40 is much too small for the data, and we expect the optimal choice to
 be close to zero. So it might seem that increasing w0 will decrease risk, but this turns out not to be the
@@ -2017,7 +2021,7 @@ corresponding to
 ​ i
 this training data point, approximately?
 You may assume that is as large as you'd like.
-γ</p></div>
+γ</p><figure class="source-preview"><img alt="Source page preview for lab-06-q05" loading="lazy" src="./source-previews/lab-06-q05.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>First, we know that the value of
@@ -2128,7 +2132,7 @@ x ( i )
 <div class="question-body"><p>For the parts of this problem, consider the joint distribution shown below:
 What is
 ? State your answer as a decimal number between 0 and 1.
-P ( X = 2)</p></div>
+P ( X = 2)</p><figure class="source-preview"><img alt="Source page preview for lab-06-q06" loading="lazy" src="./source-previews/lab-06-q06.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>​
@@ -2238,7 +2242,7 @@ interval, which can be greater than one.</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Shown below are the class-conditional densities for penguin flipper length; that is, the densities and . p ( x ∣ Y = 0) p ( x ∣ Y = 1) A new penguin is observed with a flipper length of 10cm. What does the Bayes classifier predict for the class of this new penguin?</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=0\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=1\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">There is not enough information; we also must know and therefore in order to make P ( Y = 1) P ( Y = 0) a prediction.</span></li></ul></div>
+<div class="question-body"><p>Shown below are the class-conditional densities for penguin flipper length; that is, the densities and . p ( x ∣ Y = 0) p ( x ∣ Y = 1) A new penguin is observed with a flipper length of 10cm. What does the Bayes classifier predict for the class of this new penguin?</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=0\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=1\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">There is not enough information; we also must know and therefore in order to make P ( Y = 1) P ( Y = 0) a prediction.</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-06-q11" loading="lazy" src="./source-previews/lab-06-q11.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Recall that the Bayes classification rule predicts class 1 if
@@ -2254,7 +2258,7 @@ enough information to make a prediction.</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Shown below are the class-conditional densities for penguin flipper length weighted by the class "prior" probabilities; that is, the functions and . p ( x ∣ Y = 0) P ( Y = 0) p ( x ∣ Y = 1) P ( Y = 1) A new penguin is observed with a flipper length of 10cm. What does the Bayes classifier predict for the class of this new penguin?</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=0\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=1\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">There is not enough information; we also must know the marginal density in order to make a p ( x ) prediction.</span></li></ul></div>
+<div class="question-body"><p>Shown below are the class-conditional densities for penguin flipper length weighted by the class "prior" probabilities; that is, the functions and . p ( x ∣ Y = 0) P ( Y = 0) p ( x ∣ Y = 1) P ( Y = 1) A new penguin is observed with a flipper length of 10cm. What does the Bayes classifier predict for the class of this new penguin?</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=0\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=1\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">There is not enough information; we also must know the marginal density in order to make a p ( x ) prediction.</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-06-q12" loading="lazy" src="./source-previews/lab-06-q12.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Since the red curve (weighted class-conditional density of
@@ -2275,7 +2279,7 @@ Y = 1</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Shown below are two conditional densities, and , describing the distribution of a p ( x ∣ Y = 1) p continuous random variable for two classes: (the solid line) and (the dashed line). ( x ∣ Y = 0) X Y = 0 Y = 1 You may assume that both densities are piecewise constant. Suppose and . What is the prediction of the Bayes classifier at ? P ( Y = 1) = 0.5 P ( Y = 0) = 0.5 x = 1.5</p><ul class="choices radio"><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class 0 (the solid class)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class 1 (the dashed class)</span></li></ul></div>
+<div class="question-body"><p>Shown below are two conditional densities, and , describing the distribution of a p ( x ∣ Y = 1) p continuous random variable for two classes: (the solid line) and (the dashed line). ( x ∣ Y = 0) X Y = 0 Y = 1 You may assume that both densities are piecewise constant. Suppose and . What is the prediction of the Bayes classifier at ? P ( Y = 1) = 0.5 P ( Y = 0) = 0.5 x = 1.5</p><ul class="choices radio"><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class 0 (the solid class)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class 1 (the dashed class)</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-06-q13" loading="lazy" src="./source-previews/lab-06-q13.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>According to Bayes classification rule, we need to check which of the two are larger:
@@ -2465,10 +2469,10 @@ linearly separable, though.</p></div>
 <span class="badge exam">Exam</span>
 </div>
 <div class="meta"><span>Midterm B</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Problem 4. (2 points) Given two d-dimensional vectors ⃗u and ⃗v, we define the product kernel κ(⃗u,⃗v) as: d κ(⃗u,⃗v) = X(ui · vi) i=1 Suppose a prediction function H(⃗x) is trained using kernel ridge regression on the following 2D dataset: ⃗x1 = , y1 = 1 ⃗x2 = , y2 = −1 ⃗x3 = , y3 = 1 Given that the solution to the dual problem (the dual weights) is:  1.0  ⃗α = −0.5   2.0 Consider a new test point ⃗z = . What is the predicted value H(⃗z)?</p></div>
+<div class="question-body"><p>Problem 4. (2 points) Given two d-dimensional vectors \(\vec{u}\) and \(\vec{v}\), we define the product kernel κ(\(\vec{u}\),\(\vec{v}\)) as: d κ(\(\vec{u}\),\(\vec{v}\)) = X(ui · vi) i=1 Suppose a prediction function H(\(\vec{x}\)) is trained using kernel ridge regression on the following 2D dataset: \(\vec{x}\)1 = , y1 = 1 \(\vec{x}\)2 = , y2 = −1 \(\vec{x}\)3 = , y3 = 1 Given that the solution to the dual problem (the dual weights) is: [ 1.0 ] \(\vec{α}\) = −0.5 [ ] 2.0 Consider a new test point \(\vec{z}\) = . What is the predicted value H(\(\vec{z}\))?</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
-<div class="solution-body"><p>Solution: In kernel regression, the prediction for a new point ⃗z is given by the sum of the dual weights multiplied by the kernel evaluations between the training points and the new point: H(⃗z) = X αiκ(⃗xi,⃗z) i=1 Step 1: Compute the kernel values κ(⃗xi,⃗z):</p><p>• κ(⃗x1, ⃗z) = (1 · 2) + (2 · 1) = 2 + 2 = 4</p><p>• κ(⃗x2, ⃗z) = (2 · 2) + (0 · 1) = 4 + 0 = 4</p><p>• κ(⃗x3, ⃗z) = (0 · 2) + (3 · 1) = 0 + 3 = 3</p><p>Step 2: Calculate the final prediction: H(⃗z) = α1κ(⃗x1,⃗z) + α2κ(⃗x2,⃗z) + α3κ(⃗x3,⃗z) H(⃗z) = (1.0 · 4) + (−0.5 · 4) + (2.0 · 3) H(⃗z) = 4 −2 + 6 H(⃗z) = 8 The prediction H(⃗z) is 8.</p></div>
+<div class="solution-body"><p>Solution: In kernel regression, the prediction for a new point \(\vec{z}\) is given by the sum of the dual weights multiplied by the kernel evaluations between the training points and the new point: H(\(\vec{z}\)) = X αiκ(\(\vec{x}\)i,\(\vec{z}\)) i=1 Step 1: Compute the kernel values κ(\(\vec{x}\)i,\(\vec{z}\)):</p><p>• κ(\(\vec{x}\)1, \(\vec{z}\)) = (1 · 2) + (2 · 1) = 2 + 2 = 4</p><p>• κ(\(\vec{x}\)2, \(\vec{z}\)) = (2 · 2) + (0 · 1) = 4 + 0 = 4</p><p>• κ(\(\vec{x}\)3, \(\vec{z}\)) = (0 · 2) + (3 · 1) = 0 + 3 = 3</p><p>Step 2: Calculate the final prediction: H(\(\vec{z}\)) = α1κ(\(\vec{x}\)1,\(\vec{z}\)) + α2κ(\(\vec{x}\)2,\(\vec{z}\)) + α3κ(\(\vec{x}\)3,\(\vec{z}\)) H(\(\vec{z}\)) = (1.0 · 4) + (−0.5 · 4) + (2.0 · 3) H(\(\vec{z}\)) = 4 −2 + 6 H(\(\vec{z}\)) = 8 The prediction H(\(\vec{z}\)) is 8.</p></div>
 </details>
 <div class="source-links"><a href="./sources/exam.pdf#page=5">Source PDF page 5</a></div>
 </article>
@@ -2478,10 +2482,10 @@ linearly separable, though.</p></div>
 <span class="badge exam">Exam</span>
 </div>
 <div class="meta"><span>Midterm B</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Problem 8. (4 points) Suppose we want to fit a ridge regression model to a data set. We could do this in three different ways: 1. Use the original features ⃗x directly. (Linear predictor with a regularization term) 2. First transform the inputs using a feature map ⃗ϕ(⃗x), then fit a linear model with a regularization term. 3. Use kernel ridge regression with a kernel κ(⃗x,⃗z) that corresponds to our feature space. Conceptually explain how these three approaches are related. Make sure to include answers to these ques- tions: a) (2 points) Conceptually, explain how these three approaches are related. b) (1 point) Why might we prefer approach 2 over approach 1? c) (1 point) Why might we prefer approach 3 over approach 2?</p></div>
+<div class="question-body"><p>Problem 8. (4 points) Suppose we want to fit a ridge regression model to a data set. We could do this in three different ways: 1. Use the original features \(\vec{x}\) directly. (Linear predictor with a regularization term) 2. First transform the inputs using a feature map \(\vec{ϕ}\)(\(\vec{x}\)), then fit a linear model with a regularization term. 3. Use kernel ridge regression with a kernel κ(\(\vec{x}\),\(\vec{z}\)) that corresponds to our feature space. Conceptually explain how these three approaches are related. Make sure to include answers to these ques- tions: a) (2 points) Conceptually, explain how these three approaches are related. b) (1 point) Why might we prefer approach 2 over approach 1? c) (1 point) Why might we prefer approach 3 over approach 2?</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
-<div class="solution-body"><p>Solution: In linear ridge regression, we are learning to minimize arg min∥Z ⃗w −y∥+ λ∥w∥ ⃗w where  X, if using the original features,  Z = ΦΦT , if using feature maps, K, if using kernel ridge regression. . This unifies the three ways of performing the ridge regression, but really we are just doing ridge regression in either the original data space or the feature space. Solution: The benefit of feature maps is the allow us to model the data nonlinearly if we choose nonlinear features, giving us more power/flexibility to model our data. Solution: The benefit of using the kernel trick (i.e. kernel ridge regression) is that instead of actually computing each feature vector for each sample, the kernel trick allows us to save on time/computation by just computing the kernel function between the two samples.</p></div>
+<div class="solution-body"><p>Solution: In linear ridge regression, we are learning to minimize arg min∥Z \(\vec{w}\) −y∥+ λ∥w∥ \(\vec{w}\) where  X, if using the original features,  Z = ΦΦT , if using feature maps, K, if using kernel ridge regression. . This unifies the three ways of performing the ridge regression, but really we are just doing ridge regression in either the original data space or the feature space. Solution: The benefit of feature maps is the allow us to model the data nonlinearly if we choose nonlinear features, giving us more power/flexibility to model our data. Solution: The benefit of using the kernel trick (i.e. kernel ridge regression) is that instead of actually computing each feature vector for each sample, the kernel trick allows us to save on time/computation by just computing the kernel function between the two samples.</p></div>
 </details>
 <div class="source-links"><a href="./sources/exam.pdf#page=7">Source PDF page 7</a></div>
 </article>
@@ -2500,8 +2504,8 @@ linearly separable, though.</p></div>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 1.
-a) Suppose f(⃗x) is a convex function of ⃗x and that the gradient of f at the point ⃗x(1) = (0, 5)T is (−3, 5)T .
-Let ⃗x∗= (x∗1, x∗2) be the minimizer of f; you can assume that ⃗x∗̸= ⃗x(1), which implies that f(⃗x∗) &lt; f(⃗x(1)).
+a) Suppose f(\(\vec{x}\)) is a convex function of \(\vec{x}\) and that the gradient of f at the point \(\vec{x}\)(1) = (0, 5)^T is (−3, 5)^T .
+Let \(\vec{x}\)∗= (x∗1, x∗2) be the minimizer of f; you can assume that \(\vec{x}\)∗̸= \(\vec{x}\)(1), which implies that f(\(\vec{x}\)∗) &lt; f(\(\vec{x}\)(1)).
 True or False: it must be the case that x∗2 ≥5.
 b) Explain in your own words why convexity is such a desirable property for a loss function when using gradient
 descent. What can go wrong when the function is not convex? Your answer should address the concept of
@@ -2509,7 +2513,7 @@ local vs. global minima.</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution:
-False as the gradient is the direction of maximal ascent. We would move in the direction of (3, −5)T
+False as the gradient is the direction of maximal ascent. We would move in the direction of (3, −5)^T
 and therefore x∗2 ≤5.
 b) Explain in your own words why convexity is such a desirable property for a loss function when using gradient
 descent. What can go wrong when the function is not convex? Your answer should address the concept of
@@ -2550,24 +2554,24 @@ If that example seems too contrived, consider f1(x) = x4 + 3x2 and f2(x) = x3. T
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 3.
 Recall that a subgradient of the absolute loss is:
-Aug(⃗x), if Aug(⃗x) · ⃗w −y &gt; 0,
- −Aug(⃗x), if Aug(⃗x) · ⃗w −y &lt; 0,
-⃗0, otherwise.
+Aug(\(\vec{x}\)), if Aug(\(\vec{x}\)) · \(\vec{w}\) −y &gt; 0,
+ −Aug(\(\vec{x}\)), if Aug(\(\vec{x}\)) · \(\vec{w}\) −y &lt; 0,
+\(\vec{0}\), otherwise.
 Suppose you are running subgradient descent to minimize the risk with respect to the absolute loss in order
 to train a function H(x) = w0 + w1x1 + w2x2 on the following data set:
 x1 x2 y
 2 5 6
 1 2 3
-Suppose that the initial weight vector is ⃗w = (0, 0, 0)T and that the learning rate η = 1. What will be the
+Suppose that the initial weight vector is \(\vec{w}\) = (0, 0, 0)^T and that the learning rate η = 1. What will be the
 weight vector after one iteration of subgradient descent?</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution:
-As Aug(⃗x)· ⃗w = 0, Aug(⃗x)· ⃗w−y = −y &lt; 0. So, ∂⃗wR(⃗w)∂ = nΣn1 i=1 ∂⃗wLabs.∂ Plugging in our data we have,
-1 1 2
-⃗w = (0, 0, 0)T + 12(2, 3, 7)T = ∂⃗wR(⃗w)∂ = −12(2+ 1) = −12 3After 1 iteration of gradient descent
+As Aug(\(\vec{x}\))· \(\vec{w}\) = 0, Aug(\(\vec{x}\))· \(\vec{w}\)−y = −y &lt; 0. So, ∂\(\vec{w}\)R(\(\vec{w}\))∂ = nΣn1 i=1 ∂\(\vec{w}\)Labs.∂ Plugging in our data we have,
+[1] [1] [2]
+\(\vec{w}\) = (0, 0, 0)^T + 12(2, 3, 7)^T = ∂\(\vec{w}\)R(\(\vec{w}\))∂ = −12([2]+ [1]) = −12 [3]After 1 iteration of gradient descent
 5 2 7
-(1, 3/2, 7/2)T .</p></div>
+(1, 3/2, 7/2)^T .</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
@@ -2578,22 +2582,22 @@ As Aug(⃗x)· ⃗w = 0, Aug(⃗x)· ⃗w−y = −y &lt; 0. So, ∂⃗wR(⃗w)�
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 4.
-Let X = {⃗x(i), yi} be a data set of n points where each ⃗x(i) ∈Rd.
-Let Z = {⃗z(i), yi} be the data set obtained from the original by standardizing each feature. That is, if a
-matrix were created with the i-th row being ⃗z(i), then the mean of each column would be 0, and the variance
+Let X = {\(\vec{x}\)(i), yi} be a data set of n points where each \(\vec{x}\)(i) ∈Rd.
+Let Z = {\(\vec{z}\)(i), yi} be the data set obtained from the original by standardizing each feature. That is, if a
+matrix were created with the i-th row being \(\vec{z}\)(i), then the mean of each column would be 0, and the variance
 would be 1.
 a) Suppose linear predictors H1 and H2 are fit on X and Z by minimizing the MSE, respectively.
-True or False: H1(⃗x(i)) = H2(⃗z(i)) for every i = 1, . . . , n.
+True or False: H1(\(\vec{x}\)(i)) = H2(\(\vec{z}\)(i)) for every i = 1, . . . , n.
 b) Suppose that X and Z are both linearly-separable. Suppose Hard-SVMs H1 and H2 are trained on X and
 Z, respectively.
-True or False: H1(⃗x(i)) = H2(⃗z(i)) for every i = 1, . . . , n.</p></div>
+True or False: H1(\(\vec{x}\)(i)) = H2(\(\vec{z}\)(i)) for every i = 1, . . . , n.</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution:
 True. In linear functions, changing input unit do not change the output.
 b) Suppose that X and Z are both linearly-separable. Suppose Hard-SVMs H1 and H2 are trained on X and
 Z, respectively.
-True or False: H1(⃗x(i)) = H2(⃗z(i)) for every i = 1, . . . , n.
+True or False: H1(\(\vec{x}\)(i)) = H2(\(\vec{z}\)(i)) for every i = 1, . . . , n.
 Solution:
 False. In (Hard) SVMs, changing scales may change the output, e.g., by changing the set of support
 vectors.</p></div>
@@ -2609,12 +2613,12 @@ vectors.</p></div>
 <div class="question-body"><p>Problem 5.
 Consider the image below:
 The blue points have label +1, and the red points have label −1. Suppose H is a linear prediction function,
-and when H is applied to the point A in the above image, H(⃗x) = 4. The black line in the middle of the
+and when H is applied to the point A in the above image, H(\(\vec{x}\)) = 4. The black line in the middle of the
 image is the decision boundary H = 0.
 You may assume that H is exactly in the middle of the points, and that all points are equidistant from the
 decision boundary.
 a) What is the mean square loss of this prediction function, H?
-b) True or false: there exists a linear prediction function H which has a mean square loss of zero on this data.</p></div>
+b) True or false: there exists a linear prediction function H which has a mean square loss of zero on this data.</p><figure class="source-preview"><img alt="Source page preview for discussion-03-p05" loading="lazy" src="./source-previews/discussion-03-p05.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution:
@@ -2624,7 +2628,7 @@ blue and red points is 1 and −1, respectively. So the prediction is off by 3 i
 squared error on each point 32 = 9, so the mean squared error (mean square loss) is 9.
 b) True or false: there exists a linear prediction function H which has a mean square loss of zero on this data.
 Solution:
-True. One simple way is to modify H. Let H′(⃗x) = H(⃗x)/4, then H′ is also a linear prediction function
+True. One simple way is to modify H. Let H′(\(\vec{x}\)) = H(\(\vec{x}\))/4, then H′ is also a linear prediction function
 with its output exactly correct for each data point.
 Alternatively, here’s a geometric argument: a linear prediction function in two dimensions fits a plane
 to the data, where we have lifted to blue points to a height of 1 and the red points to a height of -1.
@@ -2640,7 +2644,7 @@ plane that goes exactly through all of the points.</p></div>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 6.
-Suppose a line of the form H(x) = w0 + w1x is fit to a data set of points {(xi, yi)} in R2 by minimizing the
+Suppose a line of the form H(x) = w0 + w1x is fit to a data set of points {(xi, yi)} in \(\mathbb{R}^2\) by minimizing the
 mean squared error. Let the mean squared error of this predictor with respect to this data set be E1.
 Next, create a new data set by adding a single new point to the original data set with the property that the
 new point lies exactly on the line H(x) = w0 + w1x that was fit above. Let the mean squared error of H on
@@ -2662,50 +2666,50 @@ E1 &gt; E2</p></div>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 7.
-Consider a binary classification problem in R2 with labels y ∈{−1, 1}. Suppose we train a linear classifier
-with weight vector ⃗w = (w0, w1, w2) and use the predictor sign(Aug(⃗x) · ⃗w).
+Consider a binary classification problem in \(\mathbb{R}^2\) with labels y ∈{−1, 1}. Suppose we train a linear classifier
+with weight vector \(\vec{w}\) = (w0, w1, w2) and use the predictor sign(Aug(\(\vec{x}\)) · \(\vec{w}\)).
 a) Explain in 2–3 sentences what the decision boundary is geometrically, and what role the magnitude of
-H(⃗x) = Aug(⃗x) · ⃗w plays in a linear classifier’s predictions. In particular, what does it mean for a correctly-
-classified point to have a large |H(⃗x)| vs. a small |H(⃗x)|?
-b) Imagine a different a H(x) that uses nonlinear features, for example H(x) = ⃗wT φ(x) where φ(x) = [x, x2]T .
+H(\(\vec{x}\)) = Aug(\(\vec{x}\)) · \(\vec{w}\) plays in a linear classifier’s predictions. In particular, what does it mean for a correctly-
+classified point to have a large |H(\(\vec{x}\))| vs. a small |H(\(\vec{x}\))|?
+b) Imagine a different a H(x) that uses nonlinear features, for example H(x) = \(\vec{w}\)^T φ(x) where φ(x) = [x, x2]^T .
 Would our decision boundary still be a plane in our data space? Explain.
-c) Suppose ⃗w = (w0, w1, w2) = (1, 2, −1) (where w0 = 1 is the bias). Consider the following four points and
+c) Suppose \(\vec{w}\) = (w0, w1, w2) = (1, 2, −1) (where w0 = 1 is the bias). Consider the following four points and
 their true labels:
-Point ⃗x(i) True label yi
+Point \(\vec{x}\)(i) True label yi
 (1, 3) +1
 (2, 1) −1
 (−1, 2) +1
 (0, −1) −1
-For each point, compute H(⃗x(i)) = Aug(⃗x(i)) · ⃗w, state whether it is correctly classified, and compute the
+For each point, compute H(\(\vec{x}\)(i)) = Aug(\(\vec{x}\)(i)) · \(\vec{w}\), state whether it is correctly classified, and compute the
 perceptron loss ℓtron and the 0-1 loss ℓ0-1 for each point.
 d) The 0-1 loss directly measures what we care about (misclassification), yet we use other loss functions (like
 perceptron loss or hinge loss) during training. Why don’t we use 0-1 loss?</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: Since our prediction function is linear, the decision boundary is (geometrically) the plane
-where H(⃗x) = 0. The sign of H(⃗x) tells us which side of that hyperplane a point lies on, and hence
-which label we predict. The magnitude |H(⃗x)| is proportional to the distance of ⃗x from the decision
-boundary: a large |H(⃗x)| means the point is far from the boundary and the classifier is, in some sense,
-confident, while a small |H(⃗x)| means the point is close to the boundary and a tiny perturbation could
+where H(\(\vec{x}\)) = 0. The sign of H(\(\vec{x}\)) tells us which side of that hyperplane a point lies on, and hence
+which label we predict. The magnitude |H(\(\vec{x}\))| is proportional to the distance of \(\vec{x}\) from the decision
+boundary: a large |H(\(\vec{x}\))| means the point is far from the boundary and the classifier is, in some sense,
+confident, while a small |H(\(\vec{x}\))| means the point is close to the boundary and a tiny perturbation could
 flip the prediction.
-b) Imagine a different a H(x) that uses nonlinear features, for example H(x) = ⃗wT φ(x) where φ(x) = [x, x2]T .
+b) Imagine a different a H(x) that uses nonlinear features, for example H(x) = \(\vec{w}\)^T φ(x) where φ(x) = [x, x2]^T .
 Would our decision boundary still be a plane in our data space? Explain.
 Solution: No, our decision boundary is not necessarily a plane. Because we have a nonlinear feature,
 our decision boundary (in our data space) can stretch and bend nonlinearly. Lecture 8 Slide 31 shows
 a perfect example of this.
-c) Suppose ⃗w = (w0, w1, w2) = (1, 2, −1) (where w0 = 1 is the bias). Consider the following four points and
+c) Suppose \(\vec{w}\) = (w0, w1, w2) = (1, 2, −1) (where w0 = 1 is the bias). Consider the following four points and
 their true labels:
-Point ⃗x(i) True label yi
+Point \(\vec{x}\)(i) True label yi
 (1, 3) +1
 (2, 1) −1
 (−1, 2) +1
 (0, −1) −1
-For each point, compute H(⃗x(i)) = Aug(⃗x(i)) · ⃗w, state whether it is correctly classified, and compute the
+For each point, compute H(\(\vec{x}\)(i)) = Aug(\(\vec{x}\)(i)) · \(\vec{w}\), state whether it is correctly classified, and compute the
 perceptron loss ℓtron and the 0-1 loss ℓ0-1 for each point.
 d) The 0-1 loss directly measures what we care about (misclassification), yet we use other loss functions (like
 perceptron loss or hinge loss) during training. Why don’t we use 0-1 loss?
 Solution: Zero gradient almost everywhere. The 0-1 loss is piecewise constant: it equals 0 or
-1 and is flat almost everywhere. Its gradient with respect to ⃗w is ⃗0 almost everywhere, which means
+1 and is flat almost everywhere. Its gradient with respect to \(\vec{w}\) is \(\vec{0}\) almost everywhere, which means
 gradient (and subgradient) descent has no slope information to follow and cannot make progress.</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
@@ -2724,11 +2728,11 @@ a) First, write down the partial derivatives of the L1 and L2 regularization ter
 specific weight wj (you may ignore the case where wj = 0, as the gradient might be undefined there).
 • The L1 regularization term is given by:
 d
-R1(⃗w) = λ X |wj|
+R1(\(\vec{w}\)) = λ X |wj|
 j=1
 • The L2 regularization term is given by:
 d
-R2(⃗w) = λ X w2j
+\(\mathbb{R}^2\)(\(\vec{w}\)) = λ X w2j
 j=1
 b) Based on these derivatives, which regularizer is more effective at pushing wj to zero?
 Hint: Consider the behavior of the gradients when wj is already small. For simplicity, assume that
@@ -2738,13 +2742,13 @@ the partial derivative ∂wj∂ of the Mean Squared Error (MSE) term is zero.</p
 <div class="solution-body"><p>Solution: A) Partial Derivatives of L1 and L2 Regularization Terms
 • L1 Regularization:
 d
-∂R1(⃗w) R1(⃗w) = λ X |wj|, = λ · sign(wj)
+∂R1(\(\vec{w}\)) R1(\(\vec{w}\)) = λ X |wj|, = λ · sign(wj)
 ∂wj j=1
 where sign(wj) = 1 if wj &gt; 0 and −1 if wj &lt; 0.
 • L2 Regularization:
 d
-∂R2(⃗w)
-R2(⃗w) = λ X w2j, = 2λwj
+∂\(\mathbb{R}^2\)(\(\vec{w}\))
+\(\mathbb{R}^2\)(\(\vec{w}\)) = λ X w2j, = 2λwj
 ∂wj j=1
 • L1 Regularization applies a constant force λ · sign(wj), pushing weights to exactly zero and
 promoting sparsity.
@@ -2761,9 +2765,9 @@ small, making it less effective at driving weights to zero.</p></div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 9.
 Consider the following two scenarios:
-• Scenario A: You apply the feature map ⃗φ(x1, x2) = (x1, x2, x21, x22, x1x2)T to your data and train a
+• Scenario A: You apply the feature map \(\vec{φ}\)(x1, x2) = (x1, x2, x21, x22, x1x2)^T to your data and train a
 least squares classifier in feature space.
-• Scenario B: You skip the feature map entirely and train a least squares classifier directly on (x1, x2)T .
+• Scenario B: You skip the feature map entirely and train a least squares classifier directly on (x1, x2)^T .
 A classmate says: “Scenario A is strictly better than Scenario B — more features always means a better
 model.” Another classmate disagrees: “Scenario A is not always better. There are cases where adding these
 extra features could actually hurt you.”
@@ -2788,16 +2792,16 @@ and x1x2 provide no useful additional signal and the model has to learn to ignor
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 10. (2 points)
-Consider the data set: ⃗x(1) = (1, 0, 2)T ⃗x(2) = (−1, 0, −1)T ⃗x(3) = (1, 2, 1)T ⃗x(4) = (1, 1, 0)T
-Suppose a prediction function H(⃗x) is learned using kernel ridge regression on the above data set using the
-kernel κ(⃗x, ⃗x′) = (1 + ⃗x · ⃗x′)2 and regularization parameter λ = 3. Suppose that ⃗α = (−1, −2, 0, 2)T is the
+Consider the data set: \(\vec{x}\)(1) = (1, 0, 2)^T \(\vec{x}\)(2) = (−1, 0, −1)^T \(\vec{x}\)(3) = (1, 2, 1)^T \(\vec{x}\)(4) = (1, 1, 0)^T
+Suppose a prediction function H(\(\vec{x}\)) is learned using kernel ridge regression on the above data set using the
+kernel κ(\(\vec{x}\), \(\vec{x}\)′) = (1 + \(\vec{x}\) · \(\vec{x}\)′)2 and regularization parameter λ = 3. Suppose that \(\vec{α}\) = (−1, −2, 0, 2)^T is the
 solution of the dual problem.
 a) What is the (2,3) entry of the kernel matrix?
-b) Let ⃗x = (1, 1, 0)T be a new point. What is H(⃗x)?</p></div>
+b) Let \(\vec{x}\) = (1, 1, 0)^T be a new point. What is H(\(\vec{x}\))?</p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: 1
-b) Let ⃗x = (1, 1, 0)T be a new point. What is H(⃗x)?
+b) Let \(\vec{x}\) = (1, 1, 0)^T be a new point. What is H(\(\vec{x}\))?
 Solution: 14</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
@@ -2809,10 +2813,10 @@ Solution: 14</p></div>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 11.
-Let {⃗x(i), yi} be a data set of n points, with each ⃗x(i) ∈Rd. Recall that the solution to the kernel ridge
-regression problem is ⃗α = (K + nλI)−1⃗y, where K is the kernel matrix, I is the identity matrix, λ &gt; 0 is a
-regularization parameter, and ⃗y = (y1, . . . , yn)T .
-Suppose kernel ridge regression is performed with a kernel κ that is a kernel for a feature map ⃗φ : Rd →Rk.
+Let {\(\vec{x}\)(i), yi} be a data set of n points, with each \(\vec{x}\)(i) ∈Rd. Recall that the solution to the kernel ridge
+regression problem is \(\vec{α}\) = (K + nλI)−1\(\vec{y}\), where K is the kernel matrix, I is the identity matrix, λ &gt; 0 is a
+regularization parameter, and \(\vec{y}\) = (y1, . . . , yn)^T .
+Suppose kernel ridge regression is performed with a kernel κ that is a kernel for a feature map \(\vec{φ}\) : Rd →Rk.
 What is the size of the kernel matrix, K?
 d × d
 k × k
@@ -2825,71 +2829,53 @@ The kernel matrix is of size n × n.</p></div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
-<article class="question-card" data-kind="discussion" data-search="midterm review discussion 3 problem 12 problem 12. in lecture, we saw that svms minimize the (regularized) risk with respect to the hinge loss. now recall, the 0-1 loss, which was defined in lecture as: ( 0, if yi = sign(⃗w · aug(⃗x(i))), l(⃗x(i), yi, ⃗w) = 1, otherwise. a) suppose a hard svm is trained on linearly-separable data. true or false: the solution is guaranteed to have the smallest 0-1 risk of any possible linear prediction function h(⃗x) = ⃗w · aug(⃗x). true false b) suppose a soft svm is trained on linearly-separable data using an unknown slack parameter c. true or false: the solution is guaranteed to have the smallest 0-1 risk of any possible linear prediction function h(⃗x) = ⃗w · aug(⃗x). true false c) suppose a soft svm is trained on data that is not linearly separable using an unknown slack param- eter c. true or false: the solution is guaranteed to have the smallest 0-1 risk of any possible linear prediction function h(⃗x) = ⃗w · aug(⃗x). true false solution: true. if the data is linearly seperable, then a hard-svm will draw a decision boundary that goes between the two classes, perfectly classifying the training data and achieve a 0-1 risk of zero. b) suppose a soft svm is trained on linearly-separable data using an unknown slack parameter c. true or false: the solution is guaranteed to have the smallest 0-1 risk of any possible linear prediction function h(⃗x) = ⃗w · aug(⃗x). true false solution: false. c) suppose a soft svm is trained on data that is not linearly separable using an unknown slack param- eter c. true or false: the solution is guaranteed to have the smallest 0-1 risk of any possible linear prediction function h(⃗x) = ⃗w · aug(⃗x). true false solution: false." data-topic="Midterm Review" id="discussion-03-p12">
+<article class="question-card" data-kind="discussion" data-search="discussion 3 · problem 12 discussion discussion 3 midterm review problem 12. in lecture, we saw that svms minimize the regularized risk with respect to hinge loss. recall the 0-1 loss: \[ l(x^{(i)},y_i,w)= \begin{cases} 0, &amp; y_i=\operatorname{sign}(w\cdot \operatorname{aug}(x^{(i)})),\\ 1, &amp; \text{otherwise.} \end{cases} \] a) suppose a hard svm is trained on linearly separable data. is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(h(x)=w\cdot\operatorname{aug}(x)\)? true false b) suppose a soft svm is trained on linearly separable data using an unknown slack parameter \(c\). is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(h(x)=w\cdot\operatorname{aug}(x)\)? true false c) suppose a soft svm is trained on data that is not linearly separable using an unknown slack parameter \(c\). is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(h(x)=w\cdot\operatorname{aug}(x)\)? true false solution a) true. if the data are linearly separable, a hard-svm finds a separating boundary, so the training 0-1 risk is zero. zero is the smallest possible risk. b) false. with a soft-svm, the slack parameter \(c\) trades off margin and violations. for some \(c\), the model may allow errors even when a perfect separator exists. c) false. hinge-loss minimization is not the same objective as 0-1-loss minimization, so the soft-svm solution is not guaranteed to minimize 0-1 risk on nonseparable data. source pdf source solution pdf" data-topic="Midterm Review" id="discussion-03-p12">
 <div class="card-head">
 <h4><a href="#discussion-03-p12">Discussion 3 · Problem 12</a></h4>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 12.
-In lecture, we saw that SVMs minimize the (regularized) risk with respect to the hinge loss. Now recall, the
-0-1 loss, which was defined in lecture as:
-( 0, if yi = sign(⃗w · Aug(⃗x(i))),
-L(⃗x(i), yi, ⃗w) =
-1, otherwise.
-a) Suppose a Hard SVM is trained on linearly-separable data. True or False: the solution is guaranteed
-to have the smallest 0-1 risk of any possible linear prediction function H(⃗x) = ⃗w · Aug(⃗x).
-True
-False
-b) Suppose a Soft SVM is trained on linearly-separable data using an unknown slack parameter C. True
-or False: the solution is guaranteed to have the smallest 0-1 risk of any possible linear prediction
-function H(⃗x) = ⃗w · Aug(⃗x).
-True
-False
-c) Suppose a Soft SVM is trained on data that is not linearly separable using an unknown slack param-
-eter C. True or False: the solution is guaranteed to have the smallest 0-1 risk of any possible linear
-prediction function H(⃗x) = ⃗w · Aug(⃗x).
-True
-False</p></div>
+<div class="question-body">
+<p>Problem 12. In lecture, we saw that SVMs minimize the regularized risk with respect to hinge loss. Recall the 0-1 loss:</p>
+<div class="math-block">\[
+L(x^{(i)},y_i,w)=
+\begin{cases}
+0, &amp; y_i=\operatorname{sign}(w\cdot \operatorname{Aug}(x^{(i)})),\\
+1, &amp; \text{otherwise.}
+\end{cases}
+\]</div>
+<p><strong>a)</strong> Suppose a Hard SVM is trained on linearly separable data. Is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(H(x)=w\cdot\operatorname{Aug}(x)\)?</p>
+<ul class="choices radio"><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul>
+<p><strong>b)</strong> Suppose a Soft SVM is trained on linearly separable data using an unknown slack parameter \(C\). Is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(H(x)=w\cdot\operatorname{Aug}(x)\)?</p>
+<ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul>
+<p><strong>c)</strong> Suppose a Soft SVM is trained on data that is not linearly separable using an unknown slack parameter \(C\). Is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(H(x)=w\cdot\operatorname{Aug}(x)\)?</p>
+<ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul></div>
 <details class="solution-box">
 <summary>Solution</summary>
-<div class="solution-body"><p>Solution: True. If the data is linearly seperable, then a Hard-SVM will draw a decision boundary
-that goes between the two classes, perfectly classifying the training data and achieve a 0-1 risk
-of zero.
-b) Suppose a Soft SVM is trained on linearly-separable data using an unknown slack parameter C. True
-or False: the solution is guaranteed to have the smallest 0-1 risk of any possible linear prediction
-function H(⃗x) = ⃗w · Aug(⃗x).
-True
-False
-Solution: False.
-c) Suppose a Soft SVM is trained on data that is not linearly separable using an unknown slack param-
-eter C. True or False: the solution is guaranteed to have the smallest 0-1 risk of any possible linear
-prediction function H(⃗x) = ⃗w · Aug(⃗x).
-True
-False
-Solution: False.</p></div>
+<div class="solution-body">
+<p><strong>a)</strong> True. If the data are linearly separable, a Hard-SVM finds a separating boundary, so the training 0-1 risk is zero. Zero is the smallest possible risk.</p>
+<p><strong>b)</strong> False. With a Soft-SVM, the slack parameter \(C\) trades off margin and violations. For some \(C\), the model may allow errors even when a perfect separator exists.</p>
+<p><strong>c)</strong> False. Hinge-loss minimization is not the same objective as 0-1-loss minimization, so the Soft-SVM solution is not guaranteed to minimize 0-1 risk on nonseparable data.</p>
+</div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
-<article class="question-card" data-kind="discussion" data-search="midterm review discussion 3 problem 13 problem 13. the image below shows a linear prediction function h along with a data set; the “×” points have label +1 while the “◦” points have label -1. also shown are the places where the output of h is 0, 1, and -1. true or false: h could have been learned by training a hard-svm on this data set. true false solution: false. the solution to the hard-svm problem is a hyperplane that separates the two classes with the maximum margin. in this solution, the margin is not maximized: there is room for the “exclusion zone” between the two classes to grow, and for the margin to increase." data-topic="Midterm Review" id="discussion-03-p13">
+<article class="question-card" data-kind="discussion" data-search="discussion 3 · problem 13 discussion discussion 3 midterm review problem 13. the source page preview shows a linear prediction function \(h\) along with a data set. the \(\times\) points have label \(+1\), the \(\circ\) points have label \(-1\), and the lines where \(h\) outputs \(0\), \(1\), and \(-1\) are shown. true or false: could this \(h\) have been learned by training a hard-svm on this data set? true false source page preview solution false. a hard-svm chooses the separating hyperplane with maximum margin. in the shown figure, the margin is not maximized: there is room for the exclusion zone between the two classes to grow. answer: false. source pdf source solution pdf" data-topic="Midterm Review" id="discussion-03-p13">
 <div class="card-head">
 <h4><a href="#discussion-03-p13">Discussion 3 · Problem 13</a></h4>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 13.
-The image below shows a linear prediction function H along with a data set; the “×” points have label +1
-while the “◦” points have label -1. Also shown are the places where the output of H is 0, 1, and -1.
-True or False: H could have been learned by training a Hard-SVM on this data set.
-True
-False</p></div>
+<div class="question-body">
+<p>Problem 13. The source page preview shows a linear prediction function \(H\) along with a data set. The \(\times\) points have label \(+1\), the \(\circ\) points have label \(-1\), and the lines where \(H\) outputs \(0\), \(1\), and \(-1\) are shown.</p>
+<p>True or false: could this \(H\) have been learned by training a Hard-SVM on this data set?</p>
+<ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul><figure class="source-preview"><img alt="Source page preview for discussion-03-p13" loading="lazy" src="./source-previews/discussion-03-p13.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
-<div class="solution-body"><p>Solution: False.
-The solution to the Hard-SVM problem is a hyperplane that separates the two classes with the maximum
-margin.
-In this solution, the margin is not maximized: There is room for the “exclusion zone” between the two
-classes to grow, and for the margin to increase.</p></div>
+<div class="solution-body">
+<p>False. A Hard-SVM chooses the separating hyperplane with maximum margin. In the shown figure, the margin is not maximized: there is room for the exclusion zone between the two classes to grow.</p>
+<p class="answer-line">Answer: False.</p>
+</div>
 </details>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
@@ -2901,7 +2887,7 @@ classes to grow, and for the margin to increase.</p></div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
 <div class="question-body"><p>Problem 14.
 Consider the data set shown below:
-What is the predicted value of y at x = 3 if the 3-nearest neighbor rule is used?</p></div>
+What is the predicted value of y at x = 3 if the 3-nearest neighbor rule is used?</p><figure class="source-preview"><img alt="Source page preview for discussion-03-p14" loading="lazy" src="./source-previews/discussion-03-p14.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution: 6</p></div>
@@ -2935,7 +2921,7 @@ that distribution's covariance matrix. Six random draws from the distribution ar
 What is the maximum likelihood estimate for
 ?
 C
-​</p></div>
+​</p><figure class="source-preview"><img alt="Source page preview for lab-08-q01" loading="lazy" src="./source-previews/lab-08-q01.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>The maximum likelihood estimate for the covariance of feature 1 and 2 is
@@ -3332,10 +3318,10 @@ are diagonal. In general, the decision boundary is therefore not linear, but qua
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 1</span><span>Nearest Neighbors and Least Squares</span></div>
-<div class="question-body"><hr/><p>Consider the data shown below:</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-data.png"/></p><p>Which of the following plots could show the mean squared error \(R(\vec w)\) of a linear predictor \(H(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w = w_0 + w_1 x_1\) with respect to this data set?</p><p>( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-2.png"/><br/>
-(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-1.png"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-3.png"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-4.png"/></p></div>
+<div class="question-body"><hr/><p>Consider the data shown below:</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-data.jpg"/></p><p>Which of the following plots could show the mean squared error \(R(\vec w)\) of a linear predictor \(H(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w = w_0 + w_1 x_1\) with respect to this data set?</p><p>( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-2.jpg"/><br/>
+(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-1.jpg"/><br/>
+( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-3.jpg"/><br/>
+( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-4.jpg"/></p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p><span class="solution-note">These plots show the "risk surface". It plots the risk for all possible choices of \(w_0\) and \(w_1\) (within some range). The key thing to understand for answering this question is that the minimum point on the risk surface corresponds to the choice of parameters \(w_0\) and \(w_1\) that "best fits" the training data (in the sense of minimizing the mean squared error). So, we are looking for the risk surface whose minimum is at a choice of \(w_0\) and \(w_1\) that seems to fit the data well.</span><br/>
@@ -3350,10 +3336,10 @@ are diagonal. In general, the decision boundary is therefore not linear, but qua
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 1</span><span>Nearest Neighbors and Least Squares</span></div>
-<div class="question-body"><hr/><p>Which of the plots below shows the surface of the linear prediction function \(H(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w\) with \(\vec w = (3, -2, 1)^T\)?</p><p>( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-4.png"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-3.png"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-2.png"/><br/>
-(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-1.png"/></p></div>
+<div class="question-body"><hr/><p>Which of the plots below shows the surface of the linear prediction function \(H(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w\) with \(\vec w = (3, -2, 1)^T\)?</p><p>( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-4.jpg"/><br/>
+( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-3.jpg"/><br/>
+( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-2.jpg"/><br/>
+(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-1.jpg"/></p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p><span class="solution-note">Remember from lecture that the weight \(w_i\) is the slope of the plane in the \(i\)th direction (and \(w_0\) is the "bias"). Since \(w_1 = -2\) is negative, we're looking for a plane that slopes downward as \(x_1\) increases. And since \(w_2 = 1\), the correct plane will slope upward as we increase \(x_2\). The only option that satisfies this is the last one.</span></p></div>
@@ -3366,10 +3352,10 @@ are diagonal. In general, the decision boundary is therefore not linear, but qua
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 1</span><span>Nearest Neighbors and Least Squares</span></div>
-<div class="question-body"><hr/><p>The figure below shoes the surface of the linear prediction function \(H_1(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w\) with \(\vec w = (w_0, w_1, w_2)^T\).</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-0.png"/></p><p>Now let \(\omega = (w_0 + 10, w_1, w_2)^T\). Which of the below plots could show the surface of the prediction function \(H_2(\vec x) = \operatorname{Aug}(\vec x) \cdot \omega\) as a yellow plane? For convenience, the original surface is shown in blue.</p><p>(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-1.png"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-2.png"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-3.png"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-4.png"/></p></div>
+<div class="question-body"><hr/><p>The figure below shoes the surface of the linear prediction function \(H_1(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w\) with \(\vec w = (w_0, w_1, w_2)^T\).</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-0.jpg"/></p><p>Now let \(\omega = (w_0 + 10, w_1, w_2)^T\). Which of the below plots could show the surface of the prediction function \(H_2(\vec x) = \operatorname{Aug}(\vec x) \cdot \omega\) as a yellow plane? For convenience, the original surface is shown in blue.</p><p>(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-1.jpg"/><br/>
+( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-2.jpg"/><br/>
+( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-3.jpg"/><br/>
+( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-4.jpg"/></p></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p><span class="solution-note">The first entry of the weight vector is the "bias" term, while the other terms are the slopes in the corresponding directions. So, adding 10 to the bias term will shift the plane up by 10 units, but not change the slopes. Therefore, the new plane is simply the old plane, "lifted" up by 10 units.</span></p></div>
@@ -3458,7 +3444,7 @@ are diagonal. In general, the decision boundary is therefore not linear, but qua
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 5</span><span>Regularization</span></div>
-<div class="question-body"><p>The image below shows the contours of the expected square loss: n . R</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w x ( i ) - w y ) i 2 (Aug</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">⋅ n i =1 ∑ The dashed lines show the contours of ; that is, all points along the same dashed line ρ</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w ∥∥ w 1 have the same 1-norm. Which of the points labeled could possibly be the minimizer of the unregularized risk, ? R</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">w</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (1)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (2)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (3)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (4)\)</span></li></ul></div>
+<div class="question-body"><p>The image below shows the contours of the expected square loss: n . R</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w x ( i ) - w y ) i 2 (Aug</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">⋅ n i =1 ∑ The dashed lines show the contours of ; that is, all points along the same dashed line ρ</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w ∥∥ w 1 have the same 1-norm. Which of the points labeled could possibly be the minimizer of the unregularized risk, ? R</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">w</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (1)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (2)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (3)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (4)\)</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-05-q01" loading="lazy" src="./source-previews/lab-05-q01.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Since we are asking for the minimizer of unregularized risk, we can ignore the contours of
@@ -3478,7 +3464,7 @@ bowl.</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 5</span><span>Regularization</span></div>
-<div class="question-body"><p>The image below shows the contours of the expected square loss: n . R</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w x ( i ) - w y ) i 2 (Aug</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">⋅ n i =1 ∑ The dashed lines show the contours of ; that is, all points along the same dashed line ρ</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w ∥∥ w 1 have the same 1-norm. Suppose that when the LASSO is performed with regularization parameter , the optimal choice of parameter vector is found to be . λ 1 w (1) Suppose the LASSO is repeated, this time with the regularization parameter . Assuming that λ &gt; λ 1 one of the labeled points is the optimal choice of parameter vector with this new regularization parameter, which point could it be? You may assume that . λ &gt;</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (1)\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (2)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (3)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (4)\)</span></li></ul></div>
+<div class="question-body"><p>The image below shows the contours of the expected square loss: n . R</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w x ( i ) - w y ) i 2 (Aug</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">⋅ n i =1 ∑ The dashed lines show the contours of ; that is, all points along the same dashed line ρ</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w ∥∥ w 1 have the same 1-norm. Suppose that when the LASSO is performed with regularization parameter , the optimal choice of parameter vector is found to be . λ 1 w (1) Suppose the LASSO is repeated, this time with the regularization parameter . Assuming that λ &gt; λ 1 one of the labeled points is the optimal choice of parameter vector with this new regularization parameter, which point could it be? You may assume that . λ &gt;</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (1)\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (2)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (3)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (4)\)</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-05-q02" loading="lazy" src="./source-previews/lab-05-q02.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Now we repeat LASSO but with a stronger emphasis on regularization:
@@ -3692,7 +3678,7 @@ x1 x2 x3 y
 We aim to fit a linear model of the form:
 y = w0 + w1x1 + w2x2 + w3x3
 using stochastic gradient descent (SGD) and the following loss function for each data point:
-L(H(⃗x(i); ⃗w), yi) = (yi −Aug(⃗x(i)) · ⃗w)2.
+L(H(\(\vec{x}\)(i); \(\vec{w}\)), yi) = (yi −Aug(\(\vec{x}\)(i)) · \(\vec{w}\))2.
 Perform three iterations of SGD and report the final values of w0, w1, w2 and w3. As a reminder, the steps
 to take are:
 1. Derive the gradients of the loss function with respect to each parameter w0, w1, w2 and w3.
@@ -3705,19 +3691,19 @@ to take are:
 <summary>Solution</summary>
 <div class="solution-body"><p>Solution:
 Expand the loss function:
-L = (Aug(⃗x(i)) · ⃗w −yi)2 = (w0 + x(i)1 w1 + x(i)2 w2 + x(i)3 w3 −yi)2
+L = (Aug(\(\vec{x}\)(i)) · \(\vec{w}\) −yi)2 = (w0 + x(i)1 w1 + x(i)2 w2 + x(i)3 w3 −yi)2
 By the Chain Rule,
 d
-L = 2(Aug(⃗x(i)) · ⃗w −yi) · 1
+L = 2(Aug(\(\vec{x}\)(i)) · \(\vec{w}\) −yi) · 1
 dw0
 d
-L = 2(Aug(⃗x(i)) · ⃗w −yi) · x(i)1
+L = 2(Aug(\(\vec{x}\)(i)) · \(\vec{w}\) −yi) · x(i)1
 dw1
 d
-L = 2(Aug(⃗x(i)) · ⃗w −yi) · x(i)2
+L = 2(Aug(\(\vec{x}\)(i)) · \(\vec{w}\) −yi) · x(i)2
 dw2
 d
-L = 2(Aug(⃗x(i)) · ⃗w −yi) · x(i)3
+L = 2(Aug(\(\vec{x}\)(i)) · \(\vec{w}\) −yi) · x(i)3
 dw3
 2. Perform stochastic gradient descent for three iterations with a batch size of 2 with the following settings:
 • Initial values: w0 = 0, w1 = 0, w2 = 0, w3 = 0
@@ -3728,82 +3714,82 @@ Solution:
 (a) Iteration #1 - Assume B(1) = {1, 3}.
 From (1), the gradient of the loss is
 d
-d⃗wLi = 2(Aug(⃗x(i)) · ⃗w −yi)Aug(⃗x(i))
-So, when i ∈B = {1, 3} and ⃗w(0) = ⃗0,
- 1   −250 
+\(\vec{d}\)wLi = 2(Aug(\(\vec{x}\)(i)) · \(\vec{w}\) −yi)Aug(\(\vec{x}\)(i))
+So, when i ∈B = {1, 3} and \(\vec{w}\)(0) = \(\vec{0}\),
+[ 1 ] [ −250 ]
 d 2 −500
-1200 −300000 d⃗wL1 = 2(Aug(⃗x(1)) · ⃗w(0) −y1)Aug(⃗x(1)) = 2 · (0 −250) ·  2 =  
+1200 −300000 \(\vec{d}\)wL1 = 2(Aug(\(\vec{x}\)(1)) · \(\vec{w}\)(0) −y1)Aug(\(\vec{x}\)(1)) = 2 · (0 −250) · ||[ 2 ||]= ||[ ||]
 20 −5000
- 1   −400 
+[ 1 ] [ −400 ]
 d 5 −2000
-1700 −680000 d⃗wL3 = 2(Aug(⃗x(3)) · ⃗w(0) −y3)Aug(⃗x(3)) = 2 · (0 −400) ·  2 =  
+1700 −680000 \(\vec{d}\)wL3 = 2(Aug(\(\vec{x}\)(3)) · \(\vec{w}\)(0) −y3)Aug(\(\vec{x}\)(3)) = 2 · (0 −400) · ||[ 2 ||]= ||[ ||]
 10 −4000
 Calculate the stochastic gradient,
- −650 
+[ −650 ]
 1 d d −2500
-−980000 ⃗g = 2( d⃗wL1 + d⃗wL3) =  
+−980000 \(\vec{g}\) = 2( \(\vec{d}\)wL1 + \(\vec{d}\)wL3) = ||[ ||]
 −9000
 Update,
- −650   6.5 
+[ −650 ] [ 6.5 ]
 −2500 25
-⃗w(1) = ⃗w(0) −η⃗g = ⃗0 −0.01
-−980000 9800  =  
+\(\vec{w}\)(1) = \(\vec{w}\)(0) −\(\vec{η}\)g = \(\vec{0}\) −0.01
+−980000 9800 ||[ ||]= ||[ ||]
 −9000 90
 (b) Iteration #2 - Assume B(2) = {2, 3}.
- 6.5 
-When i ∈B = {2, 3} and ⃗w(1) = 25
-9800  ,
- 1   6.5   1   14701131.5 
+[ 6.5 ]
+When i ∈B = {2, 3} and \(\vec{w}\)(1) = 25
+9800 ||[ ||],
+[ 1 ] [ 6.5 ] [ 1 ] [ 14701131.5 ]
 d 3 25 3 44103394.5
-1500 9800 1500 22051697200 d⃗wL2 = 2(Aug(⃗x(2)) · ⃗w(1) −y2)Aug(⃗x(2)) = 2 · ( · 2 ·  −300)  =  
+1500 9800 1500 22051697200 \(\vec{d}\)wL2 = 2(Aug(\(\vec{x}\)(2)) · \(\vec{w}\)(1) −y2)Aug(\(\vec{x}\)(2)) = 2 · (||[ · 2 ||]· ||[ ||]−300) ||[ ||]= ||[ ||]
 15 90 15 220516972
- 1   6.5   1   16660631.5 
+[ 1 ] [ 6.5 ] [ 1 ] [ 16660631.5 ]
 d 5 25 5 83303157.5
-1700 9800 1700 28323073600 d⃗wL3 = 2(Aug(⃗x(3)) · ⃗w(1) −y3)Aug(⃗x(3)) = 2 · ( · 2 ·  −400)  =  
+1700 9800 1700 28323073600 \(\vec{d}\)wL3 = 2(Aug(\(\vec{x}\)(3)) · \(\vec{w}\)(1) −y3)Aug(\(\vec{x}\)(3)) = 2 · (||[ · 2 ||]· ||[ ||]−400) ||[ ||]= ||[ ||]
 10 90 10 166606315
 Calculate the stochastic gradient,
- 31361763 
+[ 31361763 ]
 1 d d 127406552
-50374770800 ⃗g = 2( d⃗wL2 + d⃗wL3) =  
+50374770800 \(\vec{g}\) = 2( \(\vec{d}\)wL2 + \(\vec{d}\)wL3) = ||[ ||]
 Update,
- 6.5   31361763  −313611.130 
+[ 6.5 ] [ 31361763 ] [−313611.130 ]
 25 127406552 −1274040.52
-⃗w(2) = ⃗w(1) −η⃗g =
-9800 50374770800 −503737908  −0.01  =  
+\(\vec{w}\)(2) = \(\vec{w}\)(1) −\(\vec{η}\)g =
+9800 50374770800 −503737908 ||[ ||]−0.01 ||[ ||]= ||[ ||]
 90 387123288 −3871142.88
 (c) Iteration #3 - Assume B(3) = {1, 4}.
-−313611.130 
-When i ∈B = {1, 4} and ⃗w(2) = −1274040.52
-−503737908  ,
+[−313611.130 ]
+When i ∈B = {1, 4} and \(\vec{w}\)(2) = −1274040.52
+−503737908 ||[ ||],
 −3871142.88
- 1  −313611.130   1 
+[ 1 ] [−313611.130 ] [ 1 ]
 d 2 −1274040.52 2
-1200 −503737908 1200 d⃗wL1 = 2(Aug(⃗x(1)) · ⃗w(2) −y1)Aug(⃗x(1)) = 2 · ( · ·  −250)  
+1200 −503737908 1200 \(\vec{d}\)wL1 = 2(Aug(\(\vec{x}\)(1)) · \(\vec{w}\)(2) −y1)Aug(\(\vec{x}\)(1)) = 2 · (||[ · ||]· ||[ ||]−250) ||[ ||]
 20 −3871142.88 20
-−6.04565774e + 11
+[−6.04565774e + 11]
 −1.20913155e + 12
 = 2
-−7.25478929e + 14  
+−7.25478929e + 14 ||[ ||]
 −1.20913155e + 13
- 1  −313611.130   1 
+[ 1 ] [−313611.130 ] [ 1 ]
 d 1 −1274040.52 1
-800 −503737908 800 d⃗wL4 = 2(Aug(⃗x(4)) · ⃗w(2) −y4)Aug(⃗x(4)) = 2 · ( · ·  −200)  
+800 −503737908 800 \(\vec{d}\)wL4 = 2(Aug(\(\vec{x}\)(4)) · \(\vec{w}\)(2) −y4)Aug(\(\vec{x}\)(4)) = 2 · (||[ · ||]· ||[ ||]−200) ||[ ||]
 25 −3871142.88 25
-−4.03088693e + 11
+[−4.03088693e + 11]
 −4.03088693e + 11
 = 2
-−3.22470954e + 14  
+−3.22470954e + 14 ||[ ||]
 −1.00772173e + 13
 Then,
-−1.00765447e + 12
+[−1.00765447e + 12]
 1 d d −1.61222024e + 12
-−1.04794988e + 15 ⃗g = 2( d⃗wL1 + d⃗wL4) =  
+−1.04794988e + 15 \(\vec{g}\) = 2( \(\vec{d}\)wL1 + \(\vec{d}\)wL4) = ||[ ||]
 −2.21685328e + 13
 Update,
-1.00762311e + 10 
+[1.00762311e + 10 ]
 1.61209284e + 10
-⃗w(3) = ⃗w(2) −η⃗g =
-1.04789951e + 13  
+\(\vec{w}\)(3) = \(\vec{w}\)(2) −\(\vec{η}\)g =
+1.04789951e + 13 ||[ ||]
 2.21681457e + 11
 which are the final values of w0, w1, w2 and w3 after the three SGD iterations.</p></div>
 </details>
@@ -3835,7 +3821,7 @@ Derive the gradients piecewise:
 " 4(w0 + w1x −y) # , if y &gt; H(x),
 4x(w0 + w1x −y)
 d L d  dw0
-L d⃗wL = dw1d = # −y) 2(w0 + w1x , if y &lt; H(x).
+L \(\vec{d}\)wL = dw1d = # −y) 2(w0 + w1x , if y &lt; H(x).
 + −y) w1x " 2x(w0
 However, if y = H(x) (at the point of intersection), we need to check if L is both continuous and
 differentiable; otherwise, no gradient exists at that point of intersection.
@@ -3849,7 +3835,7 @@ So, there exists a gradient at the point of intersection H(x) = y, and the final
 " 4(w0 + w1x −y) # , if y &gt; H(x),
 4x(w0 + w1x −y)
 " # d L 0 d  dw0 = d = , if y = H(x),
-L 0 d⃗wL dw1
+L 0 \(\vec{d}\)wL dw1
 " # −y) 2(w0 + w1x , if y &lt; H(x).
 + −y)  2x(w0 w1x</p></div>
 </details>
@@ -3931,7 +3917,7 @@ C</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 4</span><span>SVMs and Feature Maps</span></div>
-<div class="question-body"><p>Consider the data set shown below. The points marked with "+" have label 1, while the "o" points have label -1. Shown are the places where a linear prediction function is equal to zero, 1, and -1. H Each cell of the grid is 1 unit by 1 unit. The origin is not plotted (it isn't necessary to know where it is to solve this problem). Suppose that the weight vector of the linear prediction function shown above is . This is not a solution to the Hard-SVM problem, but which of the below vectors is ? w w + w x + w x (-2, 0, ) 1 T</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\((-2, 0, 1)^\top\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">(-1, 0, ) 1 T</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\((0, 1, 0)^\top\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">(-2, 0, ) 1 T</span></li></ul></div>
+<div class="question-body"><p>Consider the data set shown below. The points marked with "+" have label 1, while the "o" points have label -1. Shown are the places where a linear prediction function is equal to zero, 1, and -1. H Each cell of the grid is 1 unit by 1 unit. The origin is not plotted (it isn't necessary to know where it is to solve this problem). Suppose that the weight vector of the linear prediction function shown above is . This is not a solution to the Hard-SVM problem, but which of the below vectors is ? w w + w x + w x (-2, 0, ) 1 T</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\((-2, 0, 1)^\top\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">(-1, 0, ) 1 T</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\((0, 1, 0)^\top\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">(-2, 0, ) 1 T</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-04-q03" loading="lazy" src="./source-previews/lab-04-q03.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body"><p>Although this decision boundary is in the right place, it can’t be the solution to the Hard-SVM
@@ -4057,7 +4043,7 @@ similar plots.</p></div>
 <div class="meta"><span>Midterm B</span><span>SVMs and Feature Maps</span></div>
 <div class="question-body">
 <p>Problem 1. The plot in the source PDF shows \(y\) as a function of \(x\). We want to fit a linear model to predict \(y\) after applying a feature map to \(x\). Which feature maps could reasonably model the curvature? Select all that apply.</p>
-<ul class="choices checkbox"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,\exp(-x^2/1000^2)]^\top\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,x,x^2]^\top\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,\sin(100x)]^\top\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,\exp(-(x-100)^2/0.5^2)]^\top\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,\exp(-x^2/1.5^2)]^\top\)</span></li></ul></div>
+<ul class="choices checkbox"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,\exp(-x^2/1000^2)]^\top\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,x,x^2]^\top\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,\sin(100x)]^\top\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,\exp(-(x-100)^2/0.5^2)]^\top\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(\phi(x)=[1,\exp(-x^2/1.5^2)]^\top\)</span></li></ul><figure class="source-preview"><img alt="Source page preview for exam-b-p01" loading="lazy" src="./source-previews/exam-b-p01.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body">
@@ -4076,7 +4062,7 @@ similar plots.</p></div>
 <div class="question-body">
 <p>Problem 5. The source PDF shows a linear prediction function \(H\) with a data set. The \(\times\) points have label \(+1\), the \(\circ\) points have label \(-1\), and the lines where \(H=0\), \(H=1\), and \(H=-1\) are shown.</p>
 <p>True or false: could this \(H\) have been learned by training a Hard-SVM on the data set?</p>
-<ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul></div>
+<ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul><figure class="source-preview"><img alt="Source page preview for exam-b-p05" loading="lazy" src="./source-previews/exam-b-p05.jpg"/><figcaption>Source page preview</figcaption></figure></div>
 <details class="solution-box">
 <summary>Solution</summary>
 <div class="solution-body">
