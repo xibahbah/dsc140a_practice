@@ -591,11 +591,6 @@
                 </div>
 
                 <ul class="quick-links">
-                    <li><a href="./all-practice-problems.pdf">Practice PDF <span>106 pages</span></a></li>
-                    <li><a href="./labs-discussions.html">Labs, Discussions &amp; Exams <span>by topic</span></a></li>
-                    <li><a href="./all.html">All problems <span>HTML</span></a></li>
-                    <li><a href="./midterm-01.html">Midterm 01 <span>56</span></a></li>
-                    <li><a href="./midterm-02.html">Midterm 02 <span>65</span></a></li>
                     <li><a href="./index.html">Tag index <span>sets</span></a></li>
                 </ul>
 
@@ -605,18 +600,7 @@
                 </div>
 
                 <div class="control-group">
-                    <h2>Type</h2>
-                    <div class="segments" id="typeFilters">
-                        <button type="button" data-type="all" aria-pressed="true">All</button>
-                        <button type="button" data-type="practice" aria-pressed="false">Practice</button>
-                        <button type="button" data-type="lab" aria-pressed="false">Labs</button>
-                        <button type="button" data-type="discussion" aria-pressed="false">Discussions</button>
-                        <button type="button" data-type="exam" aria-pressed="false">Exams</button>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <h2>Practice Set</h2>
+                    <h2>Midterm</h2>
                     <div class="segments" id="examFilters">
                         <button type="button" data-exam="all" aria-pressed="true">All</button>
                         <button type="button" data-exam="m1" aria-pressed="false">Midterm 01</button>
@@ -655,14 +639,12 @@
                 problems: [],
                 tags: [],
                 query: "",
-                type: "all",
                 exam: "all",
                 tag: ""
             };
 
             const els = {
                 search: document.getElementById("search"),
-                typeFilters: document.getElementById("typeFilters"),
                 examFilters: document.getElementById("examFilters"),
                 tagFilters: document.getElementById("tagFilters"),
                 clearFilters: document.getElementById("clearFilters"),
@@ -720,6 +702,32 @@
                     .filter(Boolean));
             }
 
+            // Midterm 1 covers everything through kernels (linear models, gradients,
+            // convexity, perceptrons, regularization, SVMs/feature maps, kernels).
+            // Midterm 2 is everything after kernels (probabilistic models, MLE,
+            // density estimation, Gaussians, naive Bayes, decision trees).
+            const M2_KEYWORDS = [
+                "maximum likelihood", "maxium likelihood", "mle", "densit", "histogram",
+                "gaussian", "naive bayes", "bayes", "covariance", "conditional independence",
+                "discriminant", "decision tree", "final review"
+            ];
+            function midtermFor(parts) {
+                const text = parts.filter(Boolean).join(" ").toLowerCase();
+                return M2_KEYWORDS.some((kw) => text.includes(kw)) ? "m2" : "m1";
+            }
+            // "Kernels and Probabilistic Models" is the one mixed topic: the kernel/SVM
+            // material is Midterm 1, the probabilistic-models material is Midterm 2.
+            function midtermForCourse(id, topic) {
+                if (/kernels and probabilistic/i.test(topic)) {
+                    const m = id.match(/^lab-06-q(\d+)$/);
+                    if (m && parseInt(m[1], 10) >= 6) {
+                        return "m2";
+                    }
+                    return "m1";
+                }
+                return midtermFor([topic]);
+            }
+
             function extractProblems(doc, midtermOne, midtermTwo) {
                 return [...doc.querySelectorAll(".problem-outer")].map((node) => {
                     const heading = node.querySelector("h2");
@@ -730,7 +738,7 @@
                     const body = node.querySelector(".problem-body");
                     const images = [...node.querySelectorAll("img")].map((img) => img.getAttribute("src")).filter(Boolean);
                     const preview = firstReadableParagraph(body);
-                    const exam = midtermOne.has(number) ? "m1" : midtermTwo.has(number) ? "m2" : "other";
+                    const exam = midtermFor(tags);
 
                     return {
                         number,
@@ -779,7 +787,7 @@
                         images,
                         preview: firstReadableParagraph(body),
                         previewHtml,
-                        exam: "course",
+                        exam: midtermForCourse(id, topic),
                         type: kind,
                         searchText: `${title} ${tags.join(" ")} ${node.textContent}`.toLowerCase()
                     };
@@ -877,18 +885,6 @@
                     applyFilters();
                 });
 
-                els.typeFilters.addEventListener("click", (event) => {
-                    const button = event.target.closest("button[data-type]");
-                    if (!button) {
-                        return;
-                    }
-                    state.type = button.dataset.type;
-                    for (const filter of els.typeFilters.querySelectorAll("button")) {
-                        filter.setAttribute("aria-pressed", String(filter === button));
-                    }
-                    applyFilters();
-                });
-
                 els.examFilters.addEventListener("click", (event) => {
                     const button = event.target.closest("button[data-exam]");
                     if (!button) {
@@ -915,13 +911,9 @@
 
                 els.clearFilters.addEventListener("click", () => {
                     state.query = "";
-                    state.type = "all";
                     state.exam = "all";
                     state.tag = "";
                     els.search.value = "";
-                    for (const filter of els.typeFilters.querySelectorAll("button")) {
-                        filter.setAttribute("aria-pressed", String(filter.dataset.type === "all"));
-                    }
                     for (const filter of els.examFilters.querySelectorAll("button")) {
                         filter.setAttribute("aria-pressed", String(filter.dataset.exam === "all"));
                     }
@@ -938,11 +930,10 @@
                 let visible = 0;
                 const cards = els.problemGrid.querySelectorAll(".problem-card");
                 for (const card of cards) {
-                    const matchesType = state.type === "all" || card.dataset.type === state.type;
                     const matchesExam = state.exam === "all" || card.dataset.exam === state.exam;
                     const matchesTag = !state.tag || card.dataset.tags.split("||").includes(state.tag);
                     const matchesQuery = !state.query || card.dataset.search.includes(state.query);
-                    const show = matchesType && matchesExam && matchesTag && matchesQuery;
+                    const show = matchesExam && matchesTag && matchesQuery;
                     card.hidden = !show;
                     if (show) {
                         visible += 1;
@@ -957,9 +948,6 @@
 
             function describeFilters(visible) {
                 const pieces = [];
-                if (state.type !== "all") {
-                    pieces.push(state.type === "practice" ? "Practice" : state.type === "lab" ? "Labs" : state.type === "discussion" ? "Discussions" : "Exams");
-                }
                 if (state.exam === "m1") {
                     pieces.push("Midterm 01");
                 } else if (state.exam === "m2") {
@@ -971,7 +959,7 @@
                 if (state.query) {
                     pieces.push(`search: ${state.query}`);
                 }
-                return pieces.length ? `${visible} matching ${pieces.join(" + ")}` : "Use search, type, set, or tag filters to narrow the list.";
+                return pieces.length ? `${visible} matching ${pieces.join(" + ")}` : "Use search, midterm, or tag filters to narrow the list.";
             }
 
             function handleHash() {
@@ -988,23 +976,11 @@
             }
 
             function labelForProblem(problem) {
-                if (problem.type === "lab") {
-                    return "Lab";
-                }
-                if (problem.type === "discussion") {
-                    return "Discussion";
-                }
-                if (problem.type === "exam") {
-                    return "Exam";
-                }
-                return problem.exam === "m1" ? "Midterm 01" : problem.exam === "m2" ? "Midterm 02" : "Practice";
+                return problem.exam === "m2" ? "Midterm 02" : "Midterm 01";
             }
 
             function classForProblem(problem) {
-                if (problem.type === "lab" || problem.type === "discussion" || problem.type === "exam") {
-                    return problem.type;
-                }
-                return problem.exam === "m1" ? "m1" : problem.exam === "m2" ? "m2" : "other";
+                return problem.exam === "m2" ? "m2" : "m1";
             }
 
             function escapeHtml(value) {
