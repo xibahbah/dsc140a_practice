@@ -92,7 +92,7 @@
             .question-body img { display: block; max-width: min(100%, 760px); max-height: 480px; object-fit: contain; margin: 12px 0; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 
             .source-preview { margin: 14px 0; }
-            .source-preview img { display: block; width: min(100%, 860px); max-height: 680px; object-fit: contain; object-position: top left; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+            .source-preview img { display: block; width: min(100%, 860px); height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
             .source-preview figcaption { margin-top: 5px; color: var(--muted); font-size: .82rem; }
 
             .top, .notice, .topics { max-width: 1180px; }
@@ -632,47 +632,7 @@
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 7</span><span>Density Estimation and MLE</span></div>
-<div class="question-body"><p>Shown below is a data set where the
-is a continuous random variable drawn from a density
-,
-and
-is a discrete variable taken from a distribution on
-.
-X
-p ( x )
-Y
-{0, 1}
-Estimate
-using a histogram estimators with bins
-and
-.
-p (10.1)
-[0, 2), [2, 4), [4, 6), [6, 8), [8, 10), [10, 12)
-[12, 14)</p><figure class="source-preview"><img alt="Source page preview for lab-07-q01" loading="lazy" src="./source-previews/lab-07-q01.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Recall that we can estimate densities using histogram estimators as follows,
-f ( x ) within bin i =
-​ .
-n × ( b
-​ − a
-​ )
-i
-i
-#data points  ∈[ a
-​ , b
-​ )
-i
-i
-Since
-and there are 2 data points in this bin,
-.
-0.1
-10.1 ∈[10, 12)
-p (10.1) =
-​ =
-10×2</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 7 · Question 1 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-07-q01.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/07-density_estimation_and_mle/lab.pdf#page=1">Source PDF page 1</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="density estimation and mle lab 7 question 2 suppose a density estimate is made using histogram estimators with bins having a f : r → r 1 length of 2 units, a width of 3 units, and a height of 1 unit. what is the largest value that can possible have? write your answer as a decimal number with f ( ) x at least 3 digits of precision. the largest value that can have is if all data points were inside one bin, i.e. f ( ) x n n f ( ) = x ​ = n × “bin volume” ​ = 2 × 3 × 1 ​ ≈ 0.16667." data-topic="Density Estimation and MLE" id="lab-07-q02">
@@ -681,33 +641,7 @@ p (10.1) =
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 7</span><span>Density Estimation and MLE</span></div>
-<div class="question-body"><p>Suppose a density estimate
-is made using histogram estimators with bins having a
-f : R →
-R 1
-length of 2 units, a width of 3 units, and a height of 1 unit.
-What is the largest value that
-can possible have? Write your answer as a decimal number with
-f ( )
-x
-at least 3 digits of precision.</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>The largest value that
-can have is if all data points were inside one bin, i.e.
-f ( )
-x
-n
-n
-f ( ) =
-x
-​ =
-n × “bin volume”
-​ =
-2 × 3 × 1
-​ ≈
-0.16667.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 7 · Question 2 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-07-q02.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/07-density_estimation_and_mle/lab.pdf#page=1">Source PDF page 1</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="density estimation and mle lab 7 question 3 let be a set of points in a binary classification problem, where ( , y ​ ), … , ( , y ​ ) x (1) x ( n ) n n ∈ x ( i ) r 2 and . y ​ ∈ i {0, 1} suppose a classifier is trained by estimating the class-conditional densities with histograms using rectangular bins and applying the bayes classification rule. true or false: it is always possible to achieve a 100% training accuracy with this classifier by choosing the rectangular bins to be sufficiently small. you may assume that no two points and x ( i ) are identical. x ( j ) (x) true ( ) false see the following video explanation ." data-topic="Density Estimation and MLE" id="lab-07-q03">
@@ -716,11 +650,7 @@ n × “bin volume”
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 7</span><span>Density Estimation and MLE</span></div>
-<div class="question-body"><p>Let be a set of points in a binary classification problem, where ( , y ), … , ( , y ) x (1) x ( n ) n n ∈ x ( i ) R 2 and . y ∈ i {0, 1} Suppose a classifier is trained by estimating the class-conditional densities with histograms using rectangular bins and applying the Bayes classification rule. True or False: it is always possible to achieve a 100% training accuracy with this classifier by choosing the rectangular bins to be sufficiently small. You may assume that no two points and x ( i ) are identical. x ( j )</p><ul class="choices radio"><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>See the following video explanation .</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 7 · Question 3 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-07-q03.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/07-density_estimation_and_mle/lab.pdf#page=2">Source PDF page 2</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="density estimation and mle lab 7 question 4 suppose is a likelihood function for a parameter theta, and let be the log likelihood. true or false: if maximizes , it also maximizes . l ( θ ) ( θ ) = l ~ ln l ( θ ) θ ∗ l ~ l (x) true ( ) false since the natural log, , is a monotonically increasing function, i.e. it preserves the property that if , then for all values in its domain ( ), the value that maximizes will also maximize and vice versa. ln( x ) a ≤ b f ( a ) ≤ f ( b ) x ∈ r , x &gt; 0 ( θ ) l ~ l ( θ )" data-topic="Density Estimation and MLE" id="lab-07-q04">
@@ -729,25 +659,7 @@ n × “bin volume”
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 7</span><span>Density Estimation and MLE</span></div>
-<div class="question-body"><p>Suppose is a likelihood function for a parameter theta, and let be the log likelihood. True or False: if maximizes , it also maximizes . L ( θ ) ( θ ) = L ~ ln L ( θ ) θ ∗ L ~ L</p><ul class="choices radio"><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Since the natural log,
-, is a monotonically increasing function, i.e. it preserves the property that
-if
-, then
-for all values in its domain (
-), the value that maximizes
-will also maximize
-and vice versa.
-ln( x )
-a ≤ b
-f ( a ) ≤ f ( b )
-x ∈ R , x &gt; 0
-( θ )
-L ~
-L ( θ )</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 7 · Question 4 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-07-q04.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/07-density_estimation_and_mle/lab.pdf#page=2">Source PDF page 2</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="density estimation and mle lab 7 question 5 consider the data shown below: suppose the density is modeled as a gaussian. what is the maximum likelihood estimate for this gaussian's parameter? p ​ ( x ∣ y = x 1) σ recall that the mle formula for is σ n σ ​ = mle ( i ) mle 2 ​ . ​ ​ ( x − μ ​ ) n i =1 ∑ consequently, we will need to evaluate as well. μ ​ mle n ( i ) μ = ​ mle ​ ​ x n i =1 ∑ = ​ (3 + 2 + 4) = 3 ​ ​ σ ​ mle = ​ ​ (0 + (−1) + 1 ) = ​ ​ 3 ≈0.816" data-topic="Density Estimation and MLE" id="lab-07-q05">
@@ -756,65 +668,7 @@ L ( θ )</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 7</span><span>Density Estimation and MLE</span></div>
-<div class="question-body"><p>Consider the data shown below:
-Suppose the density
-is modeled as a Gaussian. What is the maximum likelihood
-estimate for this Gaussian's parameter?
-p
-​ ( x ∣ Y =
-X
-1)
-σ</p><figure class="source-preview"><img alt="Source page preview for lab-07-q05" loading="lazy" src="./source-previews/lab-07-q05.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Recall that the MLE formula for is
-σ
-n
-σ
-​ =
-MLE
-( i )
-MLE 2
-​ .
-​
-​ ( x
-− μ
-​ )
-n
-i =1
-∑
-Consequently, we will need to evaluate
-as well.
-μ
-​
-MLE
-n
-( i )
-μ
-=
-​
-MLE
-​
-​ x
-n
-i =1
-∑
-=
-​ (3 + 2 + 4)
-= 3
-​
-​
-σ
-​
-MLE
-=
-​
-​ (0 + (−1) + 1 )
-=
-​
-​ 3
-≈0.816</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 7 · Question 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-07-q05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/07-density_estimation_and_mle/lab.pdf#page=2">Source PDF page 2</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="density estimation and mle lab 7 question 6 consider a new point, . what label does the bayes classifier predict if the class densities and are estimated by fitting gaussians using the maximum likelihood x = 1 p ( x ∣ y = x 1) p ​ ( x ∣ y = x 0) estimates? ( ) class 1 (x) class 0 suppose we fit each of the class densities using mle and obtain x ∣ y = 1 ∼ n 3, ​ ( 2 ) and x ∣ y = 0 ∼ n ​ , ​ . ( 4 11 ) then, for a new point, , x = 1 p ​ ( x = x 1∣ y = 1) ≈0.02433 &lt; 0.31960 ≈ p ​ ( x = x 1∣ y = 0), so the bayes classifier shall predict class 0." data-topic="Density Estimation and MLE" id="lab-07-q06">
@@ -823,34 +677,7 @@ MLE
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 7</span><span>Density Estimation and MLE</span></div>
-<div class="question-body"><p>Consider a new point, . What label does the Bayes classifier predict if the class densities and are estimated by fitting Gaussians using the maximum likelihood X = 1 p ( x ∣ Y = X 1) p ( x ∣ Y = X 0) estimates?</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class 1</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class 0</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Suppose we fit each of the class densities using MLE and obtain
-X ∣ Y = 1 ∼ N
-3,
-​
-(
-2 )
-and
-X ∣ Y = 0 ∼ N
-​ ,
-​
-.
-( 4
-11 )
-Then, for a new point,
-,
-X = 1
-p
-​ ( x =
-X
-1∣ Y = 1) ≈0.02433 &lt; 0.31960 ≈ p
-​ ( x =
-X
-1∣ Y = 0),
-so the Bayes classifier shall predict Class 0.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 7 · Question 6 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-07-q06.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/07-density_estimation_and_mle/lab.pdf#page=4">Source PDF page 4</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search='density estimation and mle lab 7 question 7 suppose data points are drawn iid from an arbitrary, unknown distribution with density . x ​ , … , x ​ n f true or false: it is guaranteed that, given enough data (that is, as ), a gaussian fit to the data n →∞ using the method of maximum likelihood will approximate the underlying density arbitrarily well. f ( ) true (x) false the "arbitrary, unknown distribution" that the data are drawn from may not be gaussian, so fitting such data to a gaussian would be an inaccurate estimation.' data-topic="Density Estimation and MLE" id="lab-07-q07">
@@ -905,33 +732,7 @@ such data to a Gaussian would be an inaccurate estimation.</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
-<div class="question-body"><p>Problem 1.
-Consider the following set of 6 data points:
-\(\vec{x}\)(1) = (2, 4, 4)^T (1)
-\(\vec{x}\)(2) = (−1, 2, 1)^T (2)
-\(\vec{x}\)(3) = (3, −3, 2)^T (3)
-\(\vec{x}\)(4) = (0, −3, −3)^T (4)
-(5)
-In the below parts, your answers should be given as numbers. You may leave your answer as an unsimplified
-fraction or a decimal, if you prefer.
-a) What is the (1,3) entry of the sample covariance matrix?
-b) What is the (1,2) entry of the sample covariance matrix?</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Problem 1.
-Consider the following set of 6 data points:
-\(\vec{x}\)(1) = (2, 4, 4)^T (1)
-\(\vec{x}\)(2) = (−1, 2, 1)^T (2)
-\(\vec{x}\)(3) = (3, −3, 2)^T (3)
-\(\vec{x}\)(4) = (0, −3, −3)^T (4)
-(5)
-In the below parts, your answers should be given as numbers. You may leave your answer as an unsimplified
-fraction or a decimal, if you prefer.
-a) What is the (1,3) entry of the sample covariance matrix?
-9/4
-b) What is the (1,2) entry of the sample covariance matrix?
--3/4</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 4 · Problem 1 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-04-p01.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/05-final_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/05-final_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="final review discussion 4 problem 2 problem 2. recall that the gaussian radial basis function (rbf) kernel is defined as: κ(⃗x, ⃗x′) = exp −γ∥⃗x −⃗x′∥2 . suppose a kernel svm is trained on a data set with the gaussian rbf kernel, and a training accuracy of 80% is achieved. if you wish to increase the training accuracy, what should be done to the value of γ? increase the value of γ. decrease the value of γ. keep the value of γ the same, as it will not have an effect on the training accuracy. solution: first, recall that γ controls the width of the gaussian: the larger γ is, the narrower the gaussian becomes. making the gaussians narrower will mean that the prediction function h is more “spiky”; that is, we have greater control over the local value of h near each training point. therefore, we can better fit (even overfit) the training data, which will increase the training accuracy. this is like what we saw in the last slides of lecture 10. to put it another way, increasing γ will make the decision boundary more complex, which can help the model better fit the training data." data-topic="Final Review" id="discussion-04-p02">
@@ -940,25 +741,7 @@ b) What is the (1,2) entry of the sample covariance matrix?
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
-<div class="question-body"><p>Problem 2.
-Recall that the Gaussian Radial Basis Function (RBF) kernel is defined as:
-κ(\(\vec{x}\), \(\vec{x}\)′) = exp −γ∥\(\vec{x}\) −\(\vec{x}\)′∥2 .
-Suppose a kernel SVM is trained on a data set with the Gaussian RBF kernel, and a training accuracy of
-80% is achieved. If you wish to increase the training accuracy, what should be done to the value of γ?
-Increase the value of γ.
-Decrease the value of γ.
-Keep the value of γ the same, as it will not have an effect on the training accuracy.</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: First, recall that γ controls the width of the Gaussian: the larger γ is, the narrower the
-Gaussian becomes.
-Making the Gaussians narrower will mean that the prediction function H is more “spiky”; that is, we
-have greater control over the local value of H near each training point. Therefore, we can better fit
-(even overfit) the training data, which will increase the training accuracy. This is like what we saw in
-the last slides of Lecture 10.
-To put it another way, increasing γ will make the decision boundary more complex, which can help the
-model better fit the training data.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 4 · Problem 2 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-04-p02.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/05-final_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/05-final_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="final review discussion 4 problem 3 problem 3. you and your friend are both training regularized least squares models on the same training data set of 50 points. you’d like to check if your models are the same by comparing the weights you’ve learned, but you’re using different machine learning libraries that do things slightly differently. the documentation of the library that your friend is using says that the regularization parameter is λ, and that the library minimizes the regularized risk: n x(⃗w · ⃗x(i) −yi)2 + λ∥⃗w∥2. n i=1 on the other hand, your library uses a regularization parameter of c and minimizes the regularized risk: n c x(⃗w · ⃗x(i) −yi)2 + ∥⃗w∥2. i=1 if your friend is using a regularization parameter of λ = 3, what value of c should you use to ensure that your models are equivalent (that is, to get the same weights)? c = 3 c = 1/3 c = 150 c = 1/150 it is not possible to guarantee that the models will be equivalent with any value of c. solution: there are two ways of arriving at the correct answer. first, remember that if α is a positive constant, then the minimizer of f(⃗w) and the minimizer of αf(⃗w) are the same. in other words, if we scale the regularized risk by a positive number α and solve, we get the same model. we can think of our library’s regularized risk as a scaled version of our friend’s library’s regularized risk. their library uses a factor of 3 on the regularization term, while our library uses a factor of 1, meaning that our risk is 1/3 times theirs. so, if their library uses a factor of 1/n on the risk, ours should use (1/3)(1/n) = 1/(3 × 50) = 1/150. here’s a second approach. in the library that our friend is using, λ controls the tradeoff between the regularization term and the risk term. the factor controlling the importance of the risk is 1/n, and the factor controlling the importance of the regularization term is λ. but what is important is the ratio of these two factors; in your friend’s case, the ratio is: λ 3 = = 150. 1/n 1/50 in our library, the factor controlling the importance of the risk is c, and the factor controlling the importance of the regularization term is simply 1. but we can get the same model as our friend by ensuring that the ratio of these factors is the same. that is: 1 1 = 150 =⇒c = c 150." data-topic="Final Review" id="discussion-04-p03">
@@ -967,50 +750,7 @@ model better fit the training data.</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
-<div class="question-body"><p>Problem 3.
-You and your friend are both training regularized least squares models on the same training data set of 50
-points. You’d like to check if your models are the same by comparing the weights you’ve learned, but you’re
-using different machine learning libraries that do things slightly differently.
-The documentation of the library that your friend is using says that the regularization parameter is λ, and
-that the library minimizes the regularized risk:
-n
-X(\(\vec{w}\) · \(\vec{x}\)(i) −yi)2 + λ∥\(\vec{w}\)∥2.
-n
-i=1
-On the other hand, your library uses a regularization parameter of C and minimizes the regularized risk:
-n
-C X(\(\vec{w}\) · \(\vec{x}\)(i) −yi)2 + ∥\(\vec{w}\)∥2.
-i=1
-If your friend is using a regularization parameter of λ = 3, what value of C should you use to ensure that
-your models are equivalent (that is, to get the same weights)?
-C = 3
-C = 1/3
-C = 150
-C = 1/150
-It is not possible to guarantee that the models will be equivalent with any value of C.</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: There are two ways of arriving at the correct answer.
-First, remember that if α is a positive constant, then the minimizer of f(\(\vec{w}\)) and the minimizer of αf(\(\vec{w}\))
-are the same. In other words, if we scale the regularized risk by a positive number α and solve, we get
-the same model.
-We can think of our library’s regularized risk as a scaled version of our friend’s library’s regularized risk.
-Their library uses a factor of 3 on the regularization term, while our library uses a factor of 1, meaning
-that our risk is 1/3 times theirs. So, if their library uses a factor of 1/n on the risk, ours should use
-(1/3)(1/n) = 1/(3 × 50) = 1/150.
-Here’s a second approach. In the library that our friend is using, λ controls the tradeoff between the
-regularization term and the risk term. The factor controlling the importance of the risk is 1/n, and the
-factor controlling the importance of the regularization term is λ. But what is important is the ratio of
-these two factors; in your friend’s case, the ratio is:
-λ 3
-= = 150.
-1/n 1/50
-In our library, the factor controlling the importance of the risk is C, and the factor controlling the
-importance of the regularization term is simply 1. But we can get the same model as our friend by
-ensuring that the ratio of these factors is the same. That is:
-1 1
-= 150 =⇒C = C 150.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 4 · Problem 3 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-04-p03.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/05-final_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/05-final_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="final review discussion 4 problem 4 problem 4. the 2-norm of a vector ⃗w ∈rd is defined as: v d u ∥⃗w∥2 = utx w2i . i=1 let r(⃗w) be the unregularized empirical risk with respect to a data set. the solid curves below are the contours of r(⃗w). the dashed lines show where ∥⃗w∥2 is equal to 1, 2, 3, and so on. w2 a w1 let ˜r(⃗w) = r(⃗w) + λ∥⃗w∥22 be the regularized empirical risk, with λ &gt; 0. true or false: there is a choice of λ so that the point marked a is a minimizer of the regularized empirical risk. true false solution: the regularized risk has two components: the risk and the regularization penalty. all points on the same dashed circle as a have the same regularization penalty, but different risks. if you put your finger on point a and move it down along the dashed circle, you’ll decrease the risk, while keeping the regularization penalty constant; in other words, you’ll be decreasing the regularized risk. this means that a could not be a minimizer of the regularized risk: there are apparently other points on the dashed circle that are better." data-topic="Final Review" id="discussion-04-p04">
@@ -1019,29 +759,7 @@ ensuring that the ratio of these factors is the same. That is:
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
-<div class="question-body"><p>Problem 4.
-The 2-norm of a vector \(\vec{w}\) ∈Rd is defined as:
-v d u
-∥\(\vec{w}\)∥2 = utX w2i .
-i=1
-Let R(\(\vec{w}\)) be the unregularized empirical risk with respect to a data set. The solid curves below are the
-contours of R(\(\vec{w}\)). The dashed lines show where ∥\(\vec{w}\)∥2 is equal to 1, 2, 3, and so on.
-w2 A
-w1
-Let ˜R(\(\vec{w}\)) = R(\(\vec{w}\)) + λ∥\(\vec{w}\)∥22 be the regularized empirical risk, with λ &gt; 0.
-True or False: there is a choice of λ so that the point marked A is a minimizer of the regularized empirical
-risk.
-True
-False</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: The regularized risk has two components: the risk and the regularization penalty. All points
-on the same dashed circle as A have the same regularization penalty, but different risks.
-If you put your finger on point A and move it down along the dashed circle, you’ll decrease the risk,
-while keeping the regularization penalty constant; in other words, you’ll be decreasing the regularized
-risk. This means that A could not be a minimizer of the regularized risk: there are apparently other
-points on the dashed circle that are better.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 4 · Problem 4 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-04-p04.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/05-final_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/05-final_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="final review discussion 4 problem 5 problem 5. consider the following data set of four points whose feature vectors are in r2 and whose labels are in {−1, 1}: i 1 2 3 4 ⃗x(i) (2,1) (2,3) (1,2) (3,2) yi 1 1 -1 -1 for convenience, we’ve plotted the data below. x2 +1 -1 -1 ? +1 x1 suppose an unnamed kernel classifier h(⃗x) = pni=1 αiκ(⃗x(i), ⃗x) has been trained on this data using a (spherical) gaussian kernel and kernel width parameter γ = 1. suppose the solution to the dual problem is found to be ⃗α = (0, 4, −1, −2)t . what class will the classifier predict for the point (2, 2)? for convenience, we’ve plotted this point on the graph above as a question mark. +1 -1 solution: the prediction at ? is influenced by the four training points shown. this is captured by the formula: h(⃗x) = x αiκ(⃗x(i), ⃗x) i=1 = α1κ(⃗x(1), ⃗x) + α2κ(⃗x(2), ⃗x) + α3κ(⃗x(3), ⃗x) + α4κ(⃗x(4), ⃗x) = 0 · κ(⃗x(1), ⃗x) + 4 · κ(⃗x(2), ⃗x) −1 · κ(⃗x(3), ⃗x) −2 · κ(⃗x(4), ⃗x) = 0 + 4 · κ(⃗x(2), ⃗x) −1 · κ(⃗x(3), ⃗x) −2 · κ(⃗x(4), ⃗x) now, κ is the gaussian kernel, and it’s a pain to evaluate it by hand (or even with a calculator). but we don’t need to evaluate it: we just need to remember that the gaussian kernel measures the similarity between two points based on only the distance between them. crucially, all four points are the same distance away from the new point, so the kernel values will be the same for all of them. let’s call this value c; it will be a positive number. then we have: = 4c −c −2c = c. since c is positive, h at the new point will be positive. therefore, the classifier will predict +1. to put it more informally: each of the four training points influences the value of h at the new point. because each of the four points is the same distance from the new point, their influence is totally determined by their corresponding αi. and since the αi’s add up to a positive number, the classifier will predict +1." data-topic="Final Review" id="discussion-04-p05">
@@ -1050,46 +768,7 @@ points on the dashed circle that are better.</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
-<div class="question-body"><p>Problem 5.
-Consider the following data set of four points whose feature vectors are in \(\mathbb{R}^2\) and whose labels are in {−1, 1}:
-i 1 2 3 4
-\(\vec{x}\)(i) (2,1) (2,3) (1,2) (3,2)
-yi 1 1 -1 -1
-For convenience, we’ve plotted the data below.
-x2
-+1
--1 -1 ?
-+1
-x1
-Suppose an unnamed kernel classifier H(\(\vec{x}\)) = Pni=1 αiκ(\(\vec{x}\)(i), \(\vec{x}\)) has been trained on this data using a
-(spherical) Gaussian kernel and kernel width parameter γ = 1. Suppose the solution to the dual problem is
-found to be \(\vec{α}\) = (0, 4, −1, −2)^T .
-What class will the classifier predict for the point (2, 2)? For convenience, we’ve plotted this point on the
-graph above as a question mark.
-+1
--1</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: The prediction at ? is influenced by the four training points shown. This is captured by the
-formula:
-H(\(\vec{x}\)) = X αiκ(\(\vec{x}\)(i), \(\vec{x}\))
-i=1
-= α1κ(\(\vec{x}\)(1), \(\vec{x}\)) + α2κ(\(\vec{x}\)(2), \(\vec{x}\)) + α3κ(\(\vec{x}\)(3), \(\vec{x}\)) + α4κ(\(\vec{x}\)(4), \(\vec{x}\))
-= 0 · κ(\(\vec{x}\)(1), \(\vec{x}\)) + 4 · κ(\(\vec{x}\)(2), \(\vec{x}\)) −1 · κ(\(\vec{x}\)(3), \(\vec{x}\)) −2 · κ(\(\vec{x}\)(4), \(\vec{x}\))
-= 0 + 4 · κ(\(\vec{x}\)(2), \(\vec{x}\)) −1 · κ(\(\vec{x}\)(3), \(\vec{x}\)) −2 · κ(\(\vec{x}\)(4), \(\vec{x}\))
-Now, κ is the Gaussian kernel, and it’s a pain to evaluate it by hand (or even with a calculator). But we
-don’t need to evaluate it: we just need to remember that the Gaussian kernel measures the similarity
-between two points based on only the distance between them. Crucially, all four points are the same
-distance away from the new point, so the kernel values will be the same for all of them. Let’s call this
-value c; it will be a positive number. Then we have:
-= 4c −c −2c
-= c.
-Since c is positive, H at the new point will be positive. Therefore, the classifier will predict +1.
-To put it more informally: each of the four training points influences the value of H at the new point.
-Because each of the four points is the same distance from the new point, their influence is totally
-determined by their corresponding αi. And since the αi’s add up to a positive number, the classifier
-will predict +1.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 4 · Problem 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-04-p05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/05-final_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/05-final_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="final review discussion 4 problem 6 problem 6. (2 points) for this problem, consider the binary classification training set shown below. the filled points have label 1 and the empty points have label 0. suppose a histogram density estimator is used to estimate the class- conditional densities. the grid shown in the plot depicts the histogram bins; each bin has a width of 2 along the x1 axis and height 1 along the x2 axis. x2 1 0 0 1 0 1 x1 -2 0 2 1 0 1 0 -1 1 1 1 -2 a) what is the estimated density p(x1, x2) at the point (1.5, 1.5)? you may leave your answer as a fraction or convert it to a decimal. b) what is the estimated density p1(x1, x2 | y = 1) at the point (0.5, 0.5)? c) using this histogram density estimator, what is the estimate of p(y = 1 | x1 = 0.5, x2 = 0.5)? d) suppose the bayes classification rule is used with the estimated class-conditional densities in place of the true densities to predict the label of the point (1, −.5). what is the predicted label? solution: the estimated density has the formula: # of points in bin total # of points × bin area in this case, there are 2 points in the bin containing (1.5, 1.5), and there are 17 points in total. the area of the bin is 2 × 1 = 2. so the density estimate is: 2 1 = 17 × 2 17 b) what is the estimated density p1(x1, x2 | y = 1) at the point (0.5, 0.5)? 1/10 solution: now that we’re conditioning on y = 1, we only consider the black points with label 1. otherwise, we use the same formula as in the previous part. there are 2 black points in the bin containing (0.5, 0.5), and there are 10 black points in total. the area of the bin is 2 × 1 = 2. so the density estimate is: 2 1 = 10 × 2 10 c) using this histogram density estimator, what is the estimate of p(y = 1 | x1 = 0.5, x2 = 0.5)? 1/2 solution: because we’re using a histogram estimator, there is a “shortcut” to computing this: we find the bin containing (0.5, 0.5) and use the ratio of black points to total points in that bin. in this bin, there are 2 black points and 4 points total. so the estimate is 2/4 = 1/2. there’s a second (harder) way to do this: via bayes’ rule. we have: p(x1 = 0.5, x2 = 0.5 | y = 1)p(y = 1) p(y = 1 | x1 = 0.5, x2 = 0.5) = p(x1 = 0.5, x2 = 0.5) p(y = 1) is easy to estimate: it is the number of black points divided by the total number of points, or 10/17. p1(0.5, 0.5 | y = 1) is the density estimate we computed in part (b), and is 1/10. the denominator is the total density estimate at (0.5, 0.5), which hasn’t been computed yet. it is: # of points in bin 4 2 = = total # of points × bin area 17 × 2 17 putting all of these pieces together into bayes’ rule, we get: p(x1 = 0.5, x2 = 0.5 | y = 1)p(y = 1) p(y = 1 | x1 = 0.5, x2 = 0.5) = p(x1 = 0.5, x2 = 0.5) 1/10 × 10/17 = 2/17 = 172 = d) suppose the bayes classification rule is used with the estimated class-conditional densities in place of the true densities to predict the label of the point (1, −.5). what is the predicted label? solution: we estimate p(y = 1 | x1 = 1, x2 = −0.5). since we’re using histograms, we estimate that p(y = 1 | x1 = 1, x2 = −0.5) = 1/3, since one out of three points in the bin containing (1, −0.5) is black. since this probability is less than 1/2, we should predict for the other class (class 0)." data-topic="Final Review" id="discussion-04-p06">
@@ -1271,34 +950,7 @@ individual classifier powerful.</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 4</span><span>Final Review</span></div>
-<div class="question-body"><p>Problem 10. (3 points)
-Suppose a discrete random variable X takes on values of either 0 or 1 and has the distribution:
-P(X = x) = θx(1 −θ)1−x
-where θ ∈[0, 1] is a parameter.
-Given a data set x1, . . . , xn, what is the maximum likelihood estimate for the parameter θ? Show your work.</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: The maximum likelihood estimate for θ is the mean of all data points: θ = n1 Pni=1 xi We
-can derive it as follows. First, set up the likelihood function
-n
-L(θ) = Y θxi(1 −θ) 1−xi
-i=1
-Then, to make our lives easier, we can find the log-likelihood before differentiating:
-n n
-ℓ(θ) = log L(θ) = X xi log θ + X(1 −xi) log(1 −θ)
-i=1 i=1
-∂ℓ(θ) Pni=1 xi Pni=1(1 −xi) = −
-∂θ θ 1 −θ
-∂ℓ(θ) Pni=1 xi Pni=1(1 −xi) Setting = 0 =⇒ − = 0
-∂θ θ 1 −θ
-n n
-θ X(1 −xi) = (1 −θ) X xi.
-i=1 i=1
-n
-and hence θ = X xi.
-n
-i=1</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 4 · Problem 10 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-04-p10.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/05-final_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/05-final_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="final review discussion 4 problem 11 problem 11. a decision tree is being trained using gini uncertainty. at the root node, two possible splits are being considered. split a produces one perfectly pure child node and one very mixed child node. split b produces two moderately pure child nodes. which statement is most accurate? split a must be better because producing a pure child node is always the goal. split b may be better because the tree evaluates the weighted uncertainty of both children, not just the purity of the best child. split a and split b are equally good according to gini if they both reduce training error. the tree should choose whichever split uses the feature with the largest numerical values. solution: a split is judged by the total weighted uncertainty after splitting. creating one pure node is not enough if most of the data ends up in a large, highly uncertain node. the decision tree is not greedily optimizing the best child; it is greedily optimizing the combined quality of the children." data-topic="Final Review" id="discussion-04-p11">
@@ -1456,14 +1108,7 @@ possible single-Gauss approximation of the true distributions, however.</p></div
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 2</span><span>Gradient Descent</span></div>
-<div class="question-body"><hr/><p>Consider the function \(f(z_1, z_2)\) whose plot is shown below:</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/sign_of_gradient_at_a_point.jpg"/></p><p>Marked on the plot is the point (2, -2). Which of the below show the signs of each entry of the gradient vector at this point?</p><p>( ) (+, +)<br/>
-( ) (-, -)<br/>
-(x) (+, -)<br/>
-( ) (-, +)</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p><span class="solution-note">We can see that at the point \((2, -2)\), the graph is increasing in the \(z_1\) direction, so its slope is positive with respect to \(z_1\). On the other hand, the graph is decreasing at \((-2, 2)\) in the \(z_2\) direction, so its slope is negative with respect to \(z_2\).</span></p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 2 · Question 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-02-q05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/02-gradient_descent/lab.pdf">Source PDF</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="gradient descent lab 2 question 6 consider the regression data set \((x_1, y_1), \ldots, (x_n, y_n)\) shown below. also shown as a black line is the linear prediction function \(h(x) = w_0 + w_1 x\) with \(w_1 = 0\) and \(w_0 = \frac{1}{n} \sum_{i=1}^n y_i\) . that is, \(w_0\) is set to be equal to the mean of the \(y_i\) values. let \(r(\vec w)\) be the empirical risk with respect to this data and the square loss. which of the following is true about \(\partial r / \partial w_0 (w_0, w_1)\) ? ( ) it is positive ( ) it is negative (x) it is zero the following question is similar to problem 3 in discussion 2. for the first component, we want to ask ourselves, in order to increase the risk, should we increase of decrease \(w_0\) ? we can see from the graph that the line of best will have an intercept around its current value, \(-2\) . since we are already at the optimal solution, we would not want to change \(w_0\) . one can also prove this mathematically, \[\frac{\partial r}{\partial w_0}(w_0, w_1) = \frac{\partial}{\partial w_0} \frac{1}{n}\sum_{i=1}^n(w_0 + w_1x^{(i)}-y^{(i)})^2 = 2w_0 - \frac{2}{n}\sum_{i=1}^ny^{(i)} = 0.\]" data-topic="Gradient Descent" id="lab-02-q06">
@@ -1472,15 +1117,7 @@ possible single-Gauss approximation of the true distributions, however.</p></div
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 2</span><span>Gradient Descent</span></div>
-<div class="question-body"><hr/><p>Consider the regression data set \((x_1, y_1), \ldots, (x_n, y_n)\) shown below. Also shown as a black line is the linear prediction function \(H(x) = w_0 + w_1 x\) with \(w_1 = 0\) and \(w_0 = \frac{1}{n} \sum_{i=1}^n y_i\). That is, \(w_0\) is set to be equal to the mean of the \(y_i\) values.</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/sign_of_gradient_pred_function.jpg"/></p><p>Let \(R(\vec w)\) be the empirical risk with respect to this data and the square loss.</p><p>Which of the following is true about \(\partial R / \partial w_0 (w_0, w_1)\)?</p><p>( ) It is positive<br/>
-( ) It is negative<br/>
-(x) It is zero</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p><span class="solution-note">The following question is similar to Problem 3 in Discussion 2. For the first component, we want to ask ourselves, in order to increase the risk, should we increase of decrease \(w_0\)? We can see from the graph that the line of best will have an intercept around its current value, \(-2\). Since we are already at the optimal solution, we would not want to change \(w_0\).</span><br/>
-<span class="solution-note"></span><br/>
-<span class="solution-note">One can also prove this mathematically, \[\frac{\partial R}{\partial w_0}(w_0, w_1) = \frac{\partial}{\partial w_0} \frac{1}{n}\sum_{i=1}^n(w_0 + w_1x^{(i)}-y^{(i)})^2 = 2w_0 - \frac{2}{n}\sum_{i=1}^ny^{(i)} = 0.\]</span></p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 2 · Question 6 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-02-q06.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/02-gradient_descent/lab.pdf">Source PDF</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="gradient descent lab 2 question 7 which of the following is true about \(\partial r / \partial w_1 (w_0, w_1)\) ? ( ) it is positive (x) it is negative ( ) it is zero for the second component, we want to ask ourselves, in order to increase the risk, should we increase or decrease \(w_1\) ? we can see from the graph that the line of best will have a positive slope. currently, \(w_1 = 0\) , so if we want to increase the risk, we want to make \(w_1\) negative (and more negative)." data-topic="Gradient Descent" id="lab-02-q07">
@@ -1608,20 +1245,7 @@ possible single-Gauss approximation of the true distributions, however.</p></div
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 2</span><span>Gradient Descent</span></div>
-<div class="question-body"><hr/><p>Consider the function \(f(z_1, z_2) = \operatorname{max}(z_1, z_2)\). For convenience, this function is plotted below.</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/02-gradient_descent/fig/subgradient.jpg"/></p><p>What is the gradient of the function at the point \((1, -1)\)?</p><p>( ) \((1, -1)^T\)<br/>
-( ) \((-1, 1)^T\)<br/>
-( ) \((-1, 0)^T\)<br/>
-( ) \((0, -1)^T\)<br/>
-(x) \((1, 0)^T\)<br/>
-( ) \((0, 1)^T\)</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p><span class="solution-note">We can see from the graph that at the point \((1, -1)\), the graph is increasing in the \(z_1\) direction, so this rules out all choices except for \((1, -1)^T\) and \((1, 0)^T\). Then, we see that the graph is constant in the \(z_2\) direction, so this leaves \((1,0)^T\) as the gradient.</span><br/>
-<span class="solution-note"></span><br/>
-<span class="solution-note">We can still do this problem without the graph. To find the slope in the \(z_1\) direction, we can fix \(z_2 = -1\) and see what happens when we change \(z_1\), say, from \(1\) to \(2\). \(f(1, -1) = 1\) and \(f(2, -1) = 2\), so we can infer that the slope in the \(z_1\) direction is \(1\).</span><br/>
-<span class="solution-note"></span><br/>
-<span class="solution-note">By similar logic, we can fix \(z_1 = 1\) and change \(z_2\) from \(-1\) to \(-2\). \(f(1, -1) = f(1, -2) = 1\), so we can infer that the slope in the \(z_2\) direction is \(0\).</span></p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 2 · Question 12 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-02-q12.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/02-gradient_descent/lab.pdf">Source PDF</a></div>
 </article>
 </div>
@@ -1667,24 +1291,7 @@ Two vectors \(\vec{u}\) and \(\vec{v}\) are orthogonal to one another (the angle
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
-<div class="question-body"><p>Problem 3.
-Which of these is another expression for the norm of \(\vec{u}\) (that is, ∥\(\vec{u}\)∥)?
-(a) \(\vec{u}\) · \(\vec{u}\)
-√
-(b) \(\vec{u}\)2
-√
-(c) \(\vec{u}\) · \(\vec{u}\)
-(d) \(\vec{u}\)2</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: The answer is (c) \(\vec{u}\) · \(\vec{u}\).
-Using the coordinate definition of the dot product, we see that the norm of \(\vec{u}\) is
-√ q
-\(\vec{u}\) · \(\vec{u}\) = u21 + u22 + · · · + u2d,
-which we recognize as the Euclidean norm.
-= Another way to see this is to use the geometric definition of the dot product: \(\vec{u}\) · \(\vec{u}\) = ∥\(\vec{u}\)∥∥\(\vec{u}\)∥cos(0◦)√
-∥\(\vec{u}\)∥2, where we have said that the angle between \(\vec{u}\) and itself is 0◦. It follows that ∥\(\vec{u}\)∥= \(\vec{u}\) · \(\vec{u}\).</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 1 · Problem 3 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-01-p03.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="gradients discussion 1 problem 4 problem 4. let a, b, c, x be matrices of appropriate dimensions. true or false: x(ab + c)t = xbt at + xct solution: true. matrix-matrix multiplication is distributive. also, the transpose of a product is the product of the transposes in reverse order. that is, (ab)t = bt at ." data-topic="Gradients" id="discussion-01-p04">
@@ -1710,14 +1317,7 @@ BT AT .</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
-<div class="question-body"><p>Problem 5.
-Let \(\vec{x}\) ∈Rd and let A be a d × d matrix. What type of object is \(\vec{x}\)^T \(\vec{A}\)x?</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: A scalar.
-Namely, \(\vec{A}\)x is a d-dimensional vector, which we can think of as a d × 1 matrix. Then \(\vec{x}\)^T \(\vec{A}\)x is a 1 × d
-matrix times a d × 1 matrix, which is a 1 × 1 matrix, or a scalar.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 1 · Problem 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-01-p05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="gradients discussion 1 problem 6 problem 6. let ⃗x(1), . . . , ⃗x(n) be d-dimensional vectors. what type of object is: n 1 t x ⃗x(i) ⃗x(i) n i=1 solution: a d × d matrix. ⃗x(i) is a column vector, which we can think of as a d × 1 matrix. on the other hand, ⃗x(i) t is a row vector, which we can think of as a 1 × d matrix. so the product ⃗x(i) ⃗x(i) t is (d × 1)(1 × d), which is a d × d matrix. so each term in the sum is a d × d matrix, and the sum of n such terms is also a d × d matrix. dividing by n doesn’t change the type of object." data-topic="Gradients" id="discussion-01-p06">
@@ -1750,54 +1350,7 @@ by n doesn’t change the type of object.</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 1</span><span>Gradients</span></div>
-<div class="question-body"><p>Problem 7.
-Let \(\vec{w}\) ∈Rd, and define f(\(\vec{w}\)) = ∥\(\vec{w}\)∥2.
-In this problem, we’ll show that \(\vec{d}\)wdf = 2\(\vec{w}\). That is, the gradient of f is 2\(\vec{w}\).
-The general process for finding the gradient is:
-1. “Expand” f so that you see all of the coordinates of \(\vec{w}\). That is, w0, w1, . . . , wd.
-2. “Differentiate” by taking partial derivatives with respect to w0, w1, …, wd.
-3. “Recombine” the partial derivatives into a vector (a.k.a., the gradient vector).
-Note: you’ll follow a similar process on the homework to show that the the gradient of f(\(\vec{x}\)) = xT Ax is 2\(\vec{A}\)x.
-a) Show that f(\(\vec{w}\)) = Pdi=1 w2i .
-= 2wi.b) Show that ∂wi∂f
-c) In vector form, what is \(\vec{d}\)w?df</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution:
-f(\(\vec{w}\)) = ∥\(\vec{w}\)∥2
-= \(\vec{w}\) · \(\vec{w}\)
-d
-= X w2i
-i=1
-= 2wi.b) Show that ∂wi∂f
-Solution:
- d 
-∂f ∂
-= X w2j ∂wi ∂wi   j=1
-d
-∂
-= X w2j
-∂wi j=1
-This derivative will be zero when i ̸= j, and 2wi when i = j. This has the effect of picking out
-only the ith term in the sum (the other terms are zero).
-= 0 + 0 + · · · + 2wi + · · · + 0
-|{z}j=0 |{z}j=1 |{z}j=i |{z}j=d
-= 2wi
-c) In vector form, what is \(\vec{d}\)w?df
-Solution: Since the gradient is a vector whose components are the partial derivatives of the
-function with respect to each of the variables, we have:
- ∂w1∂f 
-df
-=  ...  \(\vec{d}\)w   ∂f
-∂wd
- 2w1 
-=  ...   
-2wd
- w1 
-= 2  ...   
-wd
-= 2\(\vec{w}\)</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 1 · Problem 7 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-01-p07.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/01-gradient/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="gradients discussion 1 problem 8 problem 8. let a be a symmetric n × n matrix, with entries:  a11 a12 · · · a1n  a21 a22 · · · a2n      ... ... ... ...   . an1 an2 · · · ann suppose ⃗x ∈rn. n n show that ⃗xt a⃗x = x x xixjaij. i=1 j=1 hint: this might be useful for the homework. solution: n  a1j  ⃗xt a⃗x = ⃗xt x xj  ...    j=1 anj n n = x xi x xjaij i=1 j=1 n n = x x xixjaij i=1 j=1" data-topic="Gradients" id="discussion-01-p08">
@@ -1880,28 +1433,7 @@ larger, increasing risk. Thus the sign of the first entry of the gradient is sti
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Define the polynomial feature map . Let and</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= ϕ x (1, x , x , x x , x , x ) 2 T = x (1, -1) T . What is ? = x ′ (2, 0) T</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(⋅ ϕ x\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">ϕ x ′ Hint: there is an easy way, and a hard way, to do this problem.</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>From Lecture 10, we know that this feature map has a kernel, specifically the polynomial kernel, where
-. So,
-.
-κ ( ,
-) =
-x x ′
-(1 +
-⋅
-x
-)
-x ′ 2
-κ ( ,
-) =
-x x ′
-κ ((1, −1) , (2, 0) ) =
-T
-T
-(1 + 2) =</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 6 · Question 1 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-06-q01.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf#page=1">Source PDF page 1</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="kernels and probabilistic models lab 6 question 2 let = x (1) (1, 2, 0) t = x (2) (−1, −1, −1) t = x (3) (2, 2, 0) t = x (4) (0, 2, 0) t suppose a prediction function is trained using kernel ridge regression on the data above using the kernel and regularization parameter . suppose that is the h ( ) x κ ( , ) = x x ′ (1 + ⋅ x ) x ′ 2 λ = 3 = α (1, 0, −1, 2) t solution of the dual problem. let be a new point. what is ? = x (0, 1, 0) t h ( ) x to make a prediction using kernels, we can evaluate a weighted sum of kernel evaluations, n h ( ) x = ​ α ​ κ ( , ) i ∗ x ( i ) x i =1 ∑ ​ ​ = (1 + ​ ​ ​ ⋅ ​ ​ ​ ) + 0 −(1 + ​ ​ ​ ⋅ ​ ​ ) + 2(1 + ​ ​ ​ ⋅ ​ ​ ​ ) = (1 + 2) + 0 −(1 + 2) + 2(1 + 2) = 18" data-topic="Kernels and Probabilistic Models" id="lab-06-q02">
@@ -1910,44 +1442,7 @@ T
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Let = x (1) (1, 2, 0) T = x (2) (-1, -1, -1) T = x (3) (2, 2, 0) T = x (4) (0, 2, 0) T Suppose a prediction function is trained using kernel ridge regression on the data above using the kernel and regularization parameter . Suppose that is the H</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">x κ ( , ) = x x ′ (1 + ⋅ x ) x ′ 2 λ = 3 = α (1, 0, -1, 2) T solution of the dual problem. Let be a new point. What is ? = x (0, 1, 0) T H</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">x</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>To make a prediction using kernels, we can evaluate a weighted sum of kernel evaluations,
-n
-H ( )
-x =
-​ α
-​ κ (
-, )
-i
-∗
-x ( i ) x
-i =1
-∑
-​
-​
-= (1 +
-​
-​
-​ ⋅
-​
-​
-​ ) + 0 −(1 +
-​
-​
-​ ⋅
-​
-​ ) + 2(1 +
-​
-​
-​ ⋅
-​
-​
-​ )
-= (1 + 2) + 0 −(1 + 2) + 2(1 + 2)
-= 18</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 6 · Question 2 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-06-q02.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf#page=1">Source PDF page 1</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="kernels and probabilistic models lab 6 question 3 an svm with gaussian kernel is trained with parameter . the support vectors (in original data h ( ) x γ = 0.25 space) are: = x (1) (1, 3, 1) t = x (2) (0, 0, −1) t = x (3) (−1, −1, 1) t the solution to the dual problem is . = α ( ​ , 0, − ​ ) 1 t let . what is ? report your answer to two decimal places. = z (1, 1, 1) t h ( ) z recall that the gaussian kernel is , so our prediction evaluates to κ ( , ) = x x ′ e − γ ∥− ∥ x x ′ h ( ) z = ​ ( e ) + 0 + (− ​ )( e ) −0.25∥(0,2,0) ∥ t −0.25∥(2,2,0) ∥ t ​ ​ = ​ − ​ 2 e 4 e 2 = 0.15" data-topic="Kernels and Probabilistic Models" id="lab-06-q03">
@@ -1956,36 +1451,7 @@ i =1
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>An SVM with Gaussian kernel is trained with parameter . The support vectors (in original data H</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">x γ = 0.25 space) are: = x (1) (1, 3, 1) T = x (2) (0, 0, -1) T = x (3) (-1, -1, 1) T The solution to the dual problem is . = α ( , 0, - ) 1 T Let . What is ? Report your answer to two decimal places. = z (1, 1, 1) T H</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">z</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Recall that the Gaussian kernel is
-, so our prediction evaluates to
-κ ( ,
-) =
-x x ′
-e − γ ∥−
-∥
-x x ′
-H ( )
-z =
-​ ( e
-) + 0 + (−
-​ )( e
-)
-−0.25∥(0,2,0) ∥
-T
-−0.25∥(2,2,0) ∥
-T
-​
-​
-=
-​ −
-​
-2 e
-4 e 2
-= 0.15</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 6 · Question 3 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-06-q03.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf#page=1">Source PDF page 1</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="kernels and probabilistic models lab 6 question 4 a gaussian kernel svm with width parameter is trained on a data set and found to overfit. remember that the rbf kernel is: . γ κ ( , ) = x x ′ e − γ ∥− ∥ x x ′ which of the below should reduce overfitting? (x) decreasing and re-train ( ) increasing and re-train γ γ since controls the scale of the gaussians, we would want to increase the width of the gaussians to reduce γ overfitting; this translates to a decrease in . γ" data-topic="Kernels and Probabilistic Models" id="lab-06-q04">
@@ -1994,14 +1460,7 @@ T
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>A Gaussian kernel SVM with width parameter is trained on a data set and found to overfit. Remember that the RBF kernel is: . γ κ ( , ) = x x ′ e - γ ∥- ∥ x x ′ Which of the below should reduce overfitting?</p><ul class="choices radio"><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Decreasing and re-train</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Increasing and re-train γ γ</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Since controls the scale of the Gaussians, we would want to increase the width of the Gaussians to reduce
-γ
-overfitting; this translates to a decrease in .
-γ</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 6 · Question 4 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-06-q04.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf#page=2">Source PDF page 2</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="kernels and probabilistic models lab 6 question 5 a gaussian kernel svm is trained on a data set using a very large . the result is shown below: γ consider the training point labeled above (the arrow is pointing to the nearest blue support vector). if the x ( i ) blue points have label 1, and the red points have label -1, what will be the learned weight corresponding to α ​ i this training data point, approximately? you may assume that is as large as you'd like. γ first, we know that the value of is exactly 1. this is because the data point being pointed to is 1) blue h ( ) x ( i ) (and blue points have label +1) and 2) it's a support vector, meaning that (by definition) . h ( ) = x ( i ) y ​ = i n next, remember that for kernel methods . in this case, is the gaussian kernel, h ( ) = x ​ α ​ κ ( , ) ∑ j =1 and it measures the &quot;similarity&quot; of its arguments. if and are &quot;far&quot; away (as controlled by ), then is close to zero; if they are close, is apparoximately 1. j x x ( j ) κ x j x γ κ κ in this case, is very large, and so is basically zero for any that isn't very close to . this γ κ ( , ) x x ( j ) x x ( j ) n means that the only term of that isn't zero is the term where , and that h ( ) = x ( i ) j x ( i ) x ( j ) j = i ​ α ​ κ ( , ) ∑ j =1 term is simply . in other words, . since we know that , this means that . α ​ i h ( ) ≈ x ( i ) α ​ i h ( = x ( i ) α ​ ≈ i the informal explanation is that the surface of has a bunch of canyons and hills, each one centered at a h support vector. the support vector's corresponding controls the height of the hill/canyon. when is very large, these hills become very narrow (they are spikes). at , the height of the surface is determined almost α ​ i γ x ( i ) entirely by the spike located at , which is ; to make the height 1, should also be 1. x ( i ) α ​ i α ​ i" data-topic="Kernels and Probabilistic Models" id="lab-06-q05">
@@ -2010,117 +1469,7 @@ overfitting; this translates to a decrease in .
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>A Gaussian kernel SVM is trained on a data set using a very large . The result is shown below:
-γ
-Consider the training point
-labeled above (the arrow is pointing to the nearest blue support vector). If the
-x ( i )
-blue points have label 1, and the red points have label -1, what will be the learned weight
-corresponding to
-α
-​ i
-this training data point, approximately?
-You may assume that is as large as you'd like.
-γ</p><figure class="source-preview"><img alt="Source page preview for lab-06-q05" loading="lazy" src="./source-previews/lab-06-q05.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>First, we know that the value of
-is exactly 1. This is because the data point being pointed to is 1) blue
-H (
-)
-x ( i )
-(and blue points have label +1) and 2) it's a support vector, meaning that (by definition)
-.
-H (
-) =
-x ( i )
-y
-​ =
-i
-n
-Next, remember that for kernel methods
-. In this case, is the Gaussian kernel,
-H ( ) =
-x
-​ α
-​ κ ( ,
-)
-∑ j =1
-and it measures the "similarity" of its arguments. If and
-are "far" away (as controlled by ), then is
-close to zero; if they are close, is apparoximately 1.
-j
-x x ( j )
-κ
-x
-j
-x
-γ
-κ
-κ
-In this case, is very large, and so
-is basically zero for any that isn't very close to
-. This
-γ
-κ ( ,
-)
-x x ( j )
-x
-x ( j )
-n
-means that the only term of
-that isn't zero is the term where
-, and that
-H (
-) =
-x ( i )
-j
-x ( i ) x ( j )
-j = i
-​ α
-​ κ (
-,
-)
-∑ j =1
-term is simply
-. In other words,
-. Since we know that
-, this means that
-.
-α
-​ i
-H (
-) ≈
-x ( i )
-α
-​ i
-H (
-=
-x ( i )
-α
-​ ≈
-i
-The informal explanation is that the surface of
-has a bunch of canyons and hills, each one centered at a
-H
-support vector. The support vector's corresponding
-controls the height of the hill/canyon. When is very
-large, these hills become very narrow (they are spikes). At
-, the height of the surface is determined almost
-α
-​ i
-γ
-x ( i )
-entirely by the spike located at
-, which is
-; to make the height 1,
-should also be 1.
-x ( i )
-α
-​ i
-α
-​ i</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 6 · Question 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-06-q05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf#page=2">Source PDF page 2</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="kernels and probabilistic models lab 6 question 6 for the parts of this problem, consider the joint distribution shown below: what is ? state your answer as a decimal number between 0 and 1. p ( x = 2) ​ ​ p ( x = 2) = p ( x = 2, y = 0) + p ( x = 2, y = 1) = 0.1 + 0.05 = 0.15" data-topic="Kernels and Probabilistic Models" id="lab-06-q06">
@@ -2129,18 +1478,7 @@ x ( i )
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>For the parts of this problem, consider the joint distribution shown below:
-What is
-? State your answer as a decimal number between 0 and 1.
-P ( X = 2)</p><figure class="source-preview"><img alt="Source page preview for lab-06-q06" loading="lazy" src="./source-previews/lab-06-q06.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>​
-​
-P ( X = 2) = P ( X = 2, Y = 0) + P ( X = 2, Y = 1)
-= 0.1 + 0.05
-= 0.15</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 6 · Question 6 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-06-q06.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf#page=4">Source PDF page 4</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="kernels and probabilistic models lab 6 question 7 what is ? state your answer as a decimal number between 0 and 1. p ( y = 1) p ( y = 1) = p ( x = 0, y = 1) + p ( x = 1, y = 1) ​ ​ + p ( x = 2, y = 1) + p ( x = 3, y = 1) + p ( x = 4, y = 1) + p ( x = 5, y = 1) + p ( x = 6, y = 1) = 0 + 0 + 0.05 + 0.15 + 0.2 + 0.15 + 0.1 = 0.65" data-topic="Kernels and Probabilistic Models" id="lab-06-q07">
@@ -2242,14 +1580,7 @@ interval, which can be greater than one.</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Shown below are the class-conditional densities for penguin flipper length; that is, the densities and . p ( x ∣ Y = 0) p ( x ∣ Y = 1) A new penguin is observed with a flipper length of 10cm. What does the Bayes classifier predict for the class of this new penguin?</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=0\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=1\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">There is not enough information; we also must know and therefore in order to make P ( Y = 1) P ( Y = 0) a prediction.</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-06-q11" loading="lazy" src="./source-previews/lab-06-q11.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Recall that the Bayes classification rule predicts class 1 if
-p ( X = x ∣ Y = 1) P ( Y = 1) &gt; p ( X = x ∣ Y = 0) P ( Y = 0).
-Since we don’t have the class “prior” probabilities (we only have the class-conditional densities), there is not
-enough information to make a prediction.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 6 · Question 11 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-06-q11.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf#page=6">Source PDF page 6</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search='kernels and probabilistic models lab 6 question 12 shown below are the class-conditional densities for penguin flipper length weighted by the class "prior" probabilities; that is, the functions and . p ( x ∣ y = 0) p ( y = 0) p ( x ∣ y = 1) p ( y = 1) a new penguin is observed with a flipper length of 10cm. what does the bayes classifier predict for the class of this new penguin? ( ) class y = 0 (x) class y = 1 ( ) there is not enough information; we also must know the marginal density in order to make a p ( x ) prediction. since the red curve (weighted class-conditional density of ) has a higher value than that of the blue curve (weighted class-conditional density of ) at a flipper length of 10 cm, the bayes classifier would predict class . y = 1 y = 0 y = 1' data-topic="Kernels and Probabilistic Models" id="lab-06-q12">
@@ -2258,19 +1589,7 @@ enough information to make a prediction.</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 6</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Shown below are the class-conditional densities for penguin flipper length weighted by the class "prior" probabilities; that is, the functions and . p ( x ∣ Y = 0) P ( Y = 0) p ( x ∣ Y = 1) P ( Y = 1) A new penguin is observed with a flipper length of 10cm. What does the Bayes classifier predict for the class of this new penguin?</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=0\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class \(Y=1\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">There is not enough information; we also must know the marginal density in order to make a p ( x ) prediction.</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-06-q12" loading="lazy" src="./source-previews/lab-06-q12.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Since the red curve (weighted class-conditional density of
-) has a higher value than that of the blue
-curve (weighted class-conditional density of
-) at a flipper length of 10 cm, the Bayes classifier would
-predict class
-.
-Y = 1
-Y = 0
-Y = 1</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 6 · Question 12 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-06-q12.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf#page=7">Source PDF page 7</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="kernels and probabilistic models lab 6 question 13 shown below are two conditional densities, and , describing the distribution of a p ​ ( x ∣ y = 1) p continuous random variable for two classes: (the solid line) and (the dashed line). ​ ( x ∣ y = 0) x y = 0 y = 1 you may assume that both densities are piecewise constant. suppose and . what is the prediction of the bayes classifier at ? p ( y = 1) = 0.5 p ( y = 0) = 0.5 x = 1.5 (x) class 0 (the solid class) ( ) class 1 (the dashed class) according to bayes classification rule, we need to check which of the two are larger: or . p ​ ( x ∣ y = 0) p ( y = 0) p ​ ( x ∣ y = 1) p ( y = 1) since , we can essentially ignore these class “prior” probabilities, and just compare p ( y = 0) = p ( y = 1) the two conditional densities. observe that at , we have that x = 1.5 p ​ (1.5∣ y = 0) = 0.5 &gt; 0.3 = p ​ (1.5∣ y = 1). thus, the bayes classifier predicts class 0." data-topic="Kernels and Probabilistic Models" id="lab-06-q13">
@@ -2469,11 +1788,7 @@ linearly separable, though.</p></div>
 <span class="badge exam">Exam</span>
 </div>
 <div class="meta"><span>Midterm B</span><span>Kernels and Probabilistic Models</span></div>
-<div class="question-body"><p>Problem 4. (2 points) Given two d-dimensional vectors \(\vec{u}\) and \(\vec{v}\), we define the product kernel κ(\(\vec{u}\),\(\vec{v}\)) as: d κ(\(\vec{u}\),\(\vec{v}\)) = X(ui · vi) i=1 Suppose a prediction function H(\(\vec{x}\)) is trained using kernel ridge regression on the following 2D dataset: \(\vec{x}\)1 = , y1 = 1 \(\vec{x}\)2 = , y2 = −1 \(\vec{x}\)3 = , y3 = 1 Given that the solution to the dual problem (the dual weights) is: [ 1.0 ] \(\vec{α}\) = −0.5 [ ] 2.0 Consider a new test point \(\vec{z}\) = . What is the predicted value H(\(\vec{z}\))?</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: In kernel regression, the prediction for a new point \(\vec{z}\) is given by the sum of the dual weights multiplied by the kernel evaluations between the training points and the new point: H(\(\vec{z}\)) = X αiκ(\(\vec{x}\)i,\(\vec{z}\)) i=1 Step 1: Compute the kernel values κ(\(\vec{x}\)i,\(\vec{z}\)):</p><p>• κ(\(\vec{x}\)1, \(\vec{z}\)) = (1 · 2) + (2 · 1) = 2 + 2 = 4</p><p>• κ(\(\vec{x}\)2, \(\vec{z}\)) = (2 · 2) + (0 · 1) = 4 + 0 = 4</p><p>• κ(\(\vec{x}\)3, \(\vec{z}\)) = (0 · 2) + (3 · 1) = 0 + 3 = 3</p><p>Step 2: Calculate the final prediction: H(\(\vec{z}\)) = α1κ(\(\vec{x}\)1,\(\vec{z}\)) + α2κ(\(\vec{x}\)2,\(\vec{z}\)) + α3κ(\(\vec{x}\)3,\(\vec{z}\)) H(\(\vec{z}\)) = (1.0 · 4) + (−0.5 · 4) + (2.0 · 3) H(\(\vec{z}\)) = 4 −2 + 6 H(\(\vec{z}\)) = 8 The prediction H(\(\vec{z}\)) is 8.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Midterm B · Problem 4: Kernel ridge prediction — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/exam-b-p04.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="./sources/exam.pdf#page=5">Source PDF page 5</a></div>
 </article>
 <article class="question-card" data-kind="exam" data-search="exam midterm b problem 8 kernels and probabilistic models midterm b · problem 8: ridge, feature maps, and kernels problem 8. (4 points) suppose we want to fit a ridge regression model to a data set. we could do this in three different ways: 1. use the original features ⃗x directly. (linear predictor with a regularization term) 2. first transform the inputs using a feature map ⃗ϕ(⃗x), then fit a linear model with a regularization term. 3. use kernel ridge regression with a kernel κ(⃗x,⃗z) that corresponds to our feature space. conceptually explain how these three approaches are related. make sure to include answers to these ques- tions: a) (2 points) conceptually, explain how these three approaches are related. b) (1 point) why might we prefer approach 2 over approach 1? c) (1 point) why might we prefer approach 3 over approach 2? solution: in linear ridge regression, we are learning to minimize arg min∥z ⃗w −y∥+ λ∥w∥ ⃗w where  x, if using the original features,  z = φφt , if using feature maps, k, if using kernel ridge regression. . this unifies the three ways of performing the ridge regression, but really we are just doing ridge regression in either the original data space or the feature space. solution: the benefit of feature maps is the allow us to model the data nonlinearly if we choose nonlinear features, giving us more power/flexibility to model our data. solution: the benefit of using the kernel trick (i.e. kernel ridge regression) is that instead of actually computing each feature vector for each sample, the kernel trick allows us to save on time/computation by just computing the kernel function between the two samples." data-topic="Kernels and Probabilistic Models" id="exam-b-p08">
@@ -2503,27 +1818,7 @@ linearly separable, though.</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 1.
-a) Suppose f(\(\vec{x}\)) is a convex function of \(\vec{x}\) and that the gradient of f at the point \(\vec{x}\)(1) = (0, 5)^T is (−3, 5)^T .
-Let \(\vec{x}\)∗= (x∗1, x∗2) be the minimizer of f; you can assume that \(\vec{x}\)∗̸= \(\vec{x}\)(1), which implies that f(\(\vec{x}\)∗) &lt; f(\(\vec{x}\)(1)).
-True or False: it must be the case that x∗2 ≥5.
-b) Explain in your own words why convexity is such a desirable property for a loss function when using gradient
-descent. What can go wrong when the function is not convex? Your answer should address the concept of
-local vs. global minima.</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution:
-False as the gradient is the direction of maximal ascent. We would move in the direction of (3, −5)^T
-and therefore x∗2 ≤5.
-b) Explain in your own words why convexity is such a desirable property for a loss function when using gradient
-descent. What can go wrong when the function is not convex? Your answer should address the concept of
-local vs. global minima.
-Solution: A convex function has the key property that any local minimum is also a global minimum.
-This means gradient descent, which only uses local slope information to decide which direction to step,
-is guaranteed to converge to the global minimum, provided the step size is chosen appropriately. When
-a function is non-convex, it can have multiple local minima that are not global minima, and gradient
-descent may get “trapped” in one of these suboptimal valleys depending on where it starts.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 3 · Problem 1 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-03-p01.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="midterm review discussion 3 problem 2 problem 2. let f1(x) be a convex function and let f2(x) be a non-convex function. define the new function f(x) = f1(x) + f2(x). true or false: f(x) must be non-convex. true false solution: for a simple counterexample, let f1(x) = 4x2 and f2(x) = −x2. then f(x) = 4x2 −x2 = 3x2 is convex. if that example seems too contrived, consider f1(x) = x4 + 3x2 and f2(x) = x3. then f(x) = x4 + x3 + 3x2, and the second derivative test gives us f ′′(x) = 12x2 + 6x + 6, which is positive for all x." data-topic="Midterm Review" id="discussion-03-p02">
@@ -2552,27 +1847,7 @@ If that example seems too contrived, consider f1(x) = x4 + 3x2 and f2(x) = x3. T
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 3.
-Recall that a subgradient of the absolute loss is:
-Aug(\(\vec{x}\)), if Aug(\(\vec{x}\)) · \(\vec{w}\) −y &gt; 0,
- −Aug(\(\vec{x}\)), if Aug(\(\vec{x}\)) · \(\vec{w}\) −y &lt; 0,
-\(\vec{0}\), otherwise.
-Suppose you are running subgradient descent to minimize the risk with respect to the absolute loss in order
-to train a function H(x) = w0 + w1x1 + w2x2 on the following data set:
-x1 x2 y
-2 5 6
-1 2 3
-Suppose that the initial weight vector is \(\vec{w}\) = (0, 0, 0)^T and that the learning rate η = 1. What will be the
-weight vector after one iteration of subgradient descent?</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution:
-As Aug(\(\vec{x}\))· \(\vec{w}\) = 0, Aug(\(\vec{x}\))· \(\vec{w}\)−y = −y &lt; 0. So, ∂\(\vec{w}\)R(\(\vec{w}\))∂ = nΣn1 i=1 ∂\(\vec{w}\)Labs.∂ Plugging in our data we have,
-[1] [1] [2]
-\(\vec{w}\) = (0, 0, 0)^T + 12(2, 3, 7)^T = ∂\(\vec{w}\)R(\(\vec{w}\))∂ = −12([2]+ [1]) = −12 [3]After 1 iteration of gradient descent
-5 2 7
-(1, 3/2, 7/2)^T .</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 3 · Problem 3 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-03-p03.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="midterm review discussion 3 problem 4 problem 4. let x = {⃗x(i), yi} be a data set of n points where each ⃗x(i) ∈rd. let z = {⃗z(i), yi} be the data set obtained from the original by standardizing each feature. that is, if a matrix were created with the i-th row being ⃗z(i), then the mean of each column would be 0, and the variance would be 1. a) suppose linear predictors h1 and h2 are fit on x and z by minimizing the mse, respectively. true or false: h1(⃗x(i)) = h2(⃗z(i)) for every i = 1, . . . , n. b) suppose that x and z are both linearly-separable. suppose hard-svms h1 and h2 are trained on x and z, respectively. true or false: h1(⃗x(i)) = h2(⃗z(i)) for every i = 1, . . . , n. solution: true. in linear functions, changing input unit do not change the output. b) suppose that x and z are both linearly-separable. suppose hard-svms h1 and h2 are trained on x and z, respectively. true or false: h1(⃗x(i)) = h2(⃗z(i)) for every i = 1, . . . , n. solution: false. in (hard) svms, changing scales may change the output, e.g., by changing the set of support vectors." data-topic="Midterm Review" id="discussion-03-p04">
@@ -2581,27 +1856,7 @@ As Aug(\(\vec{x}\))· \(\vec{w}\) = 0, Aug(\(\vec{x}\))· \(\vec{w}\)−y = −y
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 4.
-Let X = {\(\vec{x}\)(i), yi} be a data set of n points where each \(\vec{x}\)(i) ∈Rd.
-Let Z = {\(\vec{z}\)(i), yi} be the data set obtained from the original by standardizing each feature. That is, if a
-matrix were created with the i-th row being \(\vec{z}\)(i), then the mean of each column would be 0, and the variance
-would be 1.
-a) Suppose linear predictors H1 and H2 are fit on X and Z by minimizing the MSE, respectively.
-True or False: H1(\(\vec{x}\)(i)) = H2(\(\vec{z}\)(i)) for every i = 1, . . . , n.
-b) Suppose that X and Z are both linearly-separable. Suppose Hard-SVMs H1 and H2 are trained on X and
-Z, respectively.
-True or False: H1(\(\vec{x}\)(i)) = H2(\(\vec{z}\)(i)) for every i = 1, . . . , n.</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution:
-True. In linear functions, changing input unit do not change the output.
-b) Suppose that X and Z are both linearly-separable. Suppose Hard-SVMs H1 and H2 are trained on X and
-Z, respectively.
-True or False: H1(\(\vec{x}\)(i)) = H2(\(\vec{z}\)(i)) for every i = 1, . . . , n.
-Solution:
-False. In (Hard) SVMs, changing scales may change the output, e.g., by changing the set of support
-vectors.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 3 · Problem 4 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-03-p04.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="midterm review discussion 3 problem 5 problem 5. consider the image below: the blue points have label +1, and the red points have label −1. suppose h is a linear prediction function, and when h is applied to the point a in the above image, h(⃗x) = 4. the black line in the middle of the image is the decision boundary h = 0. you may assume that h is exactly in the middle of the points, and that all points are equidistant from the decision boundary. a) what is the mean square loss of this prediction function, h? b) true or false: there exists a linear prediction function h which has a mean square loss of zero on this data. solution: the output of h on the blue points is 4, while for the red points it is −4. this follows from the fact that all points are equidistant from the decision boundary, and h is linear. the target label for the blue and red points is 1 and −1, respectively. so the prediction is off by 3 in each case. this makes the squared error on each point 32 = 9, so the mean squared error (mean square loss) is 9. b) true or false: there exists a linear prediction function h which has a mean square loss of zero on this data. solution: true. one simple way is to modify h. let h′(⃗x) = h(⃗x)/4, then h′ is also a linear prediction function with its output exactly correct for each data point. alternatively, here’s a geometric argument: a linear prediction function in two dimensions fits a plane to the data, where we have lifted to blue points to a height of 1 and the red points to a height of -1. because the points are all equidistant from the black line in the figure above, there is a way to draw a plane that goes exactly through all of the points." data-topic="Midterm Review" id="discussion-03-p05">
@@ -2665,53 +1920,7 @@ E1 &gt; E2</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 7.
-Consider a binary classification problem in \(\mathbb{R}^2\) with labels y ∈{−1, 1}. Suppose we train a linear classifier
-with weight vector \(\vec{w}\) = (w0, w1, w2) and use the predictor sign(Aug(\(\vec{x}\)) · \(\vec{w}\)).
-a) Explain in 2–3 sentences what the decision boundary is geometrically, and what role the magnitude of
-H(\(\vec{x}\)) = Aug(\(\vec{x}\)) · \(\vec{w}\) plays in a linear classifier’s predictions. In particular, what does it mean for a correctly-
-classified point to have a large |H(\(\vec{x}\))| vs. a small |H(\(\vec{x}\))|?
-b) Imagine a different a H(x) that uses nonlinear features, for example H(x) = \(\vec{w}\)^T φ(x) where φ(x) = [x, x2]^T .
-Would our decision boundary still be a plane in our data space? Explain.
-c) Suppose \(\vec{w}\) = (w0, w1, w2) = (1, 2, −1) (where w0 = 1 is the bias). Consider the following four points and
-their true labels:
-Point \(\vec{x}\)(i) True label yi
-(1, 3) +1
-(2, 1) −1
-(−1, 2) +1
-(0, −1) −1
-For each point, compute H(\(\vec{x}\)(i)) = Aug(\(\vec{x}\)(i)) · \(\vec{w}\), state whether it is correctly classified, and compute the
-perceptron loss ℓtron and the 0-1 loss ℓ0-1 for each point.
-d) The 0-1 loss directly measures what we care about (misclassification), yet we use other loss functions (like
-perceptron loss or hinge loss) during training. Why don’t we use 0-1 loss?</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: Since our prediction function is linear, the decision boundary is (geometrically) the plane
-where H(\(\vec{x}\)) = 0. The sign of H(\(\vec{x}\)) tells us which side of that hyperplane a point lies on, and hence
-which label we predict. The magnitude |H(\(\vec{x}\))| is proportional to the distance of \(\vec{x}\) from the decision
-boundary: a large |H(\(\vec{x}\))| means the point is far from the boundary and the classifier is, in some sense,
-confident, while a small |H(\(\vec{x}\))| means the point is close to the boundary and a tiny perturbation could
-flip the prediction.
-b) Imagine a different a H(x) that uses nonlinear features, for example H(x) = \(\vec{w}\)^T φ(x) where φ(x) = [x, x2]^T .
-Would our decision boundary still be a plane in our data space? Explain.
-Solution: No, our decision boundary is not necessarily a plane. Because we have a nonlinear feature,
-our decision boundary (in our data space) can stretch and bend nonlinearly. Lecture 8 Slide 31 shows
-a perfect example of this.
-c) Suppose \(\vec{w}\) = (w0, w1, w2) = (1, 2, −1) (where w0 = 1 is the bias). Consider the following four points and
-their true labels:
-Point \(\vec{x}\)(i) True label yi
-(1, 3) +1
-(2, 1) −1
-(−1, 2) +1
-(0, −1) −1
-For each point, compute H(\(\vec{x}\)(i)) = Aug(\(\vec{x}\)(i)) · \(\vec{w}\), state whether it is correctly classified, and compute the
-perceptron loss ℓtron and the 0-1 loss ℓ0-1 for each point.
-d) The 0-1 loss directly measures what we care about (misclassification), yet we use other loss functions (like
-perceptron loss or hinge loss) during training. Why don’t we use 0-1 loss?
-Solution: Zero gradient almost everywhere. The 0-1 loss is piecewise constant: it equals 0 or
-1 and is flat almost everywhere. Its gradient with respect to \(\vec{w}\) is \(\vec{0}\) almost everywhere, which means
-gradient (and subgradient) descent has no slope information to follow and cannot make progress.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 3 · Problem 7 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-03-p07.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="midterm review discussion 3 problem 8 problem 8. in class, we discussed how l1 regularization encourages sparse solutions and can be seen as a method for feature selection. in this problem, we will explore why l1 regularization promotes sparsity from the perspective of gradient descent. a) first, write down the partial derivatives of the l1 and l2 regularization terms with respect to a specific weight wj (you may ignore the case where wj = 0, as the gradient might be undefined there). • the l1 regularization term is given by: d r1(⃗w) = λ x |wj| j=1 • the l2 regularization term is given by: d r2(⃗w) = λ x w2j j=1 b) based on these derivatives, which regularizer is more effective at pushing wj to zero? hint: consider the behavior of the gradients when wj is already small. for simplicity, assume that the partial derivative ∂wj∂ of the mean squared error (mse) term is zero. solution: a) partial derivatives of l1 and l2 regularization terms • l1 regularization: d ∂r1(⃗w) r1(⃗w) = λ x |wj|, = λ · sign(wj) ∂wj j=1 where sign(wj) = 1 if wj &gt; 0 and −1 if wj &lt; 0. • l2 regularization: d ∂r2(⃗w) r2(⃗w) = λ x w2j, = 2λwj ∂wj j=1 • l1 regularization applies a constant force λ · sign(wj), pushing weights to exactly zero and promoting sparsity. • l2 regularization applies a force proportional to wj. when wj is small, the gradient becomes small, making it less effective at driving weights to zero." data-topic="Midterm Review" id="discussion-03-p08">
@@ -2720,41 +1929,7 @@ gradient (and subgradient) descent has no slope information to follow and cannot
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 8.
-In class, we discussed how L1 regularization encourages sparse solutions and can be seen as a method
-for feature selection. In this problem, we will explore why L1 regularization promotes sparsity from the
-perspective of gradient descent.
-a) First, write down the partial derivatives of the L1 and L2 regularization terms with respect to a
-specific weight wj (you may ignore the case where wj = 0, as the gradient might be undefined there).
-• The L1 regularization term is given by:
-d
-R1(\(\vec{w}\)) = λ X |wj|
-j=1
-• The L2 regularization term is given by:
-d
-\(\mathbb{R}^2\)(\(\vec{w}\)) = λ X w2j
-j=1
-b) Based on these derivatives, which regularizer is more effective at pushing wj to zero?
-Hint: Consider the behavior of the gradients when wj is already small. For simplicity, assume that
-the partial derivative ∂wj∂ of the Mean Squared Error (MSE) term is zero.</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: A) Partial Derivatives of L1 and L2 Regularization Terms
-• L1 Regularization:
-d
-∂R1(\(\vec{w}\)) R1(\(\vec{w}\)) = λ X |wj|, = λ · sign(wj)
-∂wj j=1
-where sign(wj) = 1 if wj &gt; 0 and −1 if wj &lt; 0.
-• L2 Regularization:
-d
-∂\(\mathbb{R}^2\)(\(\vec{w}\))
-\(\mathbb{R}^2\)(\(\vec{w}\)) = λ X w2j, = 2λwj
-∂wj j=1
-• L1 Regularization applies a constant force λ · sign(wj), pushing weights to exactly zero and
-promoting sparsity.
-• L2 Regularization applies a force proportional to wj. When wj is small, the gradient becomes
-small, making it less effective at driving weights to zero.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 3 · Problem 8 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-03-p08.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="midterm review discussion 3 problem 9 problem 9. consider the following two scenarios: • scenario a: you apply the feature map ⃗φ(x1, x2) = (x1, x2, x21, x22, x1x2)t to your data and train a least squares classifier in feature space. • scenario b: you skip the feature map entirely and train a least squares classifier directly on (x1, x2)t . a classmate says: “scenario a is strictly better than scenario b — more features always means a better model.” another classmate disagrees: “scenario a is not always better. there are cases where adding these extra features could actually hurt you.” which classmate is correct? describe a concrete situation where scenario a would perform worse than scenario b on new, unseen data. in your answer, explain the mechanism by which this happens. solution: the second classmate is correct. while a richer feature map gives the model more expressive power, this is not always beneficial. specifically, scenario a can perform worse than scenario b in the following situation: suppose the true decision boundary between classes is actually linear in the original input space — for example, a straight line separating two well-behaved clusters. in this case, the extra features x21, x22, and x1x2 provide no useful additional signal and the model has to learn to ignore these features." data-topic="Midterm Review" id="discussion-03-p09">
@@ -2791,19 +1966,7 @@ and x1x2 provide no useful additional signal and the model has to learn to ignor
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 10. (2 points)
-Consider the data set: \(\vec{x}\)(1) = (1, 0, 2)^T \(\vec{x}\)(2) = (−1, 0, −1)^T \(\vec{x}\)(3) = (1, 2, 1)^T \(\vec{x}\)(4) = (1, 1, 0)^T
-Suppose a prediction function H(\(\vec{x}\)) is learned using kernel ridge regression on the above data set using the
-kernel κ(\(\vec{x}\), \(\vec{x}\)′) = (1 + \(\vec{x}\) · \(\vec{x}\)′)2 and regularization parameter λ = 3. Suppose that \(\vec{α}\) = (−1, −2, 0, 2)^T is the
-solution of the dual problem.
-a) What is the (2,3) entry of the kernel matrix?
-b) Let \(\vec{x}\) = (1, 1, 0)^T be a new point. What is H(\(\vec{x}\))?</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution: 1
-b) Let \(\vec{x}\) = (1, 1, 0)^T be a new point. What is H(\(\vec{x}\))?
-Solution: 14</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 3 · Problem 10 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-03-p10.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="midterm review discussion 3 problem 11 problem 11. let {⃗x(i), yi} be a data set of n points, with each ⃗x(i) ∈rd. recall that the solution to the kernel ridge regression problem is ⃗α = (k + nλi)−1⃗y, where k is the kernel matrix, i is the identity matrix, λ &gt; 0 is a regularization parameter, and ⃗y = (y1, . . . , yn)t . suppose kernel ridge regression is performed with a kernel κ that is a kernel for a feature map ⃗φ : rd →rk. what is the size of the kernel matrix, k? d × d k × k n × n n × d solution: the kernel matrix is of size n × n." data-topic="Midterm Review" id="discussion-03-p11">
@@ -2812,21 +1975,7 @@ Solution: 14</p></div>
 <span class="badge discussion">Discussion</span>
 </div>
 <div class="meta"><span>Discussion 3</span><span>Midterm Review</span></div>
-<div class="question-body"><p>Problem 11.
-Let {\(\vec{x}\)(i), yi} be a data set of n points, with each \(\vec{x}\)(i) ∈Rd. Recall that the solution to the kernel ridge
-regression problem is \(\vec{α}\) = (K + nλI)−1\(\vec{y}\), where K is the kernel matrix, I is the identity matrix, λ &gt; 0 is a
-regularization parameter, and \(\vec{y}\) = (y1, . . . , yn)^T .
-Suppose kernel ridge regression is performed with a kernel κ that is a kernel for a feature map \(\vec{φ}\) : Rd →Rk.
-What is the size of the kernel matrix, K?
-d × d
-k × k
-n × n
-n × d</p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Solution:
-The kernel matrix is of size n × n.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Discussion 3 · Problem 11 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/discussion-03-p11.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf">Source PDF</a><a href="https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf">Source solution PDF</a></div>
 </article>
 <article class="question-card" data-kind="discussion" data-search="discussion 3 · problem 12 discussion discussion 3 midterm review problem 12. in lecture, we saw that svms minimize the regularized risk with respect to hinge loss. recall the 0-1 loss: \[ l(x^{(i)},y_i,w)= \begin{cases} 0, &amp; y_i=\operatorname{sign}(w\cdot \operatorname{aug}(x^{(i)})),\\ 1, &amp; \text{otherwise.} \end{cases} \] a) suppose a hard svm is trained on linearly separable data. is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(h(x)=w\cdot\operatorname{aug}(x)\)? true false b) suppose a soft svm is trained on linearly separable data using an unknown slack parameter \(c\). is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(h(x)=w\cdot\operatorname{aug}(x)\)? true false c) suppose a soft svm is trained on data that is not linearly separable using an unknown slack parameter \(c\). is the solution guaranteed to have the smallest 0-1 risk of any possible linear prediction function \(h(x)=w\cdot\operatorname{aug}(x)\)? true false solution a) true. if the data are linearly separable, a hard-svm finds a separating boundary, so the training 0-1 risk is zero. zero is the smallest possible risk. b) false. with a soft-svm, the slack parameter \(c\) trades off margin and violations. for some \(c\), the model may allow errors even when a perfect separator exists. c) false. hinge-loss minimization is not the same objective as 0-1-loss minimization, so the soft-svm solution is not guaranteed to minimize 0-1 risk on nonseparable data. source pdf source solution pdf" data-topic="Midterm Review" id="discussion-03-p12">
@@ -2908,47 +2057,7 @@ What is the predicted value of y at x = 3 if the 3-nearest neighbor rule is used
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 8</span><span>Multivariate Gaussians and Naive Bayes</span></div>
-<div class="question-body"><p>Suppose
-is a random vector with a multivariate Gaussian distribution, and let
-be
-=
-X
-( X
-​ , X
-​ )
-C
-that distribution's covariance matrix. Six random draws from the distribution are shown below:
-What is the maximum likelihood estimate for
-?
-C
-​</p><figure class="source-preview"><img alt="Source page preview for lab-08-q01" loading="lazy" src="./source-previews/lab-08-q01.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>The maximum likelihood estimate for the covariance of feature 1 and 2 is
-C
-​ μ
-​
-​
-​
-​
-− μ
-​
-12 =
-x 1
-( k ) x 2
-​
-( 6
-( k ) )
-k =1
-∑
-​
-​
-=
-​ (4 + 6 + 10 −1 + 4) −
-​
-= −
-​ ≈−0.833</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 8 · Question 1 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-08-q01.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/08-mv_gaussians-nb/lab.pdf#page=1">Source PDF page 1</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="multivariate gaussians and naive bayes lab 8 question 2 suppose a gaussian with a full covariance matrix is fit to a data set of 1000 points, each a vector in . what will be the shape of the estimated covariance matrix? r 20 ( ) 1000 × 1000 (x) ( ) ( ) 20 × 20 1000 × 20 20 × 1000 remember that covariance measures how much two variables vary together. it is also a square matrix. thus, it must be , as there are features. 20 × 20 alternatively, one can recall that the covariance matrix can be calculated with the formula, c = where is the centered data, and is an matrix. in this case, we have ​ x x n and . if we multiply , we will get a , or a matrix. t x x n × d n = 1000 d = 20 x x t d × d 20 × 20" data-topic="Multivariate Gaussians and Naive Bayes" id="lab-08-q02">
@@ -2957,38 +2066,7 @@ k =1
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 8</span><span>Multivariate Gaussians and Naive Bayes</span></div>
-<div class="question-body"><p>Suppose a Gaussian with a full covariance matrix is fit to a data set of 1000 points, each a vector in . What will be the shape of the estimated covariance matrix? R 20</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">1000 × 1000</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">20 × 20 1000 × 20 20 × 1000</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Remember that covariance measures how much two variables vary together. It is also a square
-matrix. Thus, it must be
-, as there are
-features.
-20 × 20
-Alternatively, one can recall that the covariance matrix can be calculated with the formula,
-C =
-where
-is the centered data, and
-is an
-matrix. In this case, we have
-​ X X
-n
-and
-. If we multiply
-, we will get a
-, or a
-matrix.
-T
-X
-X
-n × d
-n = 1000
-d = 20
-X X
-T
-d × d
-20 × 20</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 8 · Question 2 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-08-q02.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/08-mv_gaussians-nb/lab.pdf#page=1">Source PDF page 1</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="multivariate gaussians and naive bayes lab 8 question 3 suppose measures the amount of natural gas used for heating on a given day, and measures x ​ 1 x the temperature on that day. what is likely to be the sign of the covariance of and ? ​ 2 x ​ 1 x ​ 2 ( ) positive (x) negative we know that as temperature decreases, i.e. the weather gets cooler, one may want to turn up the heater (under reasonable assumptions). this means a decrease in corresponds to an increase in x ; there is a negative correlation or a negative covariance between and . ​ 2 x ​ 1 x ​ 1 x ​ 2" data-topic="Multivariate Gaussians and Naive Bayes" id="lab-08-q03">
@@ -3037,17 +2115,7 @@ negative, as it does not make sense to have a negative measure of spread.</p></d
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 8</span><span>Multivariate Gaussians and Naive Bayes</span></div>
-<div class="question-body"><p>Suppose a data set of points in consists of equally-many points from two classes: Class 1 and R 3 Class 0. The mean of the points in Class 1 is , and the mean of the points in Class 0 is (2, 1, 1) T . Suppose Linear Discriminant Analysis is applied using the same covariance matrix , for both classes, where is some constant. (4, 0, 0) T C = σ I σ What is the predicted label of a new point, ? (3, 0, 0) T</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class 1</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">Class 0</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Because the class-conditional Gaussians have the same covariance matrix, and because
-, the decision boundary is a straight line consisting of all points that are equidistant
-P ( Y =
-1) = P ( Y = 0)
-from the Class 0 mean and the Class 0 mean. That is, the predicted label of a new point will be given
-by whichever class mean is closer. In this case, (3, 0, 0) is closer to (4, 0, 0) than it is to (2, 1, 1), and
-so the prediction is for class 0.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 8 · Question 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-08-q05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/08-mv_gaussians-nb/lab.pdf#page=2">Source PDF page 2</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="multivariate gaussians and naive bayes lab 8 question 6 given the following events, use intuition to determine if and are conditionally independent given event . a b c we said in lecture that real world events are very rarely exactly independent. here, you should consider events to be independent if the dependence is very weak. event : people are using umbrellas. event : the sidewalk is wet. event : it is raining outside. a b c is independent of given ? a b c (x) yes ( ) no if i know that it is raining, additionally knowing that the sidewalk is wet does not change my belief about whether people are using umbrellas. thus . p ( a ∣ b , c ) = p ( a ∣ c )" data-topic="Multivariate Gaussians and Naive Bayes" id="lab-08-q06">
@@ -3203,12 +2271,7 @@ X</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 8</span><span>Multivariate Gaussians and Naive Bayes</span></div>
-<div class="question-body"><p>Suppose a Gaussian Naive Bayes classifier is trained on a data set in . R 2 True or False: the decision boundary is guaranteed to be linear.</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Gaussian Naive Bayes is equivalent to Quadratic Discriminant Analysis when the covariance matrices
-are diagonal. In general, the decision boundary is therefore not linear, but quadratic.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 8 · Question 13 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-08-q13.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/08-mv_gaussians-nb/lab.pdf#page=6">Source PDF page 6</a></div>
 </article>
 </div>
@@ -3318,16 +2381,7 @@ are diagonal. In general, the decision boundary is therefore not linear, but qua
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 1</span><span>Nearest Neighbors and Least Squares</span></div>
-<div class="question-body"><hr/><p>Consider the data shown below:</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-data.jpg"/></p><p>Which of the following plots could show the mean squared error \(R(\vec w)\) of a linear predictor \(H(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w = w_0 + w_1 x_1\) with respect to this data set?</p><p>( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-2.jpg"/><br/>
-(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-1.jpg"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-3.jpg"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/r-4.jpg"/></p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p><span class="solution-note">These plots show the "risk surface". It plots the risk for all possible choices of \(w_0\) and \(w_1\) (within some range). The key thing to understand for answering this question is that the minimum point on the risk surface corresponds to the choice of parameters \(w_0\) and \(w_1\) that "best fits" the training data (in the sense of minimizing the mean squared error). So, we are looking for the risk surface whose minimum is at a choice of \(w_0\) and \(w_1\) that seems to fit the data well.</span><br/>
-<span class="solution-note"></span><br/>
-<span class="solution-note">Looking at each plot, the first one seems to reach a minimum near the point \((w_0, w_1) = (0, 5)\), the second one near \((w_0, w_1) = (0, -5)\), the third one near \((w_0, w_1) = (0, 10)\), and the fourth one near \((w_0, w_1) = (-40, -20)\), maybe (it's hard to tell exactly where it is, but we don't need to know exactly). Looking then at the data, it's clear that the "line of best fit" will have a negative slope, which means only the second and fourth options are possibly correct (they are the only two whose \(w_1\) is negative). But the slope is not <em>as</em> large negative as -20, so only the second choice is reasonably the risk surface for this data.</span></p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 1 · Question 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-01-q05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/01/lab.pdf">Source PDF</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="nearest neighbors and least squares lab 1 question 6 which of the plots below shows the surface of the linear prediction function \(h(\vec x) = \operatorname{aug}(\vec x) \cdot \vec w\) with \(\vec w = (3, -2, 1)^t\) ? ( ) ( ) ( ) (x) remember from lecture that the weight \(w_i\) is the slope of the plane in the \(i\) th direction (and \(w_0\) is the &quot;bias&quot;). since \(w_1 = -2\) is negative, we're looking for a plane that slopes downward as \(x_1\) increases. and since \(w_2 = 1\) , the correct plane will slope upward as we increase \(x_2\) . the only option that satisfies this is the last one." data-topic="Nearest Neighbors and Least Squares" id="lab-01-q06">
@@ -3336,14 +2390,7 @@ are diagonal. In general, the decision boundary is therefore not linear, but qua
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 1</span><span>Nearest Neighbors and Least Squares</span></div>
-<div class="question-body"><hr/><p>Which of the plots below shows the surface of the linear prediction function \(H(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w\) with \(\vec w = (3, -2, 1)^T\)?</p><p>( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-4.jpg"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-3.jpg"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-2.jpg"/><br/>
-(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/plane-1.jpg"/></p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p><span class="solution-note">Remember from lecture that the weight \(w_i\) is the slope of the plane in the \(i\)th direction (and \(w_0\) is the "bias"). Since \(w_1 = -2\) is negative, we're looking for a plane that slopes downward as \(x_1\) increases. And since \(w_2 = 1\), the correct plane will slope upward as we increase \(x_2\). The only option that satisfies this is the last one.</span></p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 1 · Question 6 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-01-q06.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/01/lab.pdf">Source PDF</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search='nearest neighbors and least squares lab 1 question 7 the figure below shoes the surface of the linear prediction function \(h_1(\vec x) = \operatorname{aug}(\vec x) \cdot \vec w\) with \(\vec w = (w_0, w_1, w_2)^t\) . now let \(\omega = (w_0 + 10, w_1, w_2)^t\) . which of the below plots could show the surface of the prediction function \(h_2(\vec x) = \operatorname{aug}(\vec x) \cdot \omega\) as a yellow plane? for convenience, the original surface is shown in blue. (x) ( ) ( ) ( ) the first entry of the weight vector is the "bias" term, while the other terms are the slopes in the corresponding directions. so, adding 10 to the bias term will shift the plane up by 10 units, but not change the slopes. therefore, the new plane is simply the old plane, "lifted" up by 10 units.' data-topic="Nearest Neighbors and Least Squares" id="lab-01-q07">
@@ -3352,14 +2399,7 @@ are diagonal. In general, the decision boundary is therefore not linear, but qua
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 1</span><span>Nearest Neighbors and Least Squares</span></div>
-<div class="question-body"><hr/><p>The figure below shoes the surface of the linear prediction function \(H_1(\vec x) = \operatorname{Aug}(\vec x) \cdot \vec w\) with \(\vec w = (w_0, w_1, w_2)^T\).</p><p><img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-0.jpg"/></p><p>Now let \(\omega = (w_0 + 10, w_1, w_2)^T\). Which of the below plots could show the surface of the prediction function \(H_2(\vec x) = \operatorname{Aug}(\vec x) \cdot \omega\) as a yellow plane? For convenience, the original surface is shown in blue.</p><p>(x) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-1.jpg"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-2.jpg"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-3.jpg"/><br/>
-( ) <img alt="" loading="lazy" src="https://dsc140a.com/materials/labs/01/fig/planes-4.jpg"/></p></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p><span class="solution-note">The first entry of the weight vector is the "bias" term, while the other terms are the slopes in the corresponding directions. So, adding 10 to the bias term will shift the plane up by 10 units, but not change the slopes. Therefore, the new plane is simply the old plane, "lifted" up by 10 units.</span></p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 1 · Question 7 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-01-q07.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/01/lab.pdf">Source PDF</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="nearest neighbors and least squares lab 1 question 8 consider a data set consisting of \((x, y)\) pairs, where \(x\) is the size of a house in square feet, and \(y\) is the price of the house in usd. suppose a linear prediction function \(h_1(\vec x)\) is fit to the data by minimizing squared error and the resulting function is used to predict the price of a 900 square foot house. call this predicted price \(y_1\) . next, suppose a new data set is created by converting each of the house sizes to square yards (the prices are left unchanged). another linear prediction function \(h_2(x)\) is fit to this new data set by minimizing squared error, and it is used to predict the price of a 100 square yard house (100 square yards is equal to 900 square feet). call this predicted price \(y_2\) . true or false: \(y_1 = y_2\) . (x) true ( ) false this situation is like rescaling a photo in an image editor, but only in one direction. imagine a screenshot of a scatter plot of the original data, and then scaling it down, but only in the horizontal direction (since converting to square yards is done by dividing the original \(x\) values by 9. the original line of best fit becomes steeper, but the residuals (the differences between the prediction and the correct answer) remain the exact same. moreover, the same prediction is made for every house as in the original data set. this was meant to be solved intuitively, but you might want a little more convincing. for that, we'll do the math on the homework and prove that the predictions are the same." data-topic="Nearest Neighbors and Least Squares" id="lab-01-q08">
@@ -3444,18 +2484,7 @@ are diagonal. In general, the decision boundary is therefore not linear, but qua
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 5</span><span>Regularization</span></div>
-<div class="question-body"><p>The image below shows the contours of the expected square loss: n . R</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w x ( i ) - w y ) i 2 (Aug</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">⋅ n i =1 ∑ The dashed lines show the contours of ; that is, all points along the same dashed line ρ</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w ∥∥ w 1 have the same 1-norm. Which of the points labeled could possibly be the minimizer of the unregularized risk, ? R</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">w</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (1)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (2)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (3)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (4)\)</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-05-q01" loading="lazy" src="./source-previews/lab-05-q01.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Since we are asking for the minimizer of unregularized risk, we can ignore the contours of
-ρ ( )
-w
-which are the dashed lines. If we look at just the contours of the risk (the solid lines), we can see the
-lowest point would be at
-as risk is a convex function and can be geometrically interpreted as a
-w (1)
-bowl.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 5 · Question 1 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-05-q01.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/05-regularization/lab.pdf#page=1">Source PDF page 1</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="regularization lab 5 question 2 the image below shows the contours of the expected square loss: n . r ( ) = w x ( i ) − w y ​ ) i 2 ​ ​ (aug( ) ⋅ n i =1 ∑ the dashed lines show the contours of ; that is, all points along the same dashed line ρ ( ) = w ∥∥ ​ w 1 have the same 1-norm. suppose that when the lasso is performed with regularization parameter , the optimal choice of parameter vector is found to be . λ ​ 1 w (1) suppose the lasso is repeated, this time with the regularization parameter . assuming that λ ​ &gt; λ ​ 1 one of the labeled points is the optimal choice of parameter vector with this new regularization parameter, which point could it be? you may assume that . λ ​ &gt; ( ) w (1) (x) w (2) ( ) w (3) ( ) w (4) now we repeat lasso but with a stronger emphasis on regularization: . this means that in comparison with lasso with , we want to have a smaller 1-norm for our weight vector when doing lasso with . since is the optimal choice for lasso with , we can see that the only other choice of with a smaller 1-norm (the contours corresponding to the dashed lines) is . λ ​ &gt; λ ​ 1 λ ​ 1 w λ ​ 2 w (1) λ ​ 1 w w (2)" data-topic="Regularization" id="lab-05-q02">
@@ -3464,36 +2493,7 @@ bowl.</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 5</span><span>Regularization</span></div>
-<div class="question-body"><p>The image below shows the contours of the expected square loss: n . R</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w x ( i ) - w y ) i 2 (Aug</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">⋅ n i =1 ∑ The dashed lines show the contours of ; that is, all points along the same dashed line ρ</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= w ∥∥ w 1 have the same 1-norm. Suppose that when the LASSO is performed with regularization parameter , the optimal choice of parameter vector is found to be . λ 1 w (1) Suppose the LASSO is repeated, this time with the regularization parameter . Assuming that λ &gt; λ 1 one of the labeled points is the optimal choice of parameter vector with this new regularization parameter, which point could it be? You may assume that . λ &gt;</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (1)\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (2)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (3)\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(w (4)\)</span></li></ul><figure class="source-preview"><img alt="Source page preview for lab-05-q02" loading="lazy" src="./source-previews/lab-05-q02.jpg"/><figcaption>Source page preview</figcaption></figure></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Now we repeat LASSO but with a stronger emphasis on regularization:
-. This means that in
-comparison with LASSO with
-, we want to have a smaller 1-norm for our weight vector
-when
-doing LASSO with
-. Since
-is the optimal choice for LASSO with
-, we can see that the only
-other choice of
-with a smaller 1-norm (the contours corresponding to the dashed lines) is
-.
-λ
-​ &gt;
-λ
-​ 1
-λ
-​ 1
-w
-λ
-​ 2
-w (1)
-λ
-​ 1
-w
-w (2)</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 5 · Question 2 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-05-q02.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/05-regularization/lab.pdf#page=2">Source PDF page 2</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="regularization lab 5 question 3 recall that the ridge regression objective function is n ∥∥. w 2 x ( i ) − w y ​ ) + i ( ) = r ~ w ​ ​ (aug( ) ⋅ n i =1 ∑ true or false: is convex as a function of . ( ) r ~ w w (x) true ( ) false we have learned a few different ways to prove the convexity of a function. one of these is to use properties of convex functions (as done in homework 03 problem 2). we know that squared loss is n convex as proven in lecture 05, and since the sum of convex functions is convex, ​ ( y − ∑ i =1 is convex. finally, multiplying by a positive scalar, does not change its convexity. i ⋅ w aug( )) x ( i ) ​ n from homework 03 problem 2, we also know that the squared l-2 norm is convex. one way to show this is by showing that its hessian is psd (or all eigenvalues of the hessian are non-negative). since , multiplying by a positive constant does not change its convexity (the hessian is now λ &gt; 0 ∥∥ w 2 which is a diagonal matrix with positive diagonal entries, namely .) 2 λi ⪰0 2 λ therefore, which is the sum of two convex functions is convex. ( ) r ~ w" data-topic="Regularization" id="lab-05-q03">
@@ -3502,39 +2502,7 @@ w (2)</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 5</span><span>Regularization</span></div>
-<div class="question-body"><p>Recall that the ridge regression objective function is n ∥∥. w 2 x ( i ) - w y ) + i</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(= R ~ w (Aug\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">⋅ n i =1 ∑ True or False: is convex as a function of .</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(R ~ w w\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>We have learned a few different ways to prove the convexity of a function. One of these is to use
-properties of convex functions (as done in Homework 03 Problem 2). We know that squared loss is
-n
-convex as proven in Lecture 05, and since the sum of convex functions is convex,
-​ ( y −
-∑ i =1
-is convex. Finally, multiplying by a positive scalar, does not change its convexity.
-i
-⋅
-w
-Aug(
-))
-x ( i )
-​ n
-From Homework 03 Problem 2, we also know that the squared L-2 norm is convex. One way to show
-this is by showing that its Hessian is PSD (or all eigenvalues of the Hessian are non-negative). Since
-, multiplying
-by a positive constant does not change its convexity (the Hessian is now
-λ &gt; 0
-∥∥
-w 2
-which is a diagonal matrix with positive diagonal entries, namely
-.)
-2 λI ⪰0
-2 λ
-Therefore,
-which is the sum of two convex functions is convex.
-( )
-R ~ w</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 5 · Question 3 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-05-q03.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/05-regularization/lab.pdf#page=3">Source PDF page 3</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search='regularization lab 5 question 4 recall that in ridge regression, we solve the following optimization problem: n i ⋅ w aug( )) + x ( i ) λ ∥∥. w 2 arg min ​ ​ ( y ​ − w ∑ i =1 where is a hyperparameter controlling the strength of regularization. λ &gt; 0 suppose you solve the ridge regression problem with , and the resulting solution has a mean λ = 2 squared error of 10. now suppose you increase the regularization strength to and solve the ridge regression λ = 4 problem again. true or false: it is possible that the mean squared error of the new solution is less than . n by "mean squared error," we mean for the training data. i ⋅ w aug( ) x ( i ) 2 1 ∑ i =1 ​ ​ ( y ​ − n ( ) true (x) false recall from lecture 09 that the main idea behind regularization is that it “trades an increase in risk for a decrease in complexity.” in comparison to the ridge regression model fitted with , when we fit a ridge regression model with a regularization parameter of , we are essentially trading an λ = 2 λ = 4 increase in risk (i.e. a higher mse) for a less complex model (i.e. a higher ). λ' data-topic="Regularization" id="lab-05-q04">
@@ -3543,19 +2511,7 @@ R ~ w</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 5</span><span>Regularization</span></div>
-<div class="question-body"><p>Recall that in ridge regression, we solve the following optimization problem: n i ⋅ w Aug</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">) + x ( i ) λ ∥∥. w 2 arg min ( y - w ∑ i =1 where is a hyperparameter controlling the strength of regularization. λ &gt; 0 Suppose you solve the ridge regression problem with , and the resulting solution has a mean λ = 2 squared error of 10. Now suppose you increase the regularization strength to and solve the ridge regression λ = 4 problem again. True or False: it is possible that the mean squared error of the new solution is less than . n By "mean squared error," we mean for the training data. i ⋅ w Aug</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">x ( i ) 2 1 ∑ i =1 ( y - n</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Recall from Lecture 09 that the main idea behind regularization is that it “trades an increase in risk for
-a decrease in complexity.” In comparison to the ridge regression model fitted with
-, when we fit
-a ridge regression model with a regularization parameter of
-, we are essentially trading an
-λ = 2
-λ = 4
-increase in risk (i.e. a higher MSE) for a less complex model (i.e. a higher ).
-λ</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 5 · Question 4 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-05-q04.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/05-regularization/lab.pdf#page=3">Source PDF page 3</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="regularization lab 5 question 5 recall that in ridge regression, we solve the following optimization problem: n i ⋅ w aug( )) + x ( i ) λ ∥∥. w 2 arg min ​ ​ ( y ​ − w ∑ i =1 where is a hyperparameter controlling the strength of regularization. λ &gt; 0 suppose you solve the ridge regression problem with , and the resulting solution is the weight λ = 2 vector . you then solve the ridge regression problem with and find a weight vector . ​ w old λ = 4 ​ w new true or false: each component of the new solution, , must be less than or equal to the ​ w new corresponding component of the old solution, . ​ w old ( ) true (x) false while it is true that , this does not imply that each component of is less than ∥ ​ ∥≤ w new ∥ ​ ∥ w old ​ w new or equal to the corresponding component of . ​ w old the picture to have in mind is that of the contour lines of the mean squared error (which are ovals), along with the circles representing where for some constant . the question asked us to consider going from to , but to gain an intuition we can think of going from no regularization ( ) to some regularization ( ); this won't affect the outcome, but will make the ∥∥= w c c λ = 2 λ = 4 λ = 0 λ &gt; 0 story easier to tell. consider the situation shown below: when we had no regularization, the solution was , as marked. suppose we add regularization, ​ w old and we're told that the regularization is such that when we solve the ridge regression problem, the norm of will be equal to , and that the radius of the circle we've drawn is . then the solution ​ w new c c will be the point marked, since that is the point on the circle that is on the lowest contour. ​ w new notice that the point is closer to the origin, and it's first component is much smaller than the ​ w new first component of . however, the second component of is actually larger than the second ​ w old ​ w new component of . ​ w old" data-topic="Regularization" id="lab-05-q05">
@@ -3564,73 +2520,7 @@ increase in risk (i.e. a higher MSE) for a less complex model (i.e. a higher ).
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 5</span><span>Regularization</span></div>
-<div class="question-body"><p>Recall that in ridge regression, we solve the following optimization problem: n i ⋅ w Aug</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">) + x ( i ) λ ∥∥. w 2 arg min ( y - w ∑ i =1 where is a hyperparameter controlling the strength of regularization. λ &gt; 0 Suppose you solve the ridge regression problem with , and the resulting solution is the weight λ = 2 vector . You then solve the ridge regression problem with and find a weight vector . w old λ = 4 w new True or False: each component of the new solution, , must be less than or equal to the w new corresponding component of the old solution, . w old</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">True</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">False</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>While it is true that
-, this does not imply that each component of
-is less than
-∥
-​ ∥≤
-w new
-∥
-​ ∥
-w old
-​
-w new
-or equal to the corresponding component of
-.
-​
-w old
-The picture to have in mind is that of the contour lines of the mean squared error (which are ovals),
-along with the circles representing where
-for some constant . The question asked us to
-consider going from
-to
-, but to gain an intuition we can think of going from no
-regularization (
-) to some regularization (
-); this won't affect the outcome, but will make the
-∥∥=
-w
-c
-c
-λ = 2
-λ = 4
-λ = 0
-λ &gt; 0
-story easier to tell.
-Consider the situation shown below:
-When we had no regularization, the solution was
-, as marked. Suppose we add regularization,
-​
-w old
-and we're told that the regularization is such that when we solve the ridge regression problem, the
-norm of
-will be equal to , and that the radius of the circle we've drawn is . Then the solution
-​
-w new
-c
-c
-will be the point marked, since that is the point on the circle that is on the lowest contour.
-​
-w new
-Notice that the point
-is closer to the origin, and it's first component is much smaller than the
-​
-w new
-first component of
-. However, the second component of
-is actually larger than the second
-​
-w old
-​
-w new
-component of
-.
-​
-w old</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 5 · Question 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-05-q05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/05-regularization/lab.pdf#page=4">Source PDF page 4</a></div>
 </article>
 <article class="question-card" data-kind="exam" data-search="midterm b · problem 2: l1 and l2 regularization statements exam midterm b regularization problem 2. identify the true statements about \(l_1\) and \(l_2\) regularization. select all that apply. the constraint region for \(l_2\) regularization is shaped like a diamond, which encourages the solution to fall on the axes. regularization is designed to reduce overfitting by adding a penalty term that discourages overly complex models. increasing \(\lambda\) will always increase training error, so \(\lambda\) should be as small as possible. \(l_2\) regularization can help with multicollinearity by making \(\phi^ op\phi+n\lambda i\) non-singular and better conditioned. \(l_2\) regularization is more effective than \(l_1\) at producing sparse weight vectors with many exact zeros. during gradient descent, \(l_2\) regularization subtracts a fixed constant from every weight at each step, regardless of magnitude. solution the \(l_1\) constraint is the diamond-shaped region that encourages sparsity, not \(l_2\). regularization penalizes complex models, and \(l_2\) can improve conditioning by adding a positive multiple of the identity. the remaining statements overclaim or describe \(l_1\)-style behavior instead. answer: statements 2 and 4. source pdf page 2" data-topic="Regularization" id="exam-b-p02">
@@ -3963,28 +2853,7 @@ even a single point, the mean square loss cannot be zero.</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 4</span><span>SVMs and Feature Maps</span></div>
-<div class="question-body"><p>Consider a dataset where input points are represented as . Given four basis functions: defined as: ∈ x R 3 ( x , x , x ) φ , φ , φ , φ φ</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(= 1 x x x φ\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(= 2 x x 2 φ\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(= 3 x x x φ\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">= 4 x x x x The basis functions map the original data point from . What will be the representation of x R → R 4 a data point in the new space after applying the basis functions. = x (3, 2, -1) Report the sum of features as your final answer. If the new representation is given as (a,b,c,d), you should report a + b + c + d as the final answer.</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>,
-,
-,
-. Hence, the sum of these features is 6 + 4 + 3 - 6
-φ
-​ ( ) =
-1 x
-6 φ
-​ ( ) =
-2 x
-4 φ
-​ ( ) =
-3 x
-3 φ
-​ ( ) =
-4 x
-−6
-= 7</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 4 · Question 5 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-04-q05.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/04-svms_and_feature_maps/lab.pdf#page=4">Source PDF page 4</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="svms and feature maps lab 4 question 6 consider the same description as above, we learn a linear classifier in the feature space ( ) based r 4 on the training data, and the learned weights of the hyperplane is . what is the value of the prediction function ( ) for the input point ? note that the input point is given in the original space. your answer should be a number. = w (0.4, 0.3, −0.6, 1.3, 0.7) h = x (3, 2, −1) r 3 prediction function is given by . from the previous problem, the mapping of in is (6, 4, 3, -6). hence, h ( ) = x ⋅ w aug ( ​ ( )) ϕ x x r 4 h ( ) = x 0.4 + 0.3 ∗6 −0.6 ∗4 + 1.3 ∗3 −0.7 ∗6 = −0.5" data-topic="SVMs and Feature Maps" id="lab-04-q06">
@@ -3993,25 +2862,7 @@ even a single point, the mean square loss cannot be zero.</p></div>
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 4</span><span>SVMs and Feature Maps</span></div>
-<div class="question-body"><p>Consider the same description as above, we learn a linear classifier in the feature space</p><ul class="choices radio"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">based R 4 on the training data, and the learned weights of the hyperplane is . What is the value of the prediction function</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">for the input point ? Note that the input point is given in the original space. Your answer should be a number. = w (0.4, 0.3, -0.6, 1.3, 0.7) H = x (3, 2, -1) R 3</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>Prediction function is given by
-. From the previous problem, the mapping of
-in
-is (6, 4, 3, -6). Hence,
-H ( ) =
-x
-⋅
-w Aug (
-​ ( ))
-ϕ x
-x
-R 4
-H ( ) =
-x
-0.4 + 0.3 ∗6 −0.6 ∗4 + 1.3 ∗3 −0.7 ∗6 = −0.5</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 4 · Question 6 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-04-q06.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/04-svms_and_feature_maps/lab.pdf#page=5">Source PDF page 5</a></div>
 </article>
 <article class="question-card" data-kind="lab" data-search="svms and feature maps lab 4 question 7 given data points x on a number line. the green points refer to label 1. the points are the red points refer to label -1. the points are x = −6, −5, 5, 6 x = −1, 0, 1 the points might look something like this. it is evident that we can't learn a linear classifier to separate these points in 1 dimension. the data is not linearly separable. however, it is possible to perform feature mapping and represent these points in where the data becomes linear separable. select all those possible transformations which r 2 make the data linearly separable in . more than one option might be selected. r 2 [ ] x →( x , x ) [x] x →( x , x ) [x] [ ] x →( x , ∣ x ∣) x →( x , x ) you can plot the points in after applying the feature transformation. r 2 is linearly separable by the blue line. x →( x , ∣ x ∣) is linearly separable by the blue line. x →( x , x ) other transformations are not able to separate the points as desired. it can be observed by making similar plots." data-topic="SVMs and Feature Maps" id="lab-04-q07">
@@ -4020,19 +2871,7 @@ x
 <span class="badge lab">Lab</span>
 </div>
 <div class="meta"><span>Lab 4</span><span>SVMs and Feature Maps</span></div>
-<div class="question-body"><p>Given data points x on a number line. The green points refer to label 1. The points are The red points refer to label -1. The points are x = -6, -5, 5, 6 x = -1, 0, 1 The points might look something like this. It is evident that we can't learn a linear classifier to separate these points in 1 dimension. The data is not linearly separable. However, it is possible to perform feature mapping and represent these points in where the data becomes linear separable. Select all those possible transformations which R 2 make the data linearly separable in . More than one option might be selected. R 2</p><ul class="choices checkbox"><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(x →( x , x )\)</span></li><li class="choice is-selected"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">\(x →( x , x )\)</span></li><li class="choice"><span aria-hidden="true" class="choice-marker"></span><span class="choice-label">x →( x , | x |) x →( x , x )</span></li></ul></div>
-<details class="solution-box">
-<summary>Solution</summary>
-<div class="solution-body"><p>You can plot the points in
-after applying the feature transformation.
-R 2
-is linearly separable by the blue line.
-x →( x , ∣ x ∣)
-is linearly separable by the blue line.
-x →( x , x )
-Other transformations are not able to separate the points as desired. It can be observed by making
-similar plots.</p></div>
-</details>
+<div class="question-body"><figure class="source-preview"><img alt="Lab 4 · Question 7 — full problem and solution rendered from the source PDF" loading="lazy" src="./source-previews/lab-04-q07.jpg"/><figcaption>Full problem &amp; solution (rendered from the source PDF)</figcaption></figure></div>
 <div class="source-links"><a href="https://dsc140a.com/materials/labs/04-svms_and_feature_maps/lab.pdf#page=5">Source PDF page 5</a></div>
 </article>
 <article class="question-card" data-kind="exam" data-search="midterm b · problem 1: feature maps for curved regression exam midterm b svms and feature maps problem 1. the plot in the source pdf shows \(y\) as a function of \(x\). we want to fit a linear model to predict \(y\) after applying a feature map to \(x\). which feature maps could reasonably model the curvature? select all that apply. \(\phi(x)=[1,\exp(-x^2/1000^2)]^\top\) \(\phi(x)=[1,x,x^2]^\top\) \(\phi(x)=[1,\sin(100x)]^\top\) \(\phi(x)=[1,\exp(-(x-100)^2/0.5^2)]^\top\) \(\phi(x)=[1,\exp(-x^2/1.5^2)]^\top\) solution the polynomial basis \([1,x,x^2]^\top\) directly includes a quadratic term. the gaussian basis centered near the data with width \(1.5\) also has useful curvature over the plotted interval. the other features are either almost constant, centered far away, or oscillate too quickly. answer: choices 2 and 5. source pdf page 2" data-topic="SVMs and Feature Maps" id="exam-b-p01">
