@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>DSC 140A Labs and Discussions by Topic</title>
+        <style>
+            :root {
+                --ink: #182230;
+                --muted: #667085;
+                --line: #d8dee8;
+                --panel: #ffffff;
+                --page: #f4f7fb;
+                --accent: #0f766e;
+                --accent-dark: #115e59;
+                --gold: #a16207;
+                --blue: #2563eb;
+                --rose: #be123c;
+                --shadow: 0 12px 28px rgba(24, 34, 48, .08);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--page);
+                color: var(--ink);
+                font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                line-height: 1.5;
+            }
+
+            a {
+                color: var(--accent-dark);
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            button,
+            input {
+                font: inherit;
+            }
+
+            .layout {
+                display: grid;
+                grid-template-columns: minmax(250px, 315px) minmax(0, 1fr);
+                min-height: 100vh;
+            }
+
+            .sidebar {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                overflow: auto;
+                border-right: 1px solid var(--line);
+                background: #fff;
+                padding: 24px;
+            }
+
+            .brand h1 {
+                margin: 0;
+                font-size: 1.7rem;
+                line-height: 1.12;
+            }
+
+            .brand p {
+                margin: 8px 0 0;
+                color: var(--muted);
+            }
+
+            .links {
+                display: grid;
+                gap: 8px;
+                margin: 22px 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .links a {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 40px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 8px 10px;
+                color: var(--ink);
+                background: #fbfcfe;
+            }
+
+            .links a:hover {
+                border-color: var(--accent);
+                text-decoration: none;
+            }
+
+            .links span {
+                color: var(--muted);
+                font-size: .84rem;
+            }
+
+            .control {
+                margin-top: 18px;
+            }
+
+            .control h2 {
+                margin: 0 0 8px;
+                color: var(--muted);
+                font-size: .82rem;
+                text-transform: uppercase;
+            }
+
+            .search {
+                width: 100%;
+                min-height: 42px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 9px 10px;
+                color: var(--ink);
+                background: #fff;
+            }
+
+            .search:focus {
+                border-color: var(--accent);
+                outline: 2px solid rgba(15, 118, 110, .2);
+            }
+
+            .segments,
+            .topic-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .segments button,
+            .topic-buttons button,
+            .clear {
+                min-height: 34px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 6px 10px;
+                background: #fff;
+                color: var(--ink);
+                cursor: pointer;
+            }
+
+            .segments button[aria-pressed="true"],
+            .topic-buttons button[aria-pressed="true"] {
+                border-color: var(--accent);
+                background: var(--accent);
+                color: #fff;
+            }
+
+            .clear {
+                width: 100%;
+                margin-top: 10px;
+                color: var(--accent-dark);
+            }
+
+            main {
+                min-width: 0;
+                padding: 28px;
+            }
+
+            .top {
+                display: flex;
+                align-items: end;
+                justify-content: space-between;
+                gap: 18px;
+                margin-bottom: 18px;
+            }
+
+            .top h2 {
+                margin: 0;
+                font-size: 1.45rem;
+            }
+
+            .top p {
+                margin: 5px 0 0;
+                color: var(--muted);
+            }
+
+            .stats {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 10px;
+            }
+
+            .stat {
+                min-width: 100px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: var(--panel);
+                padding: 10px 12px;
+                box-shadow: var(--shadow);
+            }
+
+            .stat strong {
+                display: block;
+                font-size: 1.35rem;
+                line-height: 1;
+            }
+
+            .stat span {
+                color: var(--muted);
+                font-size: .84rem;
+            }
+
+            .notice {
+                border: 1px solid #bfdbfe;
+                border-radius: 8px;
+                background: #eff6ff;
+                color: #1e3a8a;
+                margin-bottom: 18px;
+                padding: 10px 12px;
+            }
+
+            .topics {
+                display: grid;
+                gap: 18px;
+            }
+
+            .topic-section {
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: var(--panel);
+                box-shadow: var(--shadow);
+                overflow: hidden;
+            }
+
+            .topic-section[hidden],
+            .resource-card[hidden] {
+                display: none;
+            }
+
+            .topic-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 14px;
+                border-bottom: 1px solid var(--line);
+                padding: 14px 16px;
+                background: #fbfcfe;
+            }
+
+            .topic-head h3 {
+                margin: 0;
+                font-size: 1.08rem;
+            }
+
+            .topic-head span {
+                color: var(--muted);
+                white-space: nowrap;
+            }
+
+            .resource-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
+                gap: 14px;
+                padding: 14px;
+            }
+
+            .resource-card {
+                display: grid;
+                gap: 12px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 14px;
+                background: #fff;
+            }
+
+            .resource-title {
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            .resource-title h4 {
+                margin: 0;
+                font-size: 1rem;
+            }
+
+            .badge {
+                align-self: start;
+                border-radius: 999px;
+                padding: 3px 9px;
+                color: #fff;
+                font-size: .78rem;
+                white-space: nowrap;
+            }
+
+            .badge.lab {
+                background: var(--blue);
+            }
+
+            .badge.discussion {
+                background: var(--gold);
+            }
+
+            .meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                color: var(--muted);
+                font-size: .86rem;
+            }
+
+            .actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .actions a {
+                min-height: 36px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 7px 10px;
+                color: var(--ink);
+                background: #f8fafc;
+            }
+
+            .actions a.primary {
+                border-color: var(--accent);
+                color: #fff;
+                background: var(--accent);
+            }
+
+            .actions a:hover {
+                text-decoration: none;
+                border-color: var(--accent-dark);
+            }
+
+            details {
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            details summary {
+                min-height: 38px;
+                cursor: pointer;
+                padding: 9px 10px;
+                color: var(--accent-dark);
+                background: #f8fafc;
+                list-style-position: inside;
+            }
+
+            .pdf-frame {
+                display: block;
+                width: 100%;
+                height: 520px;
+                border: 0;
+                background: #e5e7eb;
+            }
+
+            .empty {
+                border: 1px dashed var(--line);
+                border-radius: 8px;
+                padding: 28px;
+                color: var(--muted);
+                background: #fff;
+            }
+
+            @media (max-width: 900px) {
+                .layout {
+                    display: block;
+                }
+
+                .sidebar {
+                    position: relative;
+                    height: auto;
+                    border-right: 0;
+                    border-bottom: 1px solid var(--line);
+                }
+
+                main {
+                    padding: 18px;
+                }
+
+                .top {
+                    align-items: stretch;
+                    flex-direction: column;
+                }
+
+                .stats {
+                    justify-content: stretch;
+                }
+
+                .stat {
+                    flex: 1;
+                }
+
+                .resource-grid {
+                    grid-template-columns: minmax(0, 1fr);
+                }
+
+                .pdf-frame {
+                    height: 430px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="layout">
+            <aside class="sidebar">
+                <div class="brand">
+                    <h1>Labs and Discussions</h1>
+                    <p>Topic-sorted DSC 140A problem sets from the live course site.</p>
+                </div>
+
+                <ul class="links">
+                    <li><a href="./visual-index.html">Practice index <span>122</span></a></li>
+                    <li><a href="./all-practice-problems.pdf">Practice PDF <span>offline</span></a></li>
+                    <li><a href="https://dsc140a.com/">Live DSC 140A <span>source</span></a></li>
+                </ul>
+
+                <div class="control">
+                    <h2>Search</h2>
+                    <input class="search" id="search" type="search" placeholder="Topic, lab, discussion">
+                </div>
+
+                <div class="control">
+                    <h2>Type</h2>
+                    <div class="segments" id="typeFilters">
+                        <button type="button" data-kind="all" aria-pressed="true">All</button>
+                        <button type="button" data-kind="lab" aria-pressed="false">Labs</button>
+                        <button type="button" data-kind="discussion" aria-pressed="false">Discussions</button>
+                    </div>
+                </div>
+
+                <div class="control">
+                    <h2>Topic</h2>
+                    <div class="topic-buttons" id="topicFilters"></div>
+                    <button type="button" class="clear" id="clearFilters">Clear filters</button>
+                </div>
+            </aside>
+
+            <main>
+                <div class="top">
+                    <div>
+                        <h2 id="resultTitle">Labs and discussions by topic</h2>
+                        <p id="resultMeta">Published PDFs from dsc140a.com, grouped by course topic.</p>
+                    </div>
+                    <div class="stats" aria-label="Resource counts">
+                        <div class="stat"><strong id="labCount">0</strong><span>Labs</span></div>
+                        <div class="stat"><strong id="discussionCount">0</strong><span>Discussions</span></div>
+                        <div class="stat"><strong id="visibleCount">0</strong><span>Showing</span></div>
+                    </div>
+                </div>
+
+                <div class="notice">Lab 10 is listed on the live schedule, but no PDF link is published yet. Homework materials are intentionally omitted.</div>
+                <section class="topics" id="topics"></section>
+                <div class="empty" id="empty" hidden>No lab or discussion PDFs match the current filters.</div>
+            </main>
+        </div>
+
+        <script>
+            const resources = [
+                {
+                    kind: "lab",
+                    number: 3,
+                    label: "Lab 3",
+                    topic: "Convexity and Linear Classification",
+                    week: "Week 3",
+                    url: "https://dsc140a.com/materials/labs/03-convexity_and_linear_classifiers/lab.pdf"
+                },
+                {
+                    kind: "lab",
+                    number: 9,
+                    label: "Lab 9",
+                    topic: "Decision Trees",
+                    week: "Week 9",
+                    url: "https://dsc140a.com/materials/labs/09-decision_trees/lab.pdf"
+                },
+                {
+                    kind: "lab",
+                    number: 7,
+                    label: "Lab 7",
+                    topic: "Density Estimation and MLE",
+                    week: "Week 7",
+                    url: "https://dsc140a.com/materials/labs/07-density_estimation_and_mle/lab.pdf"
+                },
+                {
+                    kind: "discussion",
+                    number: 4,
+                    label: "Discussion 4",
+                    topic: "Final Review",
+                    week: "This Week",
+                    url: "https://dsc140a.com/materials/discussions/05-final_review/discussion.pdf",
+                    solutionUrl: "https://dsc140a.com/materials/discussions/05-final_review/solution.pdf"
+                },
+                {
+                    kind: "discussion",
+                    number: 1,
+                    label: "Discussion 1",
+                    topic: "Gradients",
+                    week: "Week 1",
+                    url: "https://dsc140a.com/materials/discussions/01-gradient/discussion.pdf",
+                    solutionUrl: "https://dsc140a.com/materials/discussions/01-gradient/solution.pdf"
+                },
+                {
+                    kind: "lab",
+                    number: 2,
+                    label: "Lab 2",
+                    topic: "Gradient Descent",
+                    week: "Week 2",
+                    url: "https://dsc140a.com/materials/labs/02-gradient_descent/lab.pdf"
+                },
+                {
+                    kind: "lab",
+                    number: 6,
+                    label: "Lab 6",
+                    topic: "Kernels and Probabilistic Models",
+                    week: "Week 6",
+                    url: "https://dsc140a.com/materials/labs/06-kernels_and_probabilistic_models/lab.pdf"
+                },
+                {
+                    kind: "discussion",
+                    number: 3,
+                    label: "Discussion 3",
+                    topic: "Midterm Review",
+                    week: "Week 6",
+                    url: "https://dsc140a.com/materials/discussions/04-midterm_01_review/discussion.pdf",
+                    solutionUrl: "https://dsc140a.com/materials/discussions/04-midterm_01_review/solution.pdf"
+                },
+                {
+                    kind: "lab",
+                    number: 8,
+                    label: "Lab 8",
+                    topic: "Multivariate Gaussians and Naive Bayes",
+                    week: "Week 8",
+                    url: "https://dsc140a.com/materials/labs/08-mv_gaussians-nb/lab.pdf"
+                },
+                {
+                    kind: "lab",
+                    number: 1,
+                    label: "Lab 1",
+                    topic: "Nearest Neighbors and Least Squares",
+                    week: "Week 1",
+                    url: "https://dsc140a.com/materials/labs/01/lab.pdf"
+                },
+                {
+                    kind: "lab",
+                    number: 5,
+                    label: "Lab 5",
+                    topic: "Regularization",
+                    week: "Week 5",
+                    url: "https://dsc140a.com/materials/labs/05-regularization/lab.pdf"
+                },
+                {
+                    kind: "discussion",
+                    number: 2,
+                    label: "Discussion 2",
+                    topic: "Stochastic Gradient Descent",
+                    week: "Week 3",
+                    url: "https://dsc140a.com/materials/discussions/02-gradient_descent/discussion.pdf",
+                    solutionUrl: "https://dsc140a.com/materials/discussions/02-gradient_descent/solution.pdf"
+                },
+                {
+                    kind: "lab",
+                    number: 4,
+                    label: "Lab 4",
+                    topic: "SVMs and Feature Maps",
+                    week: "Week 4",
+                    url: "https://dsc140a.com/materials/labs/04-svms_and_feature_maps/lab.pdf"
+                }
+            ].sort((a, b) => a.topic.localeCompare(b.topic) || a.kind.localeCompare(b.kind) || a.number - b.number);
+
+            const state = {
+                kind: "all",
+                topic: "",
+                query: ""
+            };
+
+            const els = {
+                search: document.getElementById("search"),
+                typeFilters: document.getElementById("typeFilters"),
+                topicFilters: document.getElementById("topicFilters"),
+                clearFilters: document.getElementById("clearFilters"),
+                topics: document.getElementById("topics"),
+                labCount: document.getElementById("labCount"),
+                discussionCount: document.getElementById("discussionCount"),
+                visibleCount: document.getElementById("visibleCount"),
+                resultTitle: document.getElementById("resultTitle"),
+                resultMeta: document.getElementById("resultMeta"),
+                empty: document.getElementById("empty")
+            };
+
+            init();
+
+            function init() {
+                renderTopicFilters();
+                renderResources();
+                bindEvents();
+                applyFilters();
+            }
+
+            function renderTopicFilters() {
+                const topics = [...new Set(resources.map((resource) => resource.topic))];
+                els.topicFilters.innerHTML = topics.map((topic) => (
+                    `<button type="button" data-topic="${escapeAttr(topic)}" aria-pressed="false">${escapeHtml(topic)}</button>`
+                )).join("");
+            }
+
+            function renderResources() {
+                const topics = [...new Set(resources.map((resource) => resource.topic))];
+                els.topics.innerHTML = "";
+                for (const topic of topics) {
+                    const section = document.createElement("section");
+                    section.className = "topic-section";
+                    section.dataset.topic = topic;
+                    section.innerHTML = `
+                        <div class="topic-head">
+                            <h3>${escapeHtml(topic)}</h3>
+                            <span></span>
+                        </div>
+                        <div class="resource-grid"></div>
+                    `;
+                    const grid = section.querySelector(".resource-grid");
+                    for (const resource of resources.filter((item) => item.topic === topic)) {
+                        grid.appendChild(createResourceCard(resource));
+                    }
+                    els.topics.appendChild(section);
+                }
+                els.labCount.textContent = String(resources.filter((resource) => resource.kind === "lab").length);
+                els.discussionCount.textContent = String(resources.filter((resource) => resource.kind === "discussion").length);
+            }
+
+            function createResourceCard(resource) {
+                const card = document.createElement("article");
+                card.className = "resource-card";
+                card.id = `${resource.kind}-${resource.number}`;
+                card.dataset.kind = resource.kind;
+                card.dataset.topic = resource.topic;
+                card.dataset.search = `${resource.kind} ${resource.label} ${resource.topic} ${resource.week}`.toLowerCase();
+                const kindLabel = resource.kind === "lab" ? "Lab" : "Discussion";
+                card.innerHTML = `
+                    <div class="resource-title">
+                        <h4><a href="#${card.id}">${escapeHtml(resource.label)}</a></h4>
+                        <span class="badge ${resource.kind}">${kindLabel}</span>
+                    </div>
+                    <div class="meta">
+                        <span>${escapeHtml(resource.week)}</span>
+                        <span>${escapeHtml(resource.topic)}</span>
+                    </div>
+                    <div class="actions">
+                        <a class="primary" href="${escapeAttr(resource.url)}">Problems PDF</a>
+                        ${resource.solutionUrl ? `<a href="${escapeAttr(resource.solutionUrl)}">Solutions PDF</a>` : ""}
+                    </div>
+                    <details>
+                        <summary>Preview problems</summary>
+                        <iframe class="pdf-frame" title="${escapeAttr(resource.label)} problems PDF" data-src="${escapeAttr(resource.url)}"></iframe>
+                    </details>
+                `;
+                card.querySelector("details").addEventListener("toggle", (event) => {
+                    const iframe = event.currentTarget.querySelector("iframe");
+                    if (event.currentTarget.open && !iframe.getAttribute("src")) {
+                        iframe.src = iframe.dataset.src;
+                    }
+                });
+                return card;
+            }
+
+            function bindEvents() {
+                els.search.addEventListener("input", () => {
+                    state.query = els.search.value.trim().toLowerCase();
+                    applyFilters();
+                });
+
+                els.typeFilters.addEventListener("click", (event) => {
+                    const button = event.target.closest("button[data-kind]");
+                    if (!button) {
+                        return;
+                    }
+                    state.kind = button.dataset.kind;
+                    for (const filter of els.typeFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", String(filter === button));
+                    }
+                    applyFilters();
+                });
+
+                els.topicFilters.addEventListener("click", (event) => {
+                    const button = event.target.closest("button[data-topic]");
+                    if (!button) {
+                        return;
+                    }
+                    state.topic = state.topic === button.dataset.topic ? "" : button.dataset.topic;
+                    for (const filter of els.topicFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", String(filter.dataset.topic === state.topic));
+                    }
+                    applyFilters();
+                });
+
+                els.clearFilters.addEventListener("click", () => {
+                    state.kind = "all";
+                    state.topic = "";
+                    state.query = "";
+                    els.search.value = "";
+                    for (const filter of els.typeFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", String(filter.dataset.kind === "all"));
+                    }
+                    for (const filter of els.topicFilters.querySelectorAll("button")) {
+                        filter.setAttribute("aria-pressed", "false");
+                    }
+                    applyFilters();
+                });
+            }
+
+            function applyFilters() {
+                let visible = 0;
+                for (const section of els.topics.querySelectorAll(".topic-section")) {
+                    let sectionCount = 0;
+                    for (const card of section.querySelectorAll(".resource-card")) {
+                        const matchesKind = state.kind === "all" || card.dataset.kind === state.kind;
+                        const matchesTopic = !state.topic || card.dataset.topic === state.topic;
+                        const matchesQuery = !state.query || card.dataset.search.includes(state.query);
+                        const show = matchesKind && matchesTopic && matchesQuery;
+                        card.hidden = !show;
+                        if (show) {
+                            sectionCount += 1;
+                            visible += 1;
+                        }
+                    }
+                    section.hidden = sectionCount === 0;
+                    section.querySelector(".topic-head span").textContent = `${sectionCount} item${sectionCount === 1 ? "" : "s"}`;
+                }
+                els.visibleCount.textContent = String(visible);
+                els.empty.hidden = visible !== 0;
+                els.resultTitle.textContent = visible === resources.length ? "Labs and discussions by topic" : "Filtered labs and discussions";
+                els.resultMeta.textContent = describeFilters(visible);
+            }
+
+            function describeFilters(visible) {
+                const pieces = [];
+                if (state.kind !== "all") {
+                    pieces.push(state.kind === "lab" ? "labs" : "discussions");
+                }
+                if (state.topic) {
+                    pieces.push(state.topic);
+                }
+                if (state.query) {
+                    pieces.push(`search: ${state.query}`);
+                }
+                return pieces.length ? `${visible} matching ${pieces.join(" + ")}` : "Published PDFs from dsc140a.com, grouped by course topic.";
+            }
+
+            function escapeHtml(value) {
+                return String(value).replace(/[&<>"']/g, (char) => ({
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    "\"": "&quot;",
+                    "'": "&#39;"
+                }[char]));
+            }
+
+            function escapeAttr(value) {
+                return escapeHtml(value);
+            }
+        </script>
+    </body>
+</html>
